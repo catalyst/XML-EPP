@@ -16,5 +16,6 @@ license         ('artistic');
 
 requires        ("perl" => 5.010001);
 requires        ("Moose" => 0.54);
+requires        ("PRANG" => 0.03);
 
 &WriteAll;
