@@ -7,7 +7,7 @@
 use Test::More;
 use strict;
 use Scriptalicious;
-use SRS::EPP::Message;
+use XML::EPP;
 use XML::Compare;
 use FindBin qw($Bin);
 

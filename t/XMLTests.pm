@@ -4,29 +4,29 @@ package XMLTests;
 BEGIN { *$_ = \&{"main::$_"} for qw(ok diag) }
 use Scriptalicious;
 use File::Find;
+use FindBin qw($Bin $Script);
 use strict;
-use YAML;
+use YAML qw(LoadFile Load Dump);
 
 our $grep;
-(our $test_dir = $0) =~ s{\.t$}{};
-
 getopt_lenient( "test-grep|t=s" => \$grep );
 
 sub find_tests {
+	my $group = shift || ($Script=~/(.*)\.t$/)[0];
 	my @tests;
 	find(sub {
-		     if ( m{\.xml$} && (!$grep||m{$grep}) ) {
+		     if ( m{\.(?:x|ya)ml$} && (!$grep||m{$grep}) ) {
 			     my $name = $File::Find::name;
-			     $name =~ s{^\Q$test_dir\E/}{} or die;
+			     $name =~ s{^\Q$Bin\E/}{} or die;
 			     push @tests, $name;
 		     }
-	     }, $test_dir);
+	     }, "$Bin/$group");
 	@tests;
 }
 
 sub read_xml {
 	my $test = shift;
-	open XML, "<$test_dir/$test";
+	open XML, "<$Bin/$test";
 	binmode XML, ":utf8";
 	my $xml = do {
 		local($/);
@@ -36,21 +36,40 @@ sub read_xml {
 	$xml;
 }
 
+sub read_yaml {
+	my $test = shift;
+	LoadFile "$Bin/$test";
+}
+
 sub parse_test {
 	my $class = shift;
 	my $xml = shift;
 	my $test_name = shift;
-	start_timer;
 	my $object = eval { $class->parse( $xml ) };
-	my $time = show_elapsed;
-	my $ok = ok($object, "$test_name - parsed OK ($time)");
+	my $ok = ok($object, "$test_name - parsed OK");
 	if ( !$ok ) {
 		diag("exception: $@");
 	}
-	if ( $ok and $main::VERBOSE>0) {
+	if ( $ok and ($main::VERBOSE//0)>0) {
 		diag("read: ".Dump($object));
 	}
 	$object;
+}
+
+sub parsefail_test {
+	my $class = shift;
+	my $xml = shift;
+	my $test_name = shift;
+	my $object = eval { $class->parse( $xml ) };
+	my $error = $@;
+	my $ok = ok(!$object&&$error, "$test_name - exception raised");
+	if ( !$ok ) {
+		diag("parsed to: ".Dump($object));
+	}
+	if ( $ok and ($main::VERBOSE||0)>0) {
+		diag("error: ".Dump($error));
+	}
+	$error;
 }
 
 sub emit_test {
@@ -64,7 +83,7 @@ sub emit_test {
 			diag("exception: $@");
 			return undef;
 		};
-	if ($main::VERBOSE>0) {
+	if (($main::VERBOSE||0)>0) {
 		diag("xml: ".$r_xml);
 	}
 	return $r_xml;
@@ -81,4 +100,5 @@ sub xml_compare_test {
 		or diag("Error: ".$xml_compare->error);
 
 }
+
 1;
