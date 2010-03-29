@@ -47,6 +47,7 @@ package XML::EPP::Obj::foo;
 #    </ext:foo>
 
 use Moose;
+use PRANG::Graph;
 with 'XML::EPP::Extension::Type', 'XML::EPP::Obj::Node';
 sub root_element { "foo" }
 sub xmlns { "urn:ietf:params:xml:ns:ext" }
