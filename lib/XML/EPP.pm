@@ -128,3 +128,90 @@ method is_response() {
 }
 
 1;
+
+=head1 NAME
+
+XML::EPP - an implementation of the EPP XML language
+
+=head1 SYNOPSIS
+
+ my $foo_create = XML::EPP->new(
+         message => XML::EPP::Command->new(
+             action => "create",
+             argument => XML::EPP::SubCommand->new(
+                 payload => XML::EPP::Obj::create->new(
+                     ...
+                 ),
+             ),
+             clTRID => "xml_epp_".time."_$$",
+         ),
+ );
+
+ print $foo_create->to_xml;
+
+=head1 DESCRIPTION
+
+This module is an implementation of the XML protocol used by most
+major domain registries around the world.  This protocol was developed
+between 2002 and 2004, using XML standards which were at the time very
+new, such as XML Namespaces and XML Schema.  It saw several
+incompatible revisions until the 1.0 version which became RFC3730.
+
+This module currently implements the XML part of the protocol only;
+converting this into an actual EPP session is currently TO-DO.  Also,
+none of the mappings for essential registry types, such as domain,
+contact or host are yet implemented.  This is a preview release.
+
+=head1 SOURCE, SUBMISSIONS, SUPPORT
+
+Source code is available from Catalyst:
+
+  git://git.catalyst.net.nz/XML-EPP.git
+
+And Github:
+
+  git://github.com/catalyst/XML-EPP.git
+
+Please see the file F<SubmittingPatches> for information on preferred
+submission formats.
+
+Suggested avenues for support:
+
+=over
+
+=item *
+
+The DNRS forum on SourceForge -
+L<http://sourceforge.net/projects/dnrs/forums>
+
+=item *
+
+Contact the author and ask either politely or commercially for help.
+
+=item *
+
+Log a ticket on L<http://rt.cpan.org/>
+
+=back
+
+=head1 SEE ALSO
+
+For the 0.01 release, there is little documentation of how to use the
+classes, and the implemented portion of the protocol has a particular
+focus towards a particular use case, which initially will not include
+core registry functions such as adminstering domains.
+
+Implementation, tests and documentation will be expanded as the module
+is put to use.
+
+=head1 AUTHOR AND LICENCE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+
