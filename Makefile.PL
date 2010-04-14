@@ -11,7 +11,7 @@ use inc::Module::Install;
 name            ("XML-EPP");
 abstract        ("An implementation of the EPP XML language");
 author          ("Catalyst SRS Team <team-srs\@catalyst.net.nz>");
-version         0;
+version_from    ("lib/XML/EPP.pm");
 license         ('artistic');
 
 requires        ("perl" => 5.010001);

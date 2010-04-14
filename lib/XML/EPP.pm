@@ -9,6 +9,8 @@ use constant XSI_XMLNS => "http://www.w3.org/2001/XMLSchema-instance";
 
 use XML::EPP::Common;
 
+our $VERSION = 0.01;
+
 our $PKG;
 BEGIN{ $PKG = "XML::EPP" };
 
