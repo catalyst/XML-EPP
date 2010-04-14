@@ -185,9 +185,9 @@ submit via one of the following means:
   * drop a patch to srsadmins@catalyst.net.nz, perhaps using
     git-send-email(1)
 
-  * Log a ticket at rt.cpan.org under the queue for 'SRS::EPP::Proxy'
+  * Log a ticket at rt.cpan.org under the queue for 'XML::EPP'
 
   * fork the project on github
-    (http://github.com/catalyst/SRS-EPP-Proxy) and send a pull
+    (http://github.com/catalyst/XML-EPP) and send a pull
     request.
 
