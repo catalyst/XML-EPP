@@ -48,6 +48,12 @@ BEGIN {
 		=> where {
 			length($_) >= 3 and length($_) <= 64;
 		};
+
+	subtype "${PKG}::pwType"
+		=> as "PRANG::XMLSchema::token"
+		=> where {
+			length($_) >= 6 and length($_) <= 16;
+		};
 }
 
 # rule 2.  ALL elements get converted to MessageNode types, with

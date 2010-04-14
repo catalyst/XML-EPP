@@ -9,6 +9,7 @@ use PRANG::Graph;
 our $PKG = "XML::EPP::Login";
 our $SCHEMA_PKG = "XML::EPP";
 
+use XML::EPP;
 use XML::EPP::Common;
 
 has_element 'clID' =>
@@ -18,13 +19,13 @@ has_element 'clID' =>
 
 has_element 'pw' =>
 	is => "rw",
-	isa => "XML::EPP::Common::Password",
+	isa => "${SCHEMA_PKG}::pwType",
 	;
 
 has_element 'newPW' =>
 	is => "rw",
 	predicate => "has_newPW",
-	isa => "XML::EPP::Common::Password",
+	isa => "${SCHEMA_PKG}::pwType",
 	;
 
 has_element 'options' =>
