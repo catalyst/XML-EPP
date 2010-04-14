@@ -5,7 +5,6 @@
 package XML::EPP::Obj::Node;
 use Moose::Role;
 sub xmlns { "urn:ietf:params:xml:ns:obj" }
-with 'PRANG::Graph::Class';
 
 package XML::EPP::Obj::info;
 
