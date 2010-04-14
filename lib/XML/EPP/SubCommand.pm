@@ -10,11 +10,6 @@ use XML::EPP::Plugin;
 our $PKG = __PACKAGE__;
 our $SCHEMA_PKG = "XML::EPP";
 
-has 'action' =>
-	is => "rw",
-	isa => "Str",
-	;
-
 has_element "payload" =>
 	is => "rw",
 	isa => "XML::EPP::Plugin",
