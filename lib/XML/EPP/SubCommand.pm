@@ -17,7 +17,6 @@ has 'action' =>
 
 has_element "payload" =>
 	is => "rw",
-	xmlns => "*",
 	isa => "XML::EPP::Plugin",
 	;
 

@@ -17,9 +17,6 @@ has 'response_type' =>
 has_element "payload" =>
 	is => "rw",
 	isa => "XML::EPP::Plugin",
-	xmlns => "*",
-	xml_nodeName => "*",
-	xml_nodeName_attr => "response_type",
 	;
 
 with "${SCHEMA_PKG}::Node";

@@ -11,17 +11,9 @@ use XML::EPP::Plugin;
 
 our $SCHEMA_PKG = "XML::EPP";
 
-has 'action' =>
-	is => "rw",
-	isa => "Str",
-	;
-
 has_element 'payload' =>
 	is => "rw",
 	isa => "XML::EPP::Plugin",
-	xmlns => "*",
-	xml_nodeName => "*",
-	xml_nodeName_attr => "action",
 	;
 
 enum "${SCHEMA_PKG}::transferOpType" =>

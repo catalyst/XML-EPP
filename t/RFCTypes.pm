@@ -144,12 +144,14 @@ with 'XML::EPP::Plugin';
 
 1;
 
-#package XML::EPP::Obj::poll::RS::NoVersion;
+package XML::EPP::Obj::poll::RS::NoVersion;
 # see 20-xml-rfc5730/rfc-examples/24-transfer-query-response.xml
 
-#use Moose;
-#sub xmlns { "urn:ietf:params:xml:ns:obj" }
-#extends 'XML::EPP::Obj::poll::RS';
+use Moose;
+use PRANG::Graph;
+sub xmlns { "urn:ietf:params:xml:ns:obj" }
+sub root_element { "trnData" }
+extends 'XML::EPP::Obj::poll::RS';
 
 package XML::EPP::Obj::transfer;
 # see 20-xml-rfc5730/rfc-examples/23-transfer-query.xml
