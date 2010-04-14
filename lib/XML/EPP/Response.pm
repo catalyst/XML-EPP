@@ -9,6 +9,7 @@ use PRANG::Graph;
 our $SCHEMA_PKG = "XML::EPP";
 our $PKG = __PACKAGE__;
 
+use XML::EPP::Result;
 has_element 'result' =>
 	is => "rw",
 	isa => "ArrayRef[${SCHEMA_PKG}::resultType]",
