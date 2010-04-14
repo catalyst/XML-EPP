@@ -17,17 +17,18 @@ use PRANG::XMLSchema::Whatever;
 subtype "${SCHEMA_PKG}::errValueType"
 	=> as "PRANG::XMLSchema::Whatever";
 
+with 'XML::EPP::Node';
+
 has_element 'value' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::errValueType",
+	xmlns => &xmlns,
 	;
 
 has_element 'reason' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::msgType",
 	;
-
-with 'XML::EPP::Node';
 
 subtype "${SCHEMA_PKG}::extErrValueType"
 	=> as __PACKAGE__;

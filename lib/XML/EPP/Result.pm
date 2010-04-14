@@ -25,10 +25,12 @@ has_element 'errs' =>
 	is => "rw",
 	isa => "ArrayRef[${PKG}::choice0]",
 	predicate => "has_errs",
+	xmlns => XML::EPP::Node::xmlns(),
 	xml_nodeName => {
 		"value" => "PRANG::XMLSchema::Whatever",
 		"extValue" => "${SCHEMA_PKG}::Error",
 	},
+	xml_min => 0,
 	;
 
 our %valid_result_codes = map { $_ => 1 }
