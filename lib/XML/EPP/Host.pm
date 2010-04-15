@@ -4,6 +4,7 @@ with qw(XML::EPP::Plugin PRANG::Graph);
 
 use Moose::Util::TypeConstraints;
 use PRANG::XMLSchema::Types;
+use XML::EPP::Common;
 
 BEGIN {
 	subtype "XML::EPP::Host::addrStringType"
@@ -25,5 +26,8 @@ use XML::EPP::Host::Check;
 use XML::EPP::Host::Delete;
 use XML::EPP::Host::Info;
 use XML::EPP::Host::Update;
+
+use XML::EPP::Host::Check::Response;
+
 
 1;
