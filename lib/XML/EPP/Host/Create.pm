@@ -22,4 +22,27 @@ has_element 'addr' =>
 	coerce => 1,
 	;
 
+use Moose::Util::TypeConstraints;
+
+# Moose Wishlist: should be able to infer this coercion from the two
+# at the end of ::Address
+coerce "ArrayRef[XML::EPP::Host::Address]"
+	=> from "ArrayRef[XML::EPP::Host::Address|HashRef|Str]"
+	=> via {
+		my @rv = @$_;
+		for ( @rv ) {
+			if ( ref $_ eq "HASH" ) {
+				$_ = XML::EPP::Host::Address->new($_);
+			}
+			elsif ( !blessed $_ ) {
+				$_ = XML::EPP::Host::Address->new(
+					value => $_,
+				       );
+			}
+		}
+		\@rv;
+	},
+	;
+
 1;
+
