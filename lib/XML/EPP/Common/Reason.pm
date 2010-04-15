@@ -17,6 +17,7 @@ has_attr 'lang' =>
 has_element 'content' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::reasonBaseType",
+	xml_nodeName => "",
 	;
 
 with "${SCHEMA_PKG}::Node";
