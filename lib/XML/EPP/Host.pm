@@ -28,6 +28,8 @@ use XML::EPP::Host::Info;
 use XML::EPP::Host::Update;
 
 use XML::EPP::Host::Check::Response;
+use XML::EPP::Host::Info::Response;
+use XML::EPP::Host::Create::Response;
 
 
 1;
