@@ -8,15 +8,17 @@ use PRANG::Graph;
 
 our $SCHEMA_PKG = "XML::EPP";
 
-has_element 'clTRID' =>
+has_element 'client_id' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::trIDStringType",
-	predicate => "has_clTRID",
+	predicate => "has_client_id",
+	xml_nodeName => "clTRID",
 	;
 
-has_element 'svTRID' =>
+has_element 'server_id' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::trIDStringType",
+	xml_nodeName => "svTRID",
 	;
 
 with 'XML::EPP::Node';
@@ -25,3 +27,15 @@ subtype "${SCHEMA_PKG}::trIDType"
 	=> as __PACKAGE__;
 
 1;
+
+=head2 XMLSchema definition
+
+  <complexType name="trIDType">
+    <sequence>
+      <element name="clTRID" type="epp:trIDStringType"
+       minOccurs="0"/>
+      <element name="svTRID" type="epp:trIDStringType"/>
+    </sequence>
+  </complexType>
+
+=cut

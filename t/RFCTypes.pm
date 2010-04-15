@@ -150,6 +150,13 @@ package XML::EPP::Obj::poll::RS::NoVersion;
 use Moose;
 use PRANG::Graph;
 sub xmlns { "urn:ietf:params:xml:ns:obj" }
+has_element name => qw(is ro isa Str);
+has_element trStatus => qw(is ro isa Str);
+has_element reID => qw(is ro isa PRANG::XMLSchema::token);
+has_element reDate => qw(is ro isa PRANG::XMLSchema::dateTime);
+has_element acID => qw(is ro isa PRANG::XMLSchema::token);
+has_element acDate => qw(is ro isa PRANG::XMLSchema::dateTime);
+has_element exDate => qw(is ro isa PRANG::XMLSchema::dateTime);
 sub root_element { "trnData" }
 extends 'XML::EPP::Obj::poll::RS';
 

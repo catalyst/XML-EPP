@@ -31,5 +31,7 @@ use XML::EPP::Host::Check::Response;
 use XML::EPP::Host::Info::Response;
 use XML::EPP::Host::Create::Response;
 
+use XML::EPP::Host::Notification;
+
 
 1;
