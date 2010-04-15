@@ -24,5 +24,6 @@ coerce __PACKAGE__
 	=> from "HashRef",
 	=> via { __PACKAGE__->new($_) },
 	;
+subtype "XML::EPP::Host::addrType" => as __PACKAGE__;
 
 1;

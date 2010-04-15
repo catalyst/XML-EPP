@@ -44,5 +44,7 @@ coerce "ArrayRef[XML::EPP::Host::Address]"
 	},
 	;
 
+subtype "XML::EPP::Host::createType" => as __PACKAGE__;
+
 1;
 
