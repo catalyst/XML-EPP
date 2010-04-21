@@ -3,7 +3,7 @@ package XML::EPP::Domain::Info;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { "info" }
+sub root_element { 'info' }
 
 with
 	'XML::EPP::Domain::RQ',
