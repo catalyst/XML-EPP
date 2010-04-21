@@ -10,14 +10,18 @@ with
 	'XML::EPP::Domain::Node',
 	;
 
-# use XML::EPP::Domain::InfoName;
 use XML::EPP::Domain::Info::Name;
 
 has_element 'name' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::Info::Name',
-	# default => 'all',
-	# xml_nodeName => 'name',
+	;
+
+has_element 'auth_info' =>
+	is => 'ro',
+	isa => 'XML::EPP::Domain::AuthInfo',
+	xml_required => 0,
+	xml_nodeName => 'authInfo',
 	;
 
 1;
