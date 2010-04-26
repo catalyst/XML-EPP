@@ -52,6 +52,7 @@ CODES
 has_element 'msg' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::msgType",
+	coerce => 1,
 	;
 
 sub BUILD {

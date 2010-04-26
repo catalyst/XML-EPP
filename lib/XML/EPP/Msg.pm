@@ -24,4 +24,10 @@ with 'XML::EPP::Node';
 subtype "${SCHEMA_PKG}::msgType"
 	=> as __PACKAGE__;
 
+coerce "${SCHEMA_PKG}::msgType"
+	=> from "Str"
+	=> via {
+		__PACKAGE__->new(content => $_);
+	};
+
 1;
