@@ -9,7 +9,7 @@ use constant XSI_XMLNS => "http://www.w3.org/2001/XMLSchema-instance";
 
 use XML::EPP::Common;
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 our $PKG;
 BEGIN{ $PKG = "XML::EPP" };
@@ -127,6 +127,23 @@ method is_response() {
 	!$self->message->is_command;
 }
 
+sub _reg {
+	shift if eval { $_[0]->isa(__PACKAGE__) };
+	my $hash = shift;
+	my $uri = shift;
+	my $pkg_space = shift || 1;
+	$hash->{$uri} = $pkg_space;
+}
+our @epp_versions = "1.0";
+our @epp_lang = "en";
+our %obj_uris;
+our %ext_uris;
+sub register_obj_uri {
+}
+
+sub register_ext_uri {
+}
+
 1;
 
 =head1 NAME
@@ -134,6 +151,8 @@ method is_response() {
 XML::EPP - an implementation of the EPP XML language
 
 =head1 SYNOPSIS
+
+ use XML::EPP;
 
  my $foo_create = XML::EPP->new(
          message => XML::EPP::Command->new(
@@ -157,10 +176,101 @@ between 2002 and 2004, using XML standards which were at the time very
 new, such as XML Namespaces and XML Schema.  It saw several
 incompatible revisions until the 1.0 version which became RFC3730.
 
+This module hopes to create a Free Software, complete, user-friendly
+and standards compliant interface to both client and server sides of
+the EPP specification.
+
+=head2 WARNING: SITE^WMODULE UNDER CONSTRUCTION
+
+The classes which are present, while enough to be able to parse the
+RFC, are not fixed in API terms until they are documented and tested.
+Please consider any attribute which is not yet at least documented to
+be under review and subject to rename.  This is thought to lead to a
+clearer implementation than fixing attribute names to the somewhat
+random (though well-known) names used in the EPP XML.  Use of C<sub
+BUILDARGS { }> to allow either may be considered; patches welcome.
+
+Similarly with undocumented portions of the implementation.  If you
+would like to make sure that the code you write against it doesn't
+need rewriting, please send a patch/pull request!
+
 This module currently implements the XML part of the protocol only;
 converting this into an actual EPP session is currently TO-DO.  Also,
 none of the mappings for essential registry types, such as domain,
 contact or host are yet implemented.  This is a preview release.
+
+=head1 PARSING AN EPP MESSAGE
+
+This part currently works very well.  Feed in some valid XML
+I<thusly>;
+
+  use XML::EPP;
+  my $message = XML::EPP->parse( $xml );
+
+If you can find B<any> RFC5730-valid document (including RFC5732) this
+doesn't parse, then you win a chocolate fish.  Similarly if you find
+an RFC-invalid document that this module accepts blindly.  Please log
+an RT ticket and contact the author privately for delivery of the
+chocolate.
+
+=head1 CREATING AN EPP MESSAGE
+
+There is an example in the C<SYNOPSIS>, but essentially the regular
+Moose constructor is all that is provided in this module.
+
+=head2 HINTS
+
+Look out for convenience construction interfaces.  These are primarily
+useful C<coerce> rules (see L<Moose::Util::TypeConstraints>).
+
+For example, instead of writing (in the middle of constructing a
+L<XML::EPP::DCP> stack):
+
+    recipient => XML::EPP::DCP::Recipient->new(
+            same => 1,
+            ours => [
+                 XML::EPP::DCP::Ours->new( name => "SomeCo Ltd" ),
+                 XML::EPP::DCP::Ours->new( name => "Partner Ltd" ),
+            ],
+        ),
+
+Coerce rules are defined to make this work:
+
+    recipient => [ qw(same), "SomeCo Ltd", "Partner Ltd" ];
+
+Both construct the same stack of objects, and would serialize to:
+
+  <recipient xmlns="urn:ietf:params:xml:ns:epp-1.0">
+    <ours><recDesc>SomeCo Ltd</recDesc></ours>
+    <ours><recDesc>Parnet Ltd</recDesc></ours>
+    <same/>
+  </recipient>
+
+For this to be most useful, the rules are hand-written for each class.
+
+=head1 GLOBALS / CLASS METHODS
+
+=head2 C<@XML::EPP::epp_versions>
+
+The list of EPP versions implemented by this module.  Default value is
+C<("1.0", )>.
+
+=head2 C<@XML::EPP::epp_lang>
+
+The list of EPP languages implemented by this module.  Default value
+is C<("en", )>.
+
+=head2 register_obj_uri( $uri[, $namespace])
+
+Register the namespace C<$namespace> as corresponding to the C<$uri>
+URI.  Object types such as L<XML::EPP::Domain>, etc will use this to
+register themselves.  The loaded object types are available in the
+global variable C<@XML::EPP::obj_uris>
+
+=head2 register_ext_uri( $uri[, $namespace])
+
+Exactly the same as the above, but the URI will be advertised as an
+extension, not an object type.
 
 =head1 SOURCE, SUBMISSIONS, SUPPORT
 
@@ -196,13 +306,10 @@ Log a ticket on L<http://rt.cpan.org/>
 
 =head1 SEE ALSO
 
-For the 0.01 release, there is little documentation of how to use the
-classes, and the implemented portion of the protocol has a particular
-focus towards a particular use case, which initially will not include
-core registry functions such as adminstering domains.
+L<XML::EPP::Changes> for what has most recently been added to
+L<XML::EPP>.
 
-Implementation, tests and documentation will be expanded as the module
-is put to use.
+L<XML::EPP::Host> - an implementation of the RFC5732 host mapping
 
 =head1 AUTHOR AND LICENCE
 

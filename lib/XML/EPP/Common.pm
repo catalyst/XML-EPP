@@ -43,6 +43,16 @@ BEGIN{
 		};
 }
 
+# allow any dateTime field to automatically coerce from timestamptz's
+use MooseX::TimestampTZ;
+coerce "PRANG::XMLSchema::dateTime"
+	=> from "TimestampTZ"
+	=> via {
+		my $x = $_;
+		$x =~ s{ }{T};
+		$x;
+	};
+
 use XML::EPP::Common::Reason;
 
 subtype "${PKG}::clIDType"
