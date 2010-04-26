@@ -19,6 +19,7 @@ finddepth(
 			push @modules, $module;
 			open MODULE, "<", $_ or die "Failed to open ($_): $!";
 			while (<MODULE>) {
+				next if (m{^=(?!cut)\w+} ... m{^=cut});
 				if (m{^use (\S+);}) {
 					$uses{$module}{$1}++;
 				}
