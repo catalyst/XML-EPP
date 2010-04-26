@@ -9,7 +9,7 @@ use constant XSI_XMLNS => "http://www.w3.org/2001/XMLSchema-instance";
 
 use XML::EPP::Common;
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 our $PKG;
 BEGIN{ $PKG = "XML::EPP" };
@@ -152,6 +152,8 @@ XML::EPP - an implementation of the EPP XML language
 
 =head1 SYNOPSIS
 
+ use XML::EPP;
+
  my $foo_create = XML::EPP->new(
          message => XML::EPP::Command->new(
              action => "create",
@@ -205,9 +207,11 @@ I<thusly>;
   use XML::EPP;
   my $message = XML::EPP->parse( $xml );
 
-If you can find B<any> RFC5730-valid document this doesn't parse, then
-you win a chocolate fish.  Please log an RT ticket and contact the
-author privately for delivery of the chocolate.
+If you can find B<any> RFC5730-valid document (including RFC5732) this
+doesn't parse, then you win a chocolate fish.  Similarly if you find
+an RFC-invalid document that this module accepts blindly.  Please log
+an RT ticket and contact the author privately for delivery of the
+chocolate.
 
 =head1 CREATING AN EPP MESSAGE
 
@@ -302,13 +306,10 @@ Log a ticket on L<http://rt.cpan.org/>
 
 =head1 SEE ALSO
 
-For the 0.01 release, there is little documentation of how to use the
-classes, and the implemented portion of the protocol has a particular
-focus towards a particular use case, which initially will not include
-core registry functions such as adminstering domains.
+L<XML::EPP::Changes> for what has most recently been added to
+L<XML::EPP>.
 
-Implementation, tests and documentation will be expanded as the module
-is put to use.
+L<XML::EPP::Host> - an implementation of the RFC5732 host mapping
 
 =head1 AUTHOR AND LICENCE
 

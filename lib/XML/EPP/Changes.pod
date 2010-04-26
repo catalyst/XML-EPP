@@ -1,0 +1,40 @@
+
+=head1 XML::EPP CHANGES
+
+This POD file documents a summary of the changes in XML::EPP.  For the
+full list of changes, refer to the git history.
+
+=head2 VERSION 0.02 - 26 Apr 2010
+
+=over
+
+=item *
+
+An implementation of the RFC5732 host mapping.  Currently
+undocumented, but the L<PRANG::XMLSchema::Guide> shipped with PRANG
+0.07 describes in detail the construction of this mapping.
+
+=item *
+
+API "stabilization" of various classes relating to C<greeting>
+messages; L<XML::EPP::DCP>, L<XML::EPP::Greeting>
+
+
+=item *
+
+B<XML::EPP::Result> now automatically sets the C<msg> property based
+on the result code.
+
+=back
+
+=head1 SEE ALSO
+
+L<XML::EPP>
+
+=head1 COPYRIGHT
+
+Copyright 2010, NZ Registry Services.  This documentation is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
