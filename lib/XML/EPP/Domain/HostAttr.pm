@@ -13,7 +13,7 @@ has_element 'name' =>
 has_attr 'addrs' =>
     is => 'ro',
     isa => 'ArrayRef[XML::EPP::Host::Address]',
-    xml_min => 0,
+    xml_required => 0,
     ;
 
 #use Moose::Util::TypeConstraints;
