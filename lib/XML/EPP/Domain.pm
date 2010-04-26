@@ -8,8 +8,35 @@ use Moose::Util::TypeConstraints;
 use PRANG::XMLSchema::Types;
 use XML::EPP::Common;
 
+our $PKG;
+
 BEGIN {
-	enum "XML::EPP::Domain::hostsType" => qw( all del none sub );
+	$PKG = "XML::EPP::Domain";
+
+	enum "${PKG}::hostsType" => qw( all del none sub );
+
+	enum "${PKG}::statusValueType" => qw (
+		clientDeleteProhibited
+		clientHold
+		clientRenewProhibited
+		clientTransferProhibited
+		clientUpdateProhibited
+		inactive
+		ok
+		pendingCreate
+		pendingDelete
+		pendingRenew
+		pendingTransfer
+		pendingUpdate
+		serverDeleteProhibited
+		serverHold
+		serverRenewProhibited
+		serverTransferProhibited
+		serverUpdateProhibited
+	);
+
+	enum "${PKG}::contactAttrType" => qw( admin billing tech );
+
 }
 
 use XML::EPP::Domain::Check;
@@ -22,7 +49,5 @@ use XML::EPP::Domain::Info;
 use XML::EPP::Domain::Check::Response;
 use XML::EPP::Domain::Info::Response;
 #use XML::EPP::Domain::Create::Response;
-
-#use XML::EPP::Domain::Notification;
 
 1;
