@@ -34,4 +34,21 @@ with 'XML::EPP::Node';
 subtype "${SCHEMA_PKG}::svcMenuType"
 	=> as __PACKAGE__;
 
+subtype "${SCHEMA_PKG}::svcMenuType::auto"
+	=> as "Str"
+	=> where { $_ eq "auto" };
+
+coerce "${SCHEMA_PKG}::svcMenuType"
+	=> from "${SCHEMA_PKG}::svcMenuType::auto"
+	=> via {
+		__PACKAGE__->new(
+			version => \@XML::EPP::epp_versions,
+			lang => \@XML::EPP::epp_lang,
+			objURI => [ keys %XML::EPP::obj_uris ],
+			( keys %XML::EPP::ext_uris ?
+				  (svcExtension => [ keys %XML::EPP::ext_uris ])
+					  : () ),
+		       );
+	};
+
 1;

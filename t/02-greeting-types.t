@@ -23,3 +23,24 @@ isa_ok($DCP, "XML::EPP::DCP",
 
 # not testing serialization as it's a bit of a can of worms to
 # serialize a fragment atm.
+
+BEGIN { use_ok("XML::EPP::Greeting") }
+
+ use MooseX::TimestampTZ qw(gmtimestamptz);
+ my $greeting = XML::EPP::Greeting->new(
+     server_name => "myhostname",
+     current_time => gmtimestamptz,
+     services => "auto",
+     dcp => {
+         access => "personalAndOther",
+         statement => {
+             purpose => "prov",
+             recipient => "ours",
+             retention => "business",
+         },
+         expiry => "PY1",
+     },
+    );
+
+isa_ok($greeting, "XML::EPP::Greeting",
+       "test example on XML::EPP::Greeting man page");

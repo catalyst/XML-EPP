@@ -235,6 +235,12 @@ with "${SCHEMA_PKG}::Node";
 subtype "${SCHEMA_PKG}::dcpType"
 	=> as __PACKAGE__;
 
+coerce __PACKAGE__
+	=> from "HashRef"
+	=> via {
+		__PACKAGE__->new(%$_);
+	};
+
 package XML::EPP::DCP::Purpose;
 
 use Moose;
