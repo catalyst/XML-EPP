@@ -22,8 +22,13 @@ finddepth(
 				if (m{^use (\S+);}) {
 					$uses{$module}{$1}++;
 				}
-				if (m{^(?:extends|with) (["'])?(\S+)\1}) {
-					$uses{$module}{$2}++;
+				if (m{^(?:extends|with) (.*)}) {
+					my $arg = $1;
+					my @list =( )= eval($arg);
+					if (!@list) {
+						@list = $arg =~ m{([\w:]+)}g;
+					}
+					$uses{$_}{$module}++ for @list;
 				}
 			}
 			close MODULE;

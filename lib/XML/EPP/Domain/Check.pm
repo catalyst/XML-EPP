@@ -6,10 +6,7 @@ use PRANG::Graph;
 
 sub root_element { 'check' }
 
-with
-	'XML::EPP::Domain::RQ',
-	'XML::EPP::Domain::Node',
-	;
+with 'XML::EPP::Domain::RQ', 'XML::EPP::Domain::Node';
 
 has_element 'names' =>
 	is => 'ro',

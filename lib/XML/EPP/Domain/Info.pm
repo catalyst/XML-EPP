@@ -5,10 +5,7 @@ use PRANG::Graph;
 
 sub root_element { 'info' }
 
-with
-	'XML::EPP::Domain::RQ',
-	'XML::EPP::Domain::Node',
-	;
+with 'XML::EPP::Domain::RQ', 'XML::EPP::Domain::Node';
 
 use XML::EPP::Domain::Info::Name;
 
