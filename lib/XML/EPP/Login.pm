@@ -12,20 +12,23 @@ our $SCHEMA_PKG = "XML::EPP";
 use XML::EPP;
 use XML::EPP::Common;
 
-has_element 'clID' =>
+has_element 'client_id' =>
 	is => "rw",
 	isa => "XML::EPP::Common::clIDType",
+	xml_nodeName => "clID",
 	;
 
-has_element 'pw' =>
+has_element 'password' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::pwType",
+	xml_nodeName => "pw",
 	;
 
-has_element 'newPW' =>
+has_element 'new_password' =>
 	is => "rw",
-	predicate => "has_newPW",
+	predicate => "has_new_password",
 	isa => "${SCHEMA_PKG}::pwType",
+	xml_nodeName => "newPW",
 	;
 
 has_element 'options' =>
@@ -33,9 +36,10 @@ has_element 'options' =>
 	isa => "${SCHEMA_PKG}::credsOptionsType",
 	;
 
-has_element 'svcs' =>
+has_element 'services' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::loginSvcType",
+	xml_nodeName => "svcs",
 	;
 
 with 'XML::EPP::Node';
