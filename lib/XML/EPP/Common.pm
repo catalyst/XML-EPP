@@ -57,6 +57,20 @@ BEGIN{
 		=> where {
 			m{^(?:[^\p{P}\p{Z}\p{C}]|_){1,80}-[^\p{P}\p{Z}\p{C}]{1,8}};
 		};
+
+	# XXX:
+	# this doesn't work when I use it in XML::EPP::Domain::Tranfer::Response
+	# Enum seems to work for attrs (see above) but not for elements.
+	#enum "${PKG}::trStatusType" =>
+	#	qw(clientApproved clientCancelled clientRejected pending
+	#		serverApproved serverCancelled);
+
+	# but this _does_ work when I use it in XML::EPP::Domain::Tranfer::Response
+	subtype "${PKG}::trStatusType"
+		=> as 'Str'
+		=> where {
+			m{^clientApproved|clientCancelled|clientRejected|pending|serverApproved|serverCancelled$};
+		};
 }
 
 # allow any dateTime field to automatically coerce from timestamptz's
@@ -79,9 +93,5 @@ use XML::EPP::Common::Password;
 use XML::EPP::Common::ExtPassword;
 
 use XML::EPP::Common::Reason;
-
-enum "${PKG}::trStatusType" =>
-	qw(clientApproved clientCancelled clientRejected pending
-	   serverApproved serverCancelled);
 
 1;
