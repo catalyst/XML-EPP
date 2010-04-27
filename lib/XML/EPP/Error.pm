@@ -28,6 +28,7 @@ has_element 'value' =>
 has_element 'reason' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::msgType",
+	coerce => 1,
 	;
 
 subtype "${SCHEMA_PKG}::extErrValueType"
