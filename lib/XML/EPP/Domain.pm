@@ -37,10 +37,18 @@ BEGIN {
 
 	enum "${PKG}::contactAttrType" => qw( admin billing tech );
 
+    print "in Domain\n";
+
+	subtype "${PKG}::pLimitType" =>
+		=> as "PRANG::XMLSchema::short"
+		=> where { $_ >= 1 and $_ <= 99 };
+
+	enum "${PKG}::pUnitType" => qw( y m );
 }
 
 use XML::EPP::Domain::Check;
 use XML::EPP::Domain::Info;
+use XML::EPP::Domain::Transfer;
 
 #use XML::EPP::Domain::Create;
 #use XML::EPP::Domain::Delete;
