@@ -24,10 +24,11 @@ has_element 'msgQ' =>
 
 use XML::EPP::SubResponse;
 
-has_element 'resData' =>
+has_element 'response' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::SubResponse",
-	predicate => "has_resData",
+	predicate => "has_response",
+	xml_nodeName => "resData",
 	;
 
 has_element 'extension' =>
@@ -36,9 +37,10 @@ has_element 'extension' =>
 	predicate => "has_extension",
 	;
 
-has_element 'trID' =>
+has_element 'tx_id' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::trIDType",
+	xml_nodeName => "trID",
 	;
 
 with 'XML::EPP::Node';

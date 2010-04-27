@@ -68,14 +68,18 @@ subtype "${PKG}::choice0"
 			   qw(errValueType extErrValueType)),
 	;
 
-has_element 'errs' =>
+has_element 'errors' =>
 	is => "rw",
 	isa => "ArrayRef[${PKG}::choice0]",
 	predicate => "has_errs",
 	xmlns => XML::EPP::Node::xmlns(),
+	traits => [qw/Array/],
 	xml_nodeName => {
 		"value" => "PRANG::XMLSchema::Whatever",
 		"extValue" => "${SCHEMA_PKG}::Error",
+	},
+	handles => {
+		add_error => 'push',
 	},
 	xml_min => 0,
 	;

@@ -60,10 +60,11 @@ has_element 'extension' =>
 	predicate => "has_extension",
 	;
 
-has_element 'clTRID' =>
+has_element 'client_id' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::trIDStringType",
-	predicate => "has_clTRID",
+	predicate => "has_client_id",
+	xml_nodeName => "clTRID",
 	;
 
 with 'XML::EPP::Node';
