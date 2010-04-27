@@ -15,7 +15,7 @@ my $obj_create = XML::EPP->new(
 			payload => XML::EPP::Obj::create->new(
 			       ),
 		       ),
-		clTRID => "xml_epp_".time."_$$",
+		client_id => "xml_epp_".time."_$$",
 	       ),
        );
 
