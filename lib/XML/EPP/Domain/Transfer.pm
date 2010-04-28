@@ -24,13 +24,6 @@ has_element 'period' =>
 	xml_required => 0,
 	;
 
-#use XML::EPP::Domain;
-#has_element 'period' =>
-#	is => 'ro',
-#	isa => 'XML::EPP::Domain::pLimitType',
-#	xml_required => 0,
-#	;
-
 has_element 'auth_info' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::AuthInfo',
@@ -39,3 +32,21 @@ has_element 'auth_info' =>
 	;
 
 1;
+
+
+=head2 XML Schema Definition
+
+<!--
+Child elements of the <transfer> command.
+-->
+<complexType name="transferType">
+ <sequence>
+   <element name="name" type="eppcom:labelType"/>
+   <element name="period" type="domain:periodType"
+    minOccurs="0"/>
+   <element name="authInfo" type="domain:authInfoType"
+    minOccurs="0"/>
+ </sequence>
+</complexType>
+
+=cut
