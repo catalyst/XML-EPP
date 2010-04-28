@@ -47,6 +47,7 @@ BEGIN {
 use XML::EPP::Domain::Check;
 use XML::EPP::Domain::Info;
 use XML::EPP::Domain::Transfer;
+use XML::EPP::Domain::Create;
 
 use XML::EPP::Domain::Check::Response;
 use XML::EPP::Domain::Info::Response;
