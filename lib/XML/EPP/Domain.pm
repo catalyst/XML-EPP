@@ -52,5 +52,6 @@ use XML::EPP::Domain::Create;
 use XML::EPP::Domain::Check::Response;
 use XML::EPP::Domain::Info::Response;
 use XML::EPP::Domain::Transfer::Response;
+use XML::EPP::Domain::Create::Response;
 
 1;
