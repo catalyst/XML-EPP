@@ -407,7 +407,7 @@ greeting.
 
 Properties: B<access> (see L</XML::EPP::DCP::Access>), B<statement>
 (array; see L</XML::EPP::DCP::Statement>), B<expiry> (See
-L</XML::EPP::DCP::Expiry)
+L</XML::EPP::DCP::Expiry>)
 
 =head2 XML::EPP::DCP::Access
 
