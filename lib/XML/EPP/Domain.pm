@@ -64,5 +64,7 @@ use XML::EPP::Domain::Transfer::Response;
 use XML::EPP::Domain::Create::Response;
 # no response needed for 'Delete', already covered
 use XML::EPP::Domain::Renew::Response;
+# no response needed for 'Update', already covered
+use XML::EPP::Domain::Notification;
 
 1;
