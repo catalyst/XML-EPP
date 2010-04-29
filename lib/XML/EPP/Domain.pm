@@ -37,17 +37,34 @@ BEGIN {
 
 	enum "${PKG}::contactAttrType" => qw( admin billing tech );
 
+	subtype "${PKG}::pLimitType" =>
+		=> as "PRANG::XMLSchema::short"
+		=> where { $_ >= 1 and $_ <= 99 };
+
+	enum "${PKG}::pUnitType" => qw( y m );
+
+	subtype "${PKG}::clIDChgType"
+		=> as "PRANG::XMLSchema::token"
+		=> where {
+			length($_) <= 16;
+		};
 }
 
 use XML::EPP::Domain::Check;
 use XML::EPP::Domain::Info;
-
-#use XML::EPP::Domain::Create;
-#use XML::EPP::Domain::Delete;
-#use XML::EPP::Domain::Update;
+use XML::EPP::Domain::Transfer;
+use XML::EPP::Domain::Create;
+use XML::EPP::Domain::Delete;
+use XML::EPP::Domain::Renew;
+use XML::EPP::Domain::Update;
 
 use XML::EPP::Domain::Check::Response;
 use XML::EPP::Domain::Info::Response;
-#use XML::EPP::Domain::Create::Response;
+use XML::EPP::Domain::Transfer::Response;
+use XML::EPP::Domain::Create::Response;
+# no response needed for 'Delete', already covered
+use XML::EPP::Domain::Renew::Response;
+# no response needed for 'Update', already covered
+use XML::EPP::Domain::Notification;
 
 1;

@@ -1,5 +1,5 @@
 
-package XML::EPP::Domain::Info::Name;
+package XML::EPP::Domain::Notification::Name;
 
 use Moose;
 use PRANG::Graph;
@@ -12,21 +12,21 @@ has_element 'value' =>
 	xml_nodeName => '',
 	;
 
-has_attr 'hosts' =>
+has_attr 'result' =>
 	is => 'ro',
-	isa => 'XML::EPP::Domain::hostsType',
-	default => 'all',
+	isa => 'PRANG::XMLSchema::boolean',
+    xml_name => 'paResult',
 	;
 
 1;
 
 =head2 XML Schema Definition
 
-<complexType name="infoNameType">
+<complexType name="paNameType">
  <simpleContent>
-   <extension base = "eppcom:labelType">
-     <attribute name="hosts" type="domain:hostsType"
-      default="all"/>
+   <extension base="eppcom:labelType">
+     <attribute name="paResult" type="boolean"
+      use="required"/>
    </extension>
  </simpleContent>
 </complexType>

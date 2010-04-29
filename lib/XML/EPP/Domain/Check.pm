@@ -15,3 +15,17 @@ has_element 'names' =>
 	;
 
 1;
+
+=head2 XML Schema Definition
+
+<!--
+Child element of commands that accept multiple names.
+-->
+<complexType name="mNameType">
+ <sequence>
+   <element name="name" type="eppcom:labelType"
+    maxOccurs="unbounded"/>
+ </sequence>
+</complexType>
+
+=cut

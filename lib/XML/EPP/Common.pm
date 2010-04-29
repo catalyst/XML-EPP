@@ -27,19 +27,49 @@ BEGIN {
 # this spec for the most part defines types for use by the other
 # standards.
 
-# "AuthInfo" is usually introduced with a <pw> tag, so we'll call it
-# Password
-use XML::EPP::Common::Password;
-
-# <ext>, but it's basically still a password.
-use XML::EPP::Common::ExtPassword;
-
 use PRANG::XMLSchema::Types;
 BEGIN{
 	subtype "${PKG}::reasonBaseType"
 		=> as "PRANG::XMLSchema::token"
 		=> where {
 			length($_) >= 1 and length($_) <= 32;
+		};
+
+	subtype "${PKG}::clIDType"
+		=> as "PRANG::XMLSchema::token"
+		=> where {
+			length($_) >= 3 and length($_) <= 16;
+		};
+	subtype "${PKG}::labelType"
+		=> as "PRANG::XMLSchema::token"
+		=> where {
+			length($_) >= 1 and length($_) <= 255;
+		};
+
+	subtype "${PKG}::minTokenType"
+		=> as "PRANG::XMLSchema::token"
+		=> where {
+			length($_) >= 1;
+		};
+
+	subtype "${PKG}::roidType"
+		=> as "PRANG::XMLSchema::token"
+		=> where {
+			m{^(?:[^\p{P}\p{Z}\p{C}]|_){1,80}-[^\p{P}\p{Z}\p{C}]{1,8}};
+		};
+
+	# XXX:
+	# this doesn't work when I use it in XML::EPP::Domain::Tranfer::Response
+	# Enum seems to work for attrs (see above) but not for elements.
+	#enum "${PKG}::trStatusType" =>
+	#	qw(clientApproved clientCancelled clientRejected pending
+	#		serverApproved serverCancelled);
+
+	# but this _does_ work when I use it in XML::EPP::Domain::Tranfer::Response
+	subtype "${PKG}::trStatusType"
+		=> as 'Str'
+		=> where {
+			m{^clientApproved|clientCancelled|clientRejected|pending|serverApproved|serverCancelled$};
 		};
 }
 
@@ -55,30 +85,13 @@ coerce "PRANG::XMLSchema::dateTime"
 
 use XML::EPP::Common::Reason;
 
-subtype "${PKG}::clIDType"
-	=> as "PRANG::XMLSchema::token"
-	=> where {
-		length($_) >= 3 and length($_) <= 16;
-	};
-subtype "${PKG}::labelType"
-	=> as "PRANG::XMLSchema::token"
-	=> where {
-		length($_) >= 1 and length($_) <= 255;
-	};
+# "AuthInfo" is usually introduced with a <pw> tag, so we'll call it
+# Password
+use XML::EPP::Common::Password;
 
-subtype "${PKG}::minTokenType"
-	=> as "PRANG::XMLSchema::token"
-	=> where {
-		length($_) >= 1;
-	};
-subtype "${PKG}::roidType"
-	=> as "PRANG::XMLSchema::token"
-	=> where {
-		m{^(?:[^\p{P}\p{Z}\p{C}]|_){1,80}-[^\p{P}\p{Z}\p{C}]{1,8}};
-	};
+# <ext>, but it's basically still a password.
+use XML::EPP::Common::ExtPassword;
 
-enum "${PKG}::trStatusType" =>
-	qw(clientApproved clientCancelled clientRejected pending
-	   serverApproved serverCancelled);
+use XML::EPP::Common::Reason;
 
 1;

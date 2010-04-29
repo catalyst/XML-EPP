@@ -6,6 +6,12 @@ with 'XML::EPP::Domain::Node';
 
 use PRANG::XMLSchema::Types;
 
+has_element 'value' =>
+	is => 'ro',
+	isa => "PRANG::XMLSchema::normalizedString",
+	xml_nodeName => '',
+	;
+
 has_attr 'status' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::statusValueType',
