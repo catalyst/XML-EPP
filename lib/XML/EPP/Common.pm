@@ -80,6 +80,7 @@ coerce "PRANG::XMLSchema::dateTime"
 	=> via {
 		my $x = $_;
 		$x =~ s{ }{T};
+		$x =~ s{([+\-]\d{2})(\d{2})}{\1:\2};
 		$x;
 	};
 
