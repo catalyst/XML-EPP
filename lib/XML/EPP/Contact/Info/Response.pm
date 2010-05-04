@@ -28,7 +28,6 @@ has_element 'status' =>
 	xml_max => 7,
 	;
 
-# <element name="postalInfo" type="contact:postalInfoType" maxOccurs="2"/>
 use XML::EPP::Contact::PostalInfo;
 has_element 'postal_info' =>
 	is => 'ro',
@@ -102,7 +101,6 @@ has_element 'auth_info' =>
 	xml_nodeName => 'authInfo',
 	;
 
-#*     <element name="disclose" type="contact:discloseType"
 has_element 'disclose' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::Disclose',
@@ -113,7 +111,6 @@ has_element 'disclose' =>
 
 =head2 XML Schema Definition
 
-
 <!--
 <info> response elements.
 -->
@@ -123,13 +120,13 @@ has_element 'disclose' =>
      <element name="roid" type="eppcom:roidType"/>
      <element name="status" type="contact:statusType"
       maxOccurs="7"/>
-*     <element name="postalInfo" type="contact:postalInfoType"
+     <element name="postalInfo" type="contact:postalInfoType"
       maxOccurs="2"/>
-*     <element name="voice" type="contact:e164Type"
+     <element name="voice" type="contact:e164Type"
       minOccurs="0"/>
-*     <element name="fax" type="contact:e164Type"
+     <element name="fax" type="contact:e164Type"
       minOccurs="0"/>
-*     <element name="email" type="eppcom:minTokenType"/>
+     <element name="email" type="eppcom:minTokenType"/>
      <element name="clID" type="eppcom:clIDType"/>
      <element name="crID" type="eppcom:clIDType"/>
      <element name="crDate" type="dateTime"/>
@@ -141,46 +138,9 @@ has_element 'disclose' =>
       minOccurs="0"/>
      <element name="authInfo" type="contact:authInfoType"
       minOccurs="0"/>
-*     <element name="disclose" type="contact:discloseType"
+     <element name="disclose" type="contact:discloseType"
       minOccurs="0"/>
    </sequence>
  </complexType>
-
-
-
-<!--
-<info> response elements.
--->
-<complexType name="infDataType">
- <sequence>
-   <element name="name" type="eppcom:labelType"/>
-   <element name="roid" type="eppcom:roidType"/>
-   <element name="status" type="contact:statusType"
-    minOccurs="0" maxOccurs="11"/>
-   <element name="registrant" type="eppcom:clIDType"
-    minOccurs="0"/>
-   <element name="contact" type="contact:contactType"
-    minOccurs="0" maxOccurs="unbounded"/>
-   <element name="ns" type="contact:nsType"
-    minOccurs="0"/>
-   <element name="host" type="eppcom:labelType"
-    minOccurs="0" maxOccurs="unbounded"/>
-   <element name="clID" type="eppcom:clIDType"/>
-   <element name="crID" type="eppcom:clIDType"
-    minOccurs="0"/>
-   <element name="crDate" type="dateTime"
-    minOccurs="0"/>
-   <element name="upID" type="eppcom:clIDType"
-    minOccurs="0"/>
-   <element name="upDate" type="dateTime"
-    minOccurs="0"/>
-   <element name="exDate" type="dateTime"
-    minOccurs="0"/>
-   <element name="trDate" type="dateTime"
-    minOccurs="0"/>
-   <element name="authInfo" type="contact:authInfoType"
-    minOccurs="0"/>
- </sequence>
-</complexType>
 
 =cut
