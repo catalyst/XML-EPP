@@ -24,7 +24,7 @@ plan tests => @tests * 3;
 my $xml_compare = XML::Compare->new(
 	ignore => [
 		q{//epp:msg/@lang},
-		q{//domain:status/@lang},
+		q{//contact:status/@lang},
 	],
 	ignore_xmlns => {
 		"epp" => "urn:ietf:params:xml:ns:epp-1.0",
