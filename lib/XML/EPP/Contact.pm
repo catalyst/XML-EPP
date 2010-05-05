@@ -63,6 +63,7 @@ use XML::EPP::Contact::Info;
 use XML::EPP::Contact::Transfer;
 use XML::EPP::Contact::Create;
 use XML::EPP::Contact::Delete;
+use XML::EPP::Contact::Update;
 
 use XML::EPP::Contact::Check::Response;
 use XML::EPP::Contact::Info::Response;
