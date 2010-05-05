@@ -17,18 +17,21 @@ use XML::EPP::Domain::AddRem;
 has_element 'add' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::AddRem',
+	xml_required => 0,
 	;
 
 has_element 'remove' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::AddRem',
-    xml_nodeName => 'rem',
+	xml_nodeName => 'rem',
+	xml_required => 0,
 	;
 
 has_element 'change' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::Change',
-    xml_nodeName => 'chg',
+	xml_nodeName => 'chg',
+	xml_required => 0,
 	;
 
 1;
