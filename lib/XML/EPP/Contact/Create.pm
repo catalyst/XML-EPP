@@ -8,15 +8,10 @@ sub root_element { 'create' }
 
 with 'XML::EPP::Contact::RQ', 'XML::EPP::Contact::Node';
 
-#     <element name="id" type="eppcom:clIDType"/>
-
 has_element 'id' =>
 	is => 'ro',
 	isa => 'XML::EPP::Common::clIDType',
 	;
-
-#     <element name="postalInfo" type="contact:postalInfoType"
-#      maxOccurs="2"/>
 
 use XML::EPP::Contact::PostalInfo;
 has_element 'postal_info' =>
@@ -27,10 +22,6 @@ has_element 'postal_info' =>
 	xml_max => 2,
 	;
 
-
-#     <element name="voice" type="contact:e164Type"
-#      minOccurs="0"/>
-
 use XML::EPP::Contact::E164;
 has_element 'voice' =>
 	is => 'ro',
@@ -38,33 +29,22 @@ has_element 'voice' =>
 	required => 0,
 	;
 
-
-#     <element name="fax" type="contact:e164Type"
-#      minOccurs="0"/>
-
 has_element 'fax' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::E164',
 	required => 0,
 	;
 
-#     <element name="email" type="eppcom:minTokenType"/>
-
 has_element 'email' =>
 	is => 'ro',
 	isa => 'XML::EPP::Common::minTokenType',
 	;
-
-#     <element name="authInfo" type="contact:authInfoType"/>
 
 has_element 'auth_info' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::AuthInfo',
 	xml_nodeName => 'authInfo',
 	;
-
-#     <element name="disclose" type="contact:discloseType"
-#      minOccurs="0"/>
 
 has_element 'disclose' =>
 	is => 'ro',
