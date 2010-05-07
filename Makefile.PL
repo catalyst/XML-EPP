@@ -16,7 +16,7 @@ license         ('artistic');
 
 requires        ("perl" => 5.010);
 requires        ("Moose" => 0.54);
-requires        ("PRANG" => 0.07);
+requires        ("PRANG" => 0.09);
 requires        ("MooseX::Timestamp" => 0);
 test_requires   ("XML::Compare" => 0.02);
 test_requires   ("Scriptalicious" => 0);
