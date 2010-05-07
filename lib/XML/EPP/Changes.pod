@@ -4,6 +4,30 @@
 This POD file documents a summary of the changes in XML::EPP.  For the
 full list of changes, refer to the git history.
 
+=head2 VERSION 0.03 - 7 May 2010
+
+=over
+
+=item *
+
+Implementations of both the RFC5731 Domain mapping and the RFC5733
+Contact mapping.  This should mean that PRANG now parses and emits all
+of core EPP standard object types.
+
+=item *
+
+Relax some incorrect version requirements (perl 5.10.1 is I<not>
+required!), and add a missing dependency that was causing many CPAN
+testers failures.
+
+=item *
+
+Some (backwards-incompatible, but forewarned) API changes relating to
+renaming attributes from their XML forms to more perlish names.  eg
+C<clTRID> becomes C<client_id>
+
+=back
+
 =head2 VERSION 0.02 - 26 Apr 2010
 
 =over

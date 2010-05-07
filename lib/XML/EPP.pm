@@ -9,7 +9,7 @@ use constant XSI_XMLNS => "http://www.w3.org/2001/XMLSchema-instance";
 
 use XML::EPP::Common;
 
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 our $PKG;
 BEGIN{ $PKG = "XML::EPP" };
@@ -207,11 +207,11 @@ I<thusly>;
   use XML::EPP;
   my $message = XML::EPP->parse( $xml );
 
-If you can find B<any> RFC5730-valid document (including RFC5732) this
-doesn't parse, then you win a chocolate fish.  Similarly if you find
-an RFC-invalid document that this module accepts blindly.  Please log
-an RT ticket and contact the author privately for delivery of the
-chocolate.
+If you can find B<any> RFC5730-valid document (including RFC5731,
+RFC5732 or RFC5733) this doesn't parse, then you win a bag of
+chocolate fish.  Similarly if you find an RFC-invalid document that
+this module accepts blindly.  Please log an RT ticket and contact the
+author privately for delivery of the chocolate.
 
 =head1 CREATING AN EPP MESSAGE
 
@@ -309,7 +309,12 @@ Log a ticket on L<http://rt.cpan.org/>
 L<XML::EPP::Changes> for what has most recently been added to
 L<XML::EPP>.
 
+L<XML::EPP::Domain> - an implementation of the RFC5731 domain mapping
+
 L<XML::EPP::Host> - an implementation of the RFC5732 host mapping
+
+L<XML::EPP::Contact> - an implementation of the RFC5733 contact
+mapping
 
 =head1 AUTHOR AND LICENCE
 
