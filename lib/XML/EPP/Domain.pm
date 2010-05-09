@@ -67,4 +67,22 @@ use XML::EPP::Domain::Renew::Response;
 # no response needed for 'Update', already covered
 use XML::EPP::Domain::Notification;
 
+# load up all other classes under XML::EPP::Domain
+use XML::EPP::Domain::AddRem;
+use XML::EPP::Domain::AuthInfo;
+use XML::EPP::Domain::Change;
+use XML::EPP::Domain::Check::Name;
+use XML::EPP::Domain::Check::Status;
+use XML::EPP::Domain::Contact;
+use XML::EPP::Domain::HostAttr;
+use XML::EPP::Domain::Info::Name;
+use XML::EPP::Domain::Node;
+use XML::EPP::Domain::Notification::Name;
+use XML::EPP::Domain::NS::List;
+use XML::EPP::Domain::NS;
+use XML::EPP::Domain::Period;
+use XML::EPP::Domain::RQ;
+use XML::EPP::Domain::RS;
+use XML::EPP::Domain::Status;
+
 1;
