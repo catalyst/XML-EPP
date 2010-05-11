@@ -39,7 +39,6 @@ foreach my $file ( @module_files ) {
             # for 'DESCRIPTION' check it has an 'XML Schema Definition'
             if ( $title eq 'DESCRIPTION' ) {
                 $pod .= make_description_section($section);
-                # $pod .= make_schema_section($section);
             }
             else {
                 $pod .= $section;
@@ -111,25 +110,6 @@ sub make_description_section {
 
     my $section = get_section($pom, 2, 'XML Schema Definition');
     $pod .= "=head2 XML Schema Definition\n\n";
-    if ( defined $section ) {
-        unless ( $section->content =~ m{ \A \s }xms ) {
-            print qq{Warning: "=head2 XML Schema Definition" doesn't begin with a space\n};
-        }
-        $pod .= $section->content;
-    }
-    else {
-        print qq{Warning: Couldn't find a "=head2 XML Schema Definition" inside 'DESCRIPTION'\n};
-        $pod .= "TO WRITE\n\n";
-    }
-    return $pod;
-}
-
-sub make_schema_section {
-    my ($pom) = @_;
-
-    my $section = get_section($pom, 2, 'XML Schema Definition');
-
-    my $pod = "=head2 XML Schema Definition\n\n";
     if ( defined $section ) {
         unless ( $section->content =~ m{ \A \s }xms ) {
             print qq{Warning: "=head2 XML Schema Definition" doesn't begin with a space\n};
