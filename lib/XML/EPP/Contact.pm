@@ -71,4 +71,21 @@ use XML::EPP::Contact::Info::Response;
 use XML::EPP::Contact::Transfer::Response;
 use XML::EPP::Contact::Create::Response;
 
+# load up all other classes under XML::EPP::Domain
+use XML::EPP::Contact::AddRem;
+use XML::EPP::Contact::Addr;
+use XML::EPP::Contact::AuthInfo;
+use XML::EPP::Contact::Change;
+use XML::EPP::Contact::ChangePostalInfo;
+use XML::EPP::Contact::Create;
+use XML::EPP::Contact::Disclose;
+use XML::EPP::Contact::E164;
+use XML::EPP::Contact::ID;
+use XML::EPP::Contact::Location;
+use XML::EPP::Contact::Node;
+use XML::EPP::Contact::PostalInfo;
+use XML::EPP::Contact::RQ;
+use XML::EPP::Contact::RS;
+use XML::EPP::Contact::Status;
+
 1;

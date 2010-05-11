@@ -33,5 +33,15 @@ use XML::EPP::Host::Create::Response;
 
 use XML::EPP::Host::Notification;
 
+# load up all other classes under XML::EPP::Host
+use XML::EPP::Host::Address;
+use XML::EPP::Host::Delta;
+use XML::EPP::Host::Item;
+use XML::EPP::Host::List;
+use XML::EPP::Host::Node;
+use XML::EPP::Host::Rename;
+use XML::EPP::Host::RQ;
+use XML::EPP::Host::RS;
+use XML::EPP::Host::Status;
 
 1;
