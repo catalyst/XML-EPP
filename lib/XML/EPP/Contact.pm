@@ -71,7 +71,7 @@ use XML::EPP::Contact::Info::Response;
 use XML::EPP::Contact::Transfer::Response;
 use XML::EPP::Contact::Create::Response;
 
-# load up all other classes under XML::EPP::Domain
+# load up all other classes under XML::EPP::Contact
 use XML::EPP::Contact::AddRem;
 use XML::EPP::Contact::Addr;
 use XML::EPP::Contact::AuthInfo;
