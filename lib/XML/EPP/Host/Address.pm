@@ -27,3 +27,16 @@ coerce __PACKAGE__
 subtype "XML::EPP::Host::addrType" => as __PACKAGE__;
 
 1;
+
+
+=head1 NAME
+
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...

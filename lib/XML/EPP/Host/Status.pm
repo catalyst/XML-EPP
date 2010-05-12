@@ -44,3 +44,15 @@ use Moose::Util::TypeConstraints;
 subtype "XML::EPP::Host::statusType" => as __PACKAGE__;
 
 1;
+
+=head1 NAME
+
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...

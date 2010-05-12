@@ -25,6 +25,8 @@ TODO
 
 =head1 DESCRIPTION
 
+...
+
 =head2 XML Schema definition
 
  <!--

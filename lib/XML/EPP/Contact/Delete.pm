@@ -15,6 +15,18 @@ has_element 'id' =>
 
 1;
 
+=head1 NAME
+
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
 =head2 XML Schema Definition
 
 <!--

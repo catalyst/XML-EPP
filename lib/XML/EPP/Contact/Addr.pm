@@ -39,6 +39,18 @@ has_element 'cc' =>
 
 1;
 
+=head1 NAME
+
+XML::EPP::Contact::Addr - implement host:chgType
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
 =head2 XML Schema Definition
 
  <complexType name="addrType">

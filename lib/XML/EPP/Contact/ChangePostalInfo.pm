@@ -30,6 +30,20 @@ has_attr 'type' =>
 	isa => 'XML::EPP::Contact::postalInfoEnumType',
 	;
 
+1;
+
+=head1 NAME
+
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
 =head2 XML Schema Definition
 
  <complexType name="chgPostalInfoType">

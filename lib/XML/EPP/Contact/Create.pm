@@ -54,8 +54,19 @@ has_element 'disclose' =>
 
 1;
 
-=head2 XML Schema Definition
+=head1 NAME
 
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
 
 <!--
 Child elements of the <create> command.
