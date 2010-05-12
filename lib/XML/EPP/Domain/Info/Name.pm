@@ -34,13 +34,13 @@ TODO
 
 =head2 XML Schema Definition
 
-<complexType name="infoNameType">
- <simpleContent>
-   <extension base = "eppcom:labelType">
-     <attribute name="hosts" type="domain:hostsType"
-      default="all"/>
-   </extension>
- </simpleContent>
-</complexType>
+ <complexType name="infoNameType">
+  <simpleContent>
+    <extension base = "eppcom:labelType">
+      <attribute name="hosts" type="domain:hostsType"
+       default="all"/>
+    </extension>
+  </simpleContent>
+ </complexType>
 
 =cut

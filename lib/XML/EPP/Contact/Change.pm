@@ -61,9 +61,9 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Data elements that can be changed.
--->
+ <!--
+ Data elements that can be changed.
+ -->
  <complexType name="chgType">
    <sequence>
      <element name="postalInfo" type="contact:chgPostalInfoType"

@@ -36,9 +36,9 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Child elements of the <info> and <transfer> commands.
--->
+ <!--
+ Child elements of the <info> and <transfer> commands.
+ -->
  <complexType name="authIDType">
    <sequence>
      <element name="id" type="eppcom:clIDType"/>

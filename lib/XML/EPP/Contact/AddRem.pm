@@ -28,9 +28,9 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Data elements that can be added or removed.
--->
+ <!--
+ Data elements that can be added or removed.
+ -->
  <complexType name="addRemType">
    <sequence>
      <element name="status" type="contact:statusType"

@@ -37,11 +37,11 @@ TODO
 
 =head2 XML Schema Definition
 
-<complexType name="authInfoType">
- <choice>
-   <element name="pw" type="eppcom:pwAuthInfoType"/>
-   <element name="ext" type="eppcom:extAuthInfoType"/>
- </choice>
-</complexType>
+ <complexType name="authInfoType">
+  <choice>
+    <element name="pw" type="eppcom:pwAuthInfoType"/>
+    <element name="ext" type="eppcom:extAuthInfoType"/>
+  </choice>
+ </complexType>
 
 =cut

@@ -37,9 +37,9 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-<create> response elements.
--->
+ <!--
+ <create> response elements.
+ -->
  <complexType name="creDataType">
    <sequence>
      <element name="id" type="eppcom:clIDType"/>

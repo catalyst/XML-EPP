@@ -68,9 +68,9 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Child elements of the <create> command.
--->
+ <!--
+ Child elements of the <create> command.
+ -->
  <complexType name="createType">
    <sequence>
      <element name="id" type="eppcom:clIDType"/>

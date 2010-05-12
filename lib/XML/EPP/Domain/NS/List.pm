@@ -36,17 +36,16 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Name servers are either host objects or attributes.
--->
-
-<complexType name="nsType">
- <choice>
-   <element name="hostObj" type="eppcom:labelType"
-    maxOccurs="unbounded"/>
-   <element name="hostAttr" type="domain:hostAttrType"
-    maxOccurs="unbounded"/>
- </choice>
-</complexType>
+ <!--
+ Name servers are either host objects or attributes.
+ -->
+ <complexType name="nsType">
+  <choice>
+    <element name="hostObj" type="eppcom:labelType"
+     maxOccurs="unbounded"/>
+    <element name="hostAttr" type="domain:hostAttrType"
+     maxOccurs="unbounded"/>
+  </choice>
+ </complexType>
 
 =cut

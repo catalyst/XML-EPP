@@ -47,17 +47,17 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Child elements of the <transfer> command.
--->
-<complexType name="transferType">
- <sequence>
-   <element name="name" type="eppcom:labelType"/>
-   <element name="period" type="domain:periodType"
-    minOccurs="0"/>
-   <element name="authInfo" type="domain:authInfoType"
-    minOccurs="0"/>
- </sequence>
-</complexType>
+ <!--
+ Child elements of the <transfer> command.
+ -->
+ <complexType name="transferType">
+  <sequence>
+    <element name="name" type="eppcom:labelType"/>
+    <element name="period" type="domain:periodType"
+     minOccurs="0"/>
+    <element name="authInfo" type="domain:authInfoType"
+     minOccurs="0"/>
+  </sequence>
+ </complexType>
 
 =cut

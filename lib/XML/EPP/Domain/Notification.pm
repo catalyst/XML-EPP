@@ -44,15 +44,15 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Pending action notification response elements.
--->
-<complexType name="panDataType">
- <sequence>
-   <element name="name" type="domain:paNameType"/>
-   <element name="paTRID" type="epp:trIDType"/>
-   <element name="paDate" type="dateTime"/>
- </sequence>
-</complexType>
+ <!--
+ Pending action notification response elements.
+ -->
+ <complexType name="panDataType">
+  <sequence>
+    <element name="name" type="domain:paNameType"/>
+    <element name="paTRID" type="epp:trIDType"/>
+    <element name="paDate" type="dateTime"/>
+  </sequence>
+ </complexType>
 
 =cut

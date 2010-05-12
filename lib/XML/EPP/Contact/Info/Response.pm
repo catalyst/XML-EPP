@@ -123,9 +123,9 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-<info> response elements.
--->
+ <!--
+ <info> response elements.
+ -->
  <complexType name="infDataType">
    <sequence>
      <element name="id" type="eppcom:clIDType"/>

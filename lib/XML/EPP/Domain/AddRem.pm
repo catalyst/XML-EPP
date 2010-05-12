@@ -41,18 +41,18 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Data elements that can be added or removed.
--->
-<complexType name="addRemType">
- <sequence>
-   <element name="ns" type="domain:nsType"
-    minOccurs="0"/>
-   <element name="contact" type="domain:contactType"
-    minOccurs="0" maxOccurs="unbounded"/>
-   <element name="status" type="domain:statusType"
-    minOccurs="0" maxOccurs="11"/>
- </sequence>
-</complexType>
+ <!--
+ Data elements that can be added or removed.
+ -->
+ <complexType name="addRemType">
+  <sequence>
+    <element name="ns" type="domain:nsType"
+     minOccurs="0"/>
+    <element name="contact" type="domain:contactType"
+     minOccurs="0" maxOccurs="unbounded"/>
+    <element name="status" type="domain:statusType"
+     minOccurs="0" maxOccurs="11"/>
+  </sequence>
+ </complexType>
 
 =cut

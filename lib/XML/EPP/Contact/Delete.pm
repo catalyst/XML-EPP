@@ -29,9 +29,9 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Child element of commands that require only an identifier.
--->
+ <!--
+ Child element of commands that require only an identifier.
+ -->
  <complexType name="sIDType">
    <sequence>
      <element name="id" type="eppcom:clIDType"/>

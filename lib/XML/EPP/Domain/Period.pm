@@ -32,13 +32,13 @@ TODO
 
 =head2 XML Schema Definition
 
-<complexType name="periodType">
- <simpleContent>
-   <extension base="domain:pLimitType">
-     <attribute name="unit" type="domain:pUnitType"
-      use="required"/>
-   </extension>
- </simpleContent>
-</complexType>
+ <complexType name="periodType">
+  <simpleContent>
+    <extension base="domain:pLimitType">
+      <attribute name="unit" type="domain:pUnitType"
+       use="required"/>
+    </extension>
+  </simpleContent>
+ </complexType>
 
 =cut

@@ -34,11 +34,11 @@ TODO
 
 =head2 XML Schema Definition
 
-<complexType name="chkDataType">
- <sequence>
-   <element name="cd" type="domain:checkType"
-    maxOccurs="unbounded"/>
- </sequence>
-</complexType>
+ <complexType name="chkDataType">
+  <sequence>
+    <element name="cd" type="domain:checkType"
+     maxOccurs="unbounded"/>
+  </sequence>
+ </complexType>
 
 =cut

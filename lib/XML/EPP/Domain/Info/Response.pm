@@ -123,39 +123,39 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-<info> response elements.
--->
-<complexType name="infDataType">
- <sequence>
-   <element name="name" type="eppcom:labelType"/>
-   <element name="roid" type="eppcom:roidType"/>
-   <element name="status" type="domain:statusType"
-    minOccurs="0" maxOccurs="11"/>
-   <element name="registrant" type="eppcom:clIDType"
-    minOccurs="0"/>
-   <element name="contact" type="domain:contactType"
-    minOccurs="0" maxOccurs="unbounded"/>
-   <element name="ns" type="domain:nsType"
-    minOccurs="0"/>
-   <element name="host" type="eppcom:labelType"
-    minOccurs="0" maxOccurs="unbounded"/>
-   <element name="clID" type="eppcom:clIDType"/>
-   <element name="crID" type="eppcom:clIDType"
-    minOccurs="0"/>
-   <element name="crDate" type="dateTime"
-    minOccurs="0"/>
-   <element name="upID" type="eppcom:clIDType"
-    minOccurs="0"/>
-   <element name="upDate" type="dateTime"
-    minOccurs="0"/>
-   <element name="exDate" type="dateTime"
-    minOccurs="0"/>
-   <element name="trDate" type="dateTime"
-    minOccurs="0"/>
-   <element name="authInfo" type="domain:authInfoType"
-    minOccurs="0"/>
- </sequence>
-</complexType>
+ <!--
+ <info> response elements.
+ -->
+ <complexType name="infDataType">
+  <sequence>
+    <element name="name" type="eppcom:labelType"/>
+    <element name="roid" type="eppcom:roidType"/>
+    <element name="status" type="domain:statusType"
+     minOccurs="0" maxOccurs="11"/>
+    <element name="registrant" type="eppcom:clIDType"
+     minOccurs="0"/>
+    <element name="contact" type="domain:contactType"
+     minOccurs="0" maxOccurs="unbounded"/>
+    <element name="ns" type="domain:nsType"
+     minOccurs="0"/>
+    <element name="host" type="eppcom:labelType"
+     minOccurs="0" maxOccurs="unbounded"/>
+    <element name="clID" type="eppcom:clIDType"/>
+    <element name="crID" type="eppcom:clIDType"
+     minOccurs="0"/>
+    <element name="crDate" type="dateTime"
+     minOccurs="0"/>
+    <element name="upID" type="eppcom:clIDType"
+     minOccurs="0"/>
+    <element name="upDate" type="dateTime"
+     minOccurs="0"/>
+    <element name="exDate" type="dateTime"
+     minOccurs="0"/>
+    <element name="trDate" type="dateTime"
+     minOccurs="0"/>
+    <element name="authInfo" type="domain:authInfoType"
+     minOccurs="0"/>
+  </sequence>
+ </complexType>
 
 =cut

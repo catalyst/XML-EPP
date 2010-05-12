@@ -34,9 +34,9 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-<check> response elements.
--->
+ <!--
+ <check> response elements.
+ -->
  <complexType name="chkDataType">
    <sequence>
      <element name="cd" type="contact:checkType"

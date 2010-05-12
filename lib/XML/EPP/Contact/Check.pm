@@ -30,9 +30,9 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Child element of commands that accept multiple identifiers.
--->
+ <!--
+ Child element of commands that accept multiple identifiers.
+ -->
  <complexType name="mIDType">
    <sequence>
      <element name="id" type="eppcom:clIDType"

@@ -62,9 +62,9 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-<transfer> response elements.
--->
+ <!--
+ <transfer> response elements.
+ -->
  <complexType name="trnDataType">
    <sequence>
      <element name="id" type="eppcom:clIDType"/>

@@ -61,22 +61,22 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Child elements of the <create> command.
--->
-<complexType name="createType">
- <sequence>
-   <element name="name" type="eppcom:labelType"/>
-   <element name="period" type="domain:periodType"
-    minOccurs="0"/>
-   <element name="ns" type="domain:nsType"
-    minOccurs="0"/>
-   <element name="registrant" type="eppcom:clIDType"
-    minOccurs="0"/>
-   <element name="contact" type="domain:contactType"
-    minOccurs="0" maxOccurs="unbounded"/>
-   <element name="authInfo" type="domain:authInfoType"/>
- </sequence>
-</complexType>
+ <!--
+ Child elements of the <create> command.
+ -->
+ <complexType name="createType">
+  <sequence>
+    <element name="name" type="eppcom:labelType"/>
+    <element name="period" type="domain:periodType"
+     minOccurs="0"/>
+    <element name="ns" type="domain:nsType"
+     minOccurs="0"/>
+    <element name="registrant" type="eppcom:clIDType"
+     minOccurs="0"/>
+    <element name="contact" type="domain:contactType"
+     minOccurs="0" maxOccurs="unbounded"/>
+    <element name="authInfo" type="domain:authInfoType"/>
+  </sequence>
+ </complexType>
 
 =cut

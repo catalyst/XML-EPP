@@ -41,16 +41,16 @@ TODO
 
 =head2 XML Schema Definition
 
-<!--
-Child elements of the <renew> command.
--->
-<complexType name="renewType">
- <sequence>
-   <element name="name" type="eppcom:labelType"/>
-   <element name="curExpDate" type="date"/>
-   <element name="period" type="domain:periodType"
-    minOccurs="0"/>
- </sequence>
-</complexType>
+ <!--
+ Child elements of the <renew> command.
+ -->
+ <complexType name="renewType">
+  <sequence>
+    <element name="name" type="eppcom:labelType"/>
+    <element name="curExpDate" type="date"/>
+    <element name="period" type="domain:periodType"
+     minOccurs="0"/>
+  </sequence>
+ </complexType>
 
 =cut
