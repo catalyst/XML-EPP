@@ -22,7 +22,7 @@ has_attr 'result' =>
 
 =head1 NAME
 
-? - implement ?
+XML::EPP::Contact::ID - implement paCLIDType
 
 =head1 SYNOPSIS
 
@@ -32,7 +32,7 @@ TODO
 
 ...
 
-=head2 XMLSchema definition
+=head2 XML Schema Definition
 
  <complexType name="paCLIDType">
    <simpleContent>

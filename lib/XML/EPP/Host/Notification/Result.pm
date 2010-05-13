@@ -22,7 +22,7 @@ has_attr "approved" =>
 
 =head1 NAME
 
-? - implement ?
+XML::EPP::Host::Notification::Result - implement ?
 
 =head1 SYNOPSIS
 
@@ -31,3 +31,16 @@ TODO
 =head1 DESCRIPTION
 
 ...
+
+=head2 XML Schema Definition
+
+ <complexType name="paNameType">
+   <simpleContent>
+     <extension base="eppcom:labelType">
+       <attribute name="paResult" type="boolean"
+        use="required"/>
+     </extension>
+   </simpleContent>
+ </complexType>
+
+=cut

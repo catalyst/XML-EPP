@@ -12,7 +12,7 @@ sub xmlns {
 
 =head1 NAME
 
-? - implement ?
+XML::EPP::Domain::Node
 
 =head1 SYNOPSIS
 
@@ -21,3 +21,9 @@ TODO
 =head1 DESCRIPTION
 
 ...
+
+=head2 XML Schema Definition
+
+Provides a role for all XML::EPP::Domain::* elements to use.
+
+=cut

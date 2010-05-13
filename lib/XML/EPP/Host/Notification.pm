@@ -33,7 +33,7 @@ has_element 'tx_when' =>
 
 =head1 NAME
 
-? - implement ?
+XML::EPP::Host::Notification - implement panDataType
 
 =head1 SYNOPSIS
 
@@ -43,7 +43,7 @@ TODO
 
 ...
 
-=head2 XMLSchema definition
+=head2 XML Schema Definition
 
  <!--
  Pending action notification response elements.

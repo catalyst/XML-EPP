@@ -28,10 +28,9 @@ subtype "XML::EPP::Host::addrType" => as __PACKAGE__;
 
 1;
 
-
 =head1 NAME
 
-? - implement ?
+XML::EPP::Host::Address - implement addrType
 
 =head1 SYNOPSIS
 
@@ -40,3 +39,16 @@ TODO
 =head1 DESCRIPTION
 
 ...
+
+=head2 XML Schema Definition
+
+ <complexType name="addrType">
+   <simpleContent>
+     <extension base="host:addrStringType">
+       <attribute name="ip" type="host:ipType"
+        default="v4"/>
+     </extension>
+   </simpleContent>
+ </complexType>
+
+=cut

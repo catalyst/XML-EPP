@@ -1,17 +1,5 @@
 package XML::EPP::Host::Delta;
 
-# <!--
-# Data elements that can be added or removed.
-# -->
-#  <complexType name="addRemType">
-#    <sequence>
-#      <element name="addr" type="host:addrType"
-#       minOccurs="0" maxOccurs="unbounded"/>
-#      <element name="status" type="host:statusType"
-#       minOccurs="0" maxOccurs="7"/>
-#    </sequence>
-#  </complexType>
-
 use Moose;
 with 'XML::EPP::Host::Node';
 use PRANG::Graph;
@@ -44,3 +32,19 @@ TODO
 =head1 DESCRIPTION
 
 ...
+
+=head2 XML Schema Definition
+
+ <!--
+ Data elements that can be added or removed.
+ -->
+ <complexType name="addRemType">
+   <sequence>
+     <element name="addr" type="host:addrType"
+      minOccurs="0" maxOccurs="unbounded"/>
+     <element name="status" type="host:statusType"
+      minOccurs="0" maxOccurs="7"/>
+   </sequence>
+ </complexType>
+
+=cut

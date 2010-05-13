@@ -43,10 +43,9 @@ subtype "XML::EPP::Host::updateType" => as __PACKAGE__;
 
 1;
 
-
 =head1 NAME
 
-? - implement ?
+XML::EPP::Host::Update - implement ?
 
 =head1 SYNOPSIS
 
@@ -55,3 +54,22 @@ TODO
 =head1 DESCRIPTION
 
 ...
+
+=head2 XML Schema Definition
+
+ <!--
+ Child elements of the <update> command.
+ -->
+ <complexType name="updateType">
+   <sequence>
+     <element name="name" type="eppcom:labelType"/>
+     <element name="add" type="host:addRemType"
+      minOccurs="0"/>
+     <element name="rem" type="host:addRemType"
+      minOccurs="0"/>
+     <element name="chg" type="host:chgType"
+      minOccurs="0"/>
+   </sequence>
+ </complexType>
+
+=cut

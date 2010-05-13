@@ -12,3 +12,25 @@ subtype "${SCHEMA_PKG}::extAuthInfoType"
 	=> as __PACKAGE__;
 
 1;
+
+=head1 NAME
+
+XML::EPP::Common::ExtPassword
+
+=head1 SYNOPSIS
+
+...
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+  <complexType name="extAuthInfoType">
+    <sequence>
+      <any namespace="##other"/>
+    </sequence>
+  </complexType>
+
+=cut

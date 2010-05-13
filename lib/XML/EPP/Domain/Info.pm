@@ -34,3 +34,18 @@ TODO
 =head1 DESCRIPTION
 
 ...
+
+=head2 XML Schema Definition
+
+<!--
+Child elements of the <info> command.
+-->
+<complexType name="infoType">
+ <sequence>
+   <element name="name" type="domain:infoNameType"/>
+   <element name="authInfo" type="domain:authInfoType"
+    minOccurs="0"/>
+ </sequence>
+</complexType>
+
+=cut

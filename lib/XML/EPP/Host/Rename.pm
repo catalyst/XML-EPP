@@ -27,7 +27,7 @@ TODO
 
 ...
 
-=head2 XML Schema definition
+=head2 XML Schema Definition
 
  <!--
  Data elements that can be changed.

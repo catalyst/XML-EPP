@@ -26,3 +26,30 @@ subtype "${SCHEMA_PKG}::reasonType"
 	=> as __PACKAGE__;
 
 1;
+
+=head NAME
+
+XML::EPP::Common::Reason
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+TODO
+
+=head2 XML Schema Definition
+
+ <!--
+ <check> response types.
+ -->
+ <complexType name="reasonType">
+   <simpleContent>
+     <extension base="eppcom:reasonBaseType">
+       <attribute name="lang" type="language"/>
+     </extension>
+   </simpleContent>
+ </complexType>
+
+=cut
