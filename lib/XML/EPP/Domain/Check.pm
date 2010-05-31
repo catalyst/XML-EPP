@@ -12,6 +12,7 @@ has_element 'names' =>
 	is => 'ro',
 	isa => 'ArrayRef[XML::EPP::Common::labelType]',
 	xml_nodeName => 'name',
+	auto_deref => 1,
 	;
 
 1;
