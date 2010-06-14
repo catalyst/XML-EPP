@@ -4,6 +4,7 @@ package XML::EPP;
 use Moose;
 use MooseX::Method::Signatures;
 use Moose::Util::TypeConstraints;
+use MooseX::StrictConstructor;
 
 use constant XSI_XMLNS => "http://www.w3.org/2001/XMLSchema-instance";
 

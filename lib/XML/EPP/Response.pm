@@ -2,6 +2,7 @@
 package XML::EPP::Response;
 
 use Moose;
+use MooseX::StrictConstructor;
 use MooseX::Method::Signatures;
 use Moose::Util::TypeConstraints;
 use PRANG::Graph;
