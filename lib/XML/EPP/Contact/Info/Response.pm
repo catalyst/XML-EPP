@@ -40,13 +40,13 @@ has_element 'postal_info' =>
 has_element 'voice' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::E164',
-	required => 0,
+	xml_required => 0,
 	;
 
 has_element 'fax' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::E164',
-	required => 0,
+	xml_required => 0,
 	;
 
 has_element 'email' =>
@@ -104,7 +104,7 @@ has_element 'auth_info' =>
 has_element 'disclose' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::Disclose',
-	required => 0,
+	xml_required => 0,
 	;
 
 1;
