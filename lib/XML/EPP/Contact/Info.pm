@@ -18,6 +18,7 @@ has_element 'auth_info' =>
 	isa => 'XML::EPP::Contact::AuthInfo',
 	xml_required => 0,
 	xml_nodeName => 'authInfo',
+	predicate => 'has_auth_info',
 	;
 
 1;
