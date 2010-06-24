@@ -1,0 +1,86 @@
+=head1 NAME
+
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+ <!--
+ Child elements of the <create> command.
+ -->
+ <complexType name="createType">
+   <sequence>
+     <element name="id" type="eppcom:clIDType"/>
+     <element name="postalInfo" type="contact:postalInfoType"
+      maxOccurs="2"/>
+     <element name="voice" type="contact:e164Type"
+      minOccurs="0"/>
+     <element name="fax" type="contact:e164Type"
+      minOccurs="0"/>
+     <element name="email" type="eppcom:minTokenType"/>
+     <element name="authInfo" type="contact:authInfoType"/>
+     <element name="disclose" type="contact:discloseType"
+      minOccurs="0"/>
+   </sequence>
+ </complexType>
+
+=head2 Attributes
+
+There are no xml attributes on this element.
+
+=head2 Elements
+
+=over
+
+=item B<email>
+
+This element is of type 'XML::EPP::Common::minTokenType' and is not required.
+
+=item B<id>
+
+This element is of type 'XML::EPP::Common::clIDType' and is not required.
+
+=item B<disclose>
+
+This element is of type 'XML::EPP::Contact::Disclose' and is not required.
+
+=item B<fax>
+
+This element is of type 'XML::EPP::Contact::E164' and is not required.
+
+=item B<postal_info>
+
+This element is of type 'ArrayRef[XML::EPP::Contact::PostalInfo]' and is not required.  It corresponds to the XML element of name 'postalInfo'.  It can be provided at most 2 times.
+
+=item B<voice>
+
+This element is of type 'XML::EPP::Contact::E164' and is not required.
+
+=item B<auth_info>
+
+This element is of type 'XML::EPP::Contact::AuthInfo' and is not required.  It corresponds to the XML element of name 'authInfo'.
+
+=back
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

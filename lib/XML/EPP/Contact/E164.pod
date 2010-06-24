@@ -1,0 +1,57 @@
+=head1 NAME
+
+XML::EPP::Contact::E164 - implement e164Type
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+ <complexType name="e164Type">
+   <simpleContent>
+     <extension base="contact:e164StringType">
+       <attribute name="x" type="token"/>
+     </extension>
+   </simpleContent>
+ </complexType>
+
+=head2 Attributes
+
+=over
+
+=item B<x>
+
+This attribute is of type 'PRANG::XMLSchema::token' and is not required.
+
+=back
+
+=head2 Elements
+
+=over
+
+=item B<content>
+
+This element is of type 'XML::EPP::Contact::e164StringType' and is not required.
+
+=back
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

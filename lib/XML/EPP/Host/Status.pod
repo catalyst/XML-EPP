@@ -1,0 +1,55 @@
+=head1 NAME
+
+XML::EPP::Host::Status - implement statusType
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+TO WRITE
+
+=head2 Attributes
+
+=over
+
+=item B<lang>
+
+This attribute is of type 'PRANG::XMLSchema::language' and is not required.
+
+=item B<status>
+
+This attribute is of type 'XML::EPP::Host::statusValueType' and is not required.
+
+=back
+
+=head2 Elements
+
+=over
+
+=item B<description>
+
+This element is of type 'PRANG::XMLSchema::normalizedString' and is not required.
+
+=back
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

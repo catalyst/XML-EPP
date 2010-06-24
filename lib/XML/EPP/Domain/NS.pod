@@ -1,0 +1,61 @@
+=head1 NAME
+
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+ <!--
+ Name servers are either host objects or attributes.
+ -->
+ <complexType name="nsType">
+  <choice>
+    <element name="hostObj" type="eppcom:labelType"
+     maxOccurs="unbounded"/>
+    <element name="hostAttr" type="domain:hostAttrType"
+     maxOccurs="unbounded"/>
+  </choice>
+ </complexType>
+
+=head2 Attributes
+
+=over
+
+=item B<host_attrs>
+
+This attribute is of type 'ArrayRef[XML::EPP::Domain::HostAttr]' and is not required.
+
+=back
+
+=head2 Elements
+
+=over
+
+=item B<host_objs>
+
+This element is of type 'ArrayRef[XML::EPP::Common::labelType]' and is not required.  It corresponds to the XML element of name 'hostObj'.
+
+=back
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

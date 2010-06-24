@@ -1,0 +1,52 @@
+=head1 NAME
+
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+ <!--
+ Child element of commands that require a single name.
+ -->
+ <complexType name="sNameType">
+  <sequence>
+    <element name="name" type="eppcom:labelType"/>
+  </sequence>
+ </complexType>
+
+=head2 Attributes
+
+There are no xml attributes on this element.
+
+=head2 Elements
+
+=over
+
+=item B<name>
+
+This element is of type 'XML::EPP::Common::labelType' and is not required.
+
+=back
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

@@ -1,0 +1,48 @@
+=head1 NAME
+
+XML::EPP::Domain::RQ
+
+=head1 SYNOPSIS
+
+This module provides a role for all the Domain command request.
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+ <!--
+ Child elements found in EPP commands.
+ -->
+ <element name="check" type="domain:mNameType"/>
+ <element name="create" type="domain:createType"/>
+ <element name="delete" type="domain:sNameType"/>
+ <element name="info" type="domain:infoType"/>
+ <element name="renew" type="domain:renewType"/>
+ <element name="transfer" type="domain:transferType"/>
+ <element name="update" type="domain:updateType"/>
+
+=head2 Attributes
+
+Failed to find any attributes on this element.
+
+=head2 Elements
+
+Failed to find any child elements on this element.
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

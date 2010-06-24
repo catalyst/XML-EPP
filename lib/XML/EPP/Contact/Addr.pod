@@ -1,0 +1,72 @@
+=head1 NAME
+
+XML::EPP::Contact::Addr - implement host:chgType
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+ <complexType name="addrType">
+   <sequence>
+     <element name="street" type="contact:optPostalLineType"
+      minOccurs="0" maxOccurs="3"/>
+     <element name="city" type="contact:postalLineType"/>
+     <element name="sp" type="contact:optPostalLineType"
+      minOccurs="0"/>
+     <element name="pc" type="contact:pcType"
+      minOccurs="0"/>
+     <element name="cc" type="contact:ccType"/>
+   </sequence>
+ </complexType>
+
+=head2 Attributes
+
+There are no xml attributes on this element.
+
+=head2 Elements
+
+=over
+
+=item B<sp>
+
+This element is of type 'XML::EPP::Contact::optPostalLineType' and is not required.
+
+=item B<street>
+
+This element is of type 'ArrayRef[XML::EPP::Contact::optPostalLineType]' and is not required.  It can be provided at most 3 times.
+
+=item B<cc>
+
+This element is of type 'XML::EPP::Contact::ccType' and is not required.
+
+=item B<pc>
+
+This element is of type 'XML::EPP::Contact::optPostalLineType' and is not required.
+
+=item B<city>
+
+This element is of type 'XML::EPP::Contact::postalLineType' and is not required.
+
+=back
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

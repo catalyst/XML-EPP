@@ -1,0 +1,47 @@
+=head1 NAME
+
+XML::EPP::Domain::RS
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+This module provides a base class for all the Domain command responses.
+
+=head2 XML Schema Definition
+
+ <!--
+ Child response elements.
+ -->
+ <element name="chkData" type="domain:chkDataType"/>
+ <element name="creData" type="domain:creDataType"/>
+ <element name="infData" type="domain:infDataType"/>
+ <element name="panData" type="domain:panDataType"/>
+ <element name="renData" type="domain:renDataType"/>
+ <element name="trnData" type="domain:trnDataType"/>
+
+=head2 Attributes
+
+Failed to find any attributes on this element.
+
+=head2 Elements
+
+Failed to find any child elements on this element.
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

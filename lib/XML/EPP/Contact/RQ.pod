@@ -1,0 +1,47 @@
+=head1 NAME
+
+XML::EPP::Contact::RQ
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+This module provides a role for all the Contact command requests.
+
+=head2 XML Schema Definition
+
+ <!--
+ Child elements found in EPP commands.
+ -->
+ <element name="check" type="contact:mIDType"/>
+ <element name="create" type="contact:createType"/>
+ <element name="delete" type="contact:sIDType"/>
+ <element name="info" type="contact:authIDType"/>
+ <element name="transfer" type="contact:authIDType"/>
+ <element name="update" type="contact:updateType"/>
+
+=head2 Attributes
+
+Failed to find any attributes on this element.
+
+=head2 Elements
+
+Failed to find any child elements on this element.
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

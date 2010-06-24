@@ -1,0 +1,62 @@
+=head1 NAME
+
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+ <!--
+ Pending action notification response elements.
+ -->
+ <complexType name="panDataType">
+   <sequence>
+     <element name="id" type="contact:paCLIDType"/>
+     <element name="paTRID" type="epp:trIDType"/>
+     <element name="paDate" type="dateTime"/>
+   </sequence>
+ </complexType>
+
+=head2 Attributes
+
+There are no xml attributes on this element.
+
+=head2 Elements
+
+=over
+
+=item B<id>
+
+This element is of type 'XML::EPP::Contact::ID' and is not required.
+
+=item B<tx_id>
+
+This element is of type 'XML::EPP::TrID' and is not required.  It corresponds to the XML element of name 'paTRID'.
+
+=item B<completed>
+
+This element is of type 'PRANG::XMLSchema::dateTime' and is not required.  It corresponds to the XML element of name 'paDate'.
+
+=back
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

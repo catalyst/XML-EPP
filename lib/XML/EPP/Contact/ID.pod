@@ -1,0 +1,58 @@
+=head1 NAME
+
+XML::EPP::Contact::ID - implement paCLIDType
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+ <complexType name="paCLIDType">
+   <simpleContent>
+     <extension base="eppcom:clIDType">
+       <attribute name="paResult" type="boolean"
+        use="required"/>
+     </extension>
+   </simpleContent>
+ </complexType>
+
+=head2 Attributes
+
+=over
+
+=item B<result>
+
+This attribute is of type 'PRANG::XMLSchema::boolean' and is not required.
+
+=back
+
+=head2 Elements
+
+=over
+
+=item B<value>
+
+This element is of type 'XML::EPP::Common::clIDType' and is not required.
+
+=back
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

@@ -1,0 +1,102 @@
+=head1 NAME
+
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+ <!--
+ <info> response elements.
+ -->
+  <complexType name="infDataType">
+    <sequence>
+      <element name="name" type="eppcom:labelType"/>
+      <element name="roid" type="eppcom:roidType"/>
+      <element name="status" type="host:statusType"
+       maxOccurs="7"/>
+      <element name="addr" type="host:addrType"
+       minOccurs="0" maxOccurs="unbounded"/>
+      <element name="clID" type="eppcom:clIDType"/>
+      <element name="crID" type="eppcom:clIDType"/>
+      <element name="crDate" type="dateTime"/>
+      <element name="upID" type="eppcom:clIDType"
+       minOccurs="0"/>
+      <element name="upDate" type="dateTime"
+       minOccurs="0"/>
+      <element name="trDate" type="dateTime"
+       minOccurs="0"/>
+    </sequence>
+  </complexType>
+
+=head2 Attributes
+
+There are no xml attributes on this element.
+
+=head2 Elements
+
+=over
+
+=item B<roid>
+
+This element is of type 'XML::EPP::Common::roidType' and is not required.
+
+=item B<updated>
+
+This element is of type 'PRANG::XMLSchema::dateTime' and is not required.  It corresponds to the XML element of name 'upDate'.
+
+=item B<creator_id>
+
+This element is of type 'XML::EPP::Common::clIDType' and is not required.  It corresponds to the XML element of name 'crID'.
+
+=item B<transferred>
+
+This element is of type 'PRANG::XMLSchema::dateTime' and is not required.  It corresponds to the XML element of name 'trDate'.  It should be provided at least 1 times.
+
+=item B<name>
+
+This element is of type 'XML::EPP::Common::labelType' and is not required.
+
+=item B<status>
+
+This element is of type 'ArrayRef[XML::EPP::Host::Status]' and is not required.  It can be provided at most 7 times.
+
+=item B<updated_by_id>
+
+This element is of type 'XML::EPP::Common::clIDType' and is not required.  It corresponds to the XML element of name 'upID'.
+
+=item B<client_id>
+
+This element is of type 'XML::EPP::Common::clIDType' and is not required.  It corresponds to the XML element of name 'clID'.
+
+=item B<created>
+
+This element is of type 'PRANG::XMLSchema::dateTime' and is not required.  It corresponds to the XML element of name 'crDate'.
+
+=item B<addresses>
+
+This element is of type 'ArrayRef[XML::EPP::Host::Address]' and is not required.  It corresponds to the XML element of name 'addr'.
+
+=back
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

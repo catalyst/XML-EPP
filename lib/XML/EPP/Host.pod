@@ -1,0 +1,35 @@
+=head1 NAME
+
+XML::EPP::Host
+
+=head1 SYNOPSIS
+
+TO WRITE!
+
+=head1 DESCRIPTION
+
+TO WRITE!
+
+=head2 Attributes
+
+Failed to find any attributes on this element.
+
+=head2 Elements
+
+Failed to find any child elements on this element.
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+

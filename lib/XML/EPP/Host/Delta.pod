@@ -1,0 +1,59 @@
+=head1 NAME
+
+? - implement ?
+
+=head1 SYNOPSIS
+
+TODO
+
+=head1 DESCRIPTION
+
+...
+
+=head2 XML Schema Definition
+
+ <!--
+ Data elements that can be added or removed.
+ -->
+ <complexType name="addRemType">
+   <sequence>
+     <element name="addr" type="host:addrType"
+      minOccurs="0" maxOccurs="unbounded"/>
+     <element name="status" type="host:statusType"
+      minOccurs="0" maxOccurs="7"/>
+   </sequence>
+ </complexType>
+
+=head2 Attributes
+
+There are no xml attributes on this element.
+
+=head2 Elements
+
+=over
+
+=item B<status>
+
+This element is of type 'ArrayRef[XML::EPP::Host::Status]' and is not required.  It can be provided at most 7 times.
+
+=item B<addr>
+
+This element is of type 'ArrayRef[XML::EPP::Host::Address]' and is not required.
+
+=back
+
+=head1 SEE ALSO
+
+ToMake
+
+=head1 AUTHOR AND LICENSE
+
+Development commissioned by NZ Registry Services, and carried out by
+Catalyst IT - L<http://www.catalyst.net.nz/>
+
+Copyright 2009, 2010, NZ Registry Services.  This module is licensed
+under the Artistic License v2.0, which permits relicensing under other
+Free Software licenses.
+
+=cut
+
