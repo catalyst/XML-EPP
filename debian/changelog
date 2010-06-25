@@ -1,0 +1,35 @@
+libxml-epp-perl (0.04) unstable; urgency=low
+
+  * new XML::EPP release
+
+ -- Evan Giles <evan@catalyst.net.nz>  Fri, 25 Jun 2010 16:28:45 +1200
+
+libxml-epp-perl (0.03-1) unstable; urgency=low
+
+  * new XML::EPP release
+
+ -- Sam Vilain <sam.vilain@catalyst.net.nz>  Fri, 07 May 2010 16:28:45 +1200
+
+libxml-epp-perl (0.02-35-gc40534d-1) unstable; urgency=low
+
+  * git pull
+
+ -- Sam Vilain <sam.vilain@catalyst.net.nz>  Mon, 03 May 2010 15:19:49 +1200
+
+libxml-epp-perl (0.02-33-g784a105-1) unstable; urgency=low
+
+  * git pull
+
+ -- Sam Vilain <sam.vilain@catalyst.net.nz>  Fri, 30 Apr 2010 15:02:26 +1200
+
+libxml-epp-perl (0.02-31-g6758032-1) unstable; urgency=low
+
+  * Note this isn't the same as the CPAN release
+
+ -- Sam Vilain <sam.vilain@catalyst.net.nz>  Fri, 30 Apr 2010 14:55:44 +1200
+
+libxml-epp-perl (0.02-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Sam Vilain <sam.vilain@catalyst.net.nz>  Fri, 30 Apr 2010 14:54:40 +1200
