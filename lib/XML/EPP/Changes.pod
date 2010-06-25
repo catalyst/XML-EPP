@@ -4,6 +4,44 @@
 This POD file documents a summary of the changes in XML::EPP.  For the
 full list of changes, refer to the git history.
 
+=head2 VERSION 0.04 - 26 JUNE 2010
+
+=over
+
+=item *
+
+Fixes for Info/Contact Response (what is required/optional)
+
+=item *
+
+Use MooseX::StrictConstructor to help when generating classes
+
+=item *
+
+Helpers to various PRANG classes
+
+=item *
+
+Fix POD for XML Schema Definitions
+
+=item *
+
+Initial setup of Pod for most Domain/Host/Contact classes
+
+=item *
+
+Added make-docs.pl
+
+=item *
+
+Load all XML::EPP::Domain/Host/Contact classes
+
+=item *
+
+Now depends on the latest PRANG
+
+=back
+
 =head2 VERSION 0.03 - 7 May 2010
 
 =over
