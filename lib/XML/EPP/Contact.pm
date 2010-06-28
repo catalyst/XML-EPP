@@ -54,7 +54,7 @@ BEGIN {
 	subtype "${PKG}::e164StringType"
 		=> as "PRANG::XMLSchema::token"
 		=> where {
-            length($_) <= 17 and $_ =~ m{(\+[0-9]{3}\.[0-9]{1,14})?}xms;
+            length($_) <= 17 and $_ =~ m{\A\+[0-9]{1,3}\.[0-9]{1,14}\z}xms;
 		};
 }
 
