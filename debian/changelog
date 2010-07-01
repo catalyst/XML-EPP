@@ -1,3 +1,9 @@
+libxml-epp-perl (0.04.1-1) lucid; urgency=low
+
+  * Update to latest dev. version
+
+ -- Sam Vilain <sam.vilain@catalyst.net.nz>  Thu, 01 Jul 2010 19:21:45 +1200
+
 libxml-epp-perl (0.04) unstable; urgency=low
 
   * new XML::EPP release
