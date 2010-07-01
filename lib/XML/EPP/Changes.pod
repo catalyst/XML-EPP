@@ -4,7 +4,7 @@
 This POD file documents a summary of the changes in XML::EPP.  For the
 full list of changes, refer to the git history.
 
-=head2 VERSION 0.04 - ??? 2010
+=head2 VERSION 0.05 - UNRELEAED
 
 =over
 
@@ -19,6 +19,45 @@ attributes in a class based on the definitions.
 
 Initial support for RFC3915: Registrar Grace Period, see
 L<XML::EPP::Grace>
+
+=item *
+
+Start to use C<MooseX::StrictConstructor> (incomplete;
+needs to be added to all classes)
+
+=back
+
+=head2 VERSION 0.04 - 26 JUNE 2010
+
+=over
+
+=item *
+
+Fixes for Info/Contact Response (what is required/optional)
+
+=item *
+
+Use MooseX::StrictConstructor to help when generating classes
+
+=item *
+
+Helpers to various PRANG classes
+
+=item *
+
+Fix POD for XML Schema Definitions
+
+=item *
+
+Initial setup of Pod for most Domain/Host/Contact classes
+
+=item *
+
+Added make-docs.pl
+
+=item *
+
+Load all XML::EPP::Domain/Host/Contact classes
 
 =back
 
