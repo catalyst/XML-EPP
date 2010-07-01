@@ -14,7 +14,6 @@ use XML::Compare;
 use FindBin qw($Bin);
 
 use lib $Bin;
-use RFCTypes;
 use XMLTests;
 
 our @tests = XMLTests::find_tests;
@@ -23,11 +22,15 @@ plan tests => @tests * 3;
 
 my $xml_compare = XML::Compare->new(
 	ignore => [
+		q{@xsi:schemaLocation},
+		q{//@xsi:schemaLocation},
+		q{//@lang},
 	],
 	ignore_xmlns => {
 		"epp" => "urn:ietf:params:xml:ns:epp-1.0",
 		"domain" => "urn:ietf:params:xml:ns:domain-1.0",
 		"rgp" => "urn:ietf:params:xml:ns:rgp-1.0",
+		"xsi" => "http://www.w3.org/2001/XMLSchema-instance",
 	},
 );
 
