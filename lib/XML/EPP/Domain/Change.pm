@@ -9,7 +9,7 @@ use PRANG::XMLSchema::Types;
 has_element 'registrant' =>
 	is => 'rw',
 	isa => 'XML::EPP::Domain::clIDChgType',
-	required => 0,
+	xml_required => 0,
 	;
 
 has_element 'auth_info' =>

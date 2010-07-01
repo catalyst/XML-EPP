@@ -4,6 +4,29 @@
 This POD file documents a summary of the changes in XML::EPP.  For the
 full list of changes, refer to the git history.
 
+=head2 VERSION 0.05 - UNRELEAED
+
+=over
+
+=item *
+
+Lots of automatically generated boilerplate, but hopefully useful
+documentation for the classes.  This is the start of a JavaDoc-like
+system for automatically including documentation on the available
+attributes in a class based on the definitions.
+
+=item *
+
+Initial support for RFC3915: Registrar Grace Period, see
+L<XML::EPP::Grace>
+
+=item *
+
+Start to use C<MooseX::StrictConstructor> (incomplete;
+needs to be added to all classes)
+
+=back
+
 =head2 VERSION 0.04 - 26 JUNE 2010
 
 =over
@@ -35,10 +58,6 @@ Added make-docs.pl
 =item *
 
 Load all XML::EPP::Domain/Host/Contact classes
-
-=item *
-
-Now depends on the latest PRANG
 
 =back
 

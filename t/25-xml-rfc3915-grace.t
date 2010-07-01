@@ -6,7 +6,49 @@
 use strict;
 use Test::More;
 
-plan skip_all => "TODO";
+use Scriptalicious;
+use XML::EPP;
+use XML::EPP::Domain;
+use XML::EPP::Grace;
+use XML::Compare;
+use FindBin qw($Bin);
+
+use lib $Bin;
+use XMLTests;
+
+our @tests = XMLTests::find_tests;
+
+plan tests => @tests * 3;
+
+my $xml_compare = XML::Compare->new(
+	ignore => [
+		q{@xsi:schemaLocation},
+		q{//@xsi:schemaLocation},
+		q{//@lang},
+	],
+	ignore_xmlns => {
+		"epp" => "urn:ietf:params:xml:ns:epp-1.0",
+		"domain" => "urn:ietf:params:xml:ns:domain-1.0",
+		"rgp" => "urn:ietf:params:xml:ns:rgp-1.0",
+		"xsi" => "http://www.w3.org/2001/XMLSchema-instance",
+	},
+);
+
+for my $test ( sort @tests ) {
+	my $xml = XMLTests::read_xml($test);
+
+	my $object = XMLTests::parse_test( "XML::EPP", $xml, $test );
+ SKIP: {
+		skip "didn't parse", 2 unless $object;
+		my $r_xml = XMLTests::emit_test( $object, $test );
+		if ( !defined $r_xml ) {
+			skip "no XML returned", 1;
+		}
+		XMLTests::xml_compare_test(
+			$xml_compare, $xml, $r_xml, $test,
+		       );
+	}
+}
 
 # Copyright (C) 2009  NZ Registry Services
 #

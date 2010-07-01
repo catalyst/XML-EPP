@@ -98,6 +98,12 @@ sub xml_compare_test {
 	my $is_same = $xml_compare->is_same($r_xml, $xml);
 	ok($is_same, "$test_name - XML output same")
 		or diag("Error: ".$xml_compare->error);
+	if ( ($main::VERBOSE||0)>1 and $xml_compare->_ignore_nodes ) {
+		my @ignored = sort keys %{ $xml_compare->_ignore_nodes };
+		diag(join("\n", "ignored nodes:",
+			  map { "\t$_" } @ignored,
+			 ));
+	}
 
 }
 
