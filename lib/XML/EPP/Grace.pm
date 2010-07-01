@@ -22,7 +22,7 @@ BEGIN {
 }
 
 use XML::EPP::Grace::Info;
-#use XML::EPP::Grace::Update;
+use XML::EPP::Grace::Update;
 #use XML::EPP::Grace::Update::Response;
 
 1;
