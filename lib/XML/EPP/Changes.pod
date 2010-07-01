@@ -4,6 +4,24 @@
 This POD file documents a summary of the changes in XML::EPP.  For the
 full list of changes, refer to the git history.
 
+=head2 VERSION 0.04 - ??? 2010
+
+=over
+
+=item *
+
+Lots of automatically generated boilerplate, but hopefully useful
+documentation for the classes.  This is the start of a JavaDoc-like
+system for automatically including documentation on the available
+attributes in a class based on the definitions.
+
+=item *
+
+Initial support for RFC3915: Registrar Grace Period, see
+L<XML::EPP::Grace>
+
+=back
+
 =head2 VERSION 0.03 - 7 May 2010
 
 =over
