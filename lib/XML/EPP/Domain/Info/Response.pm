@@ -94,10 +94,11 @@ has_element 'expiry_date' =>
 	xml_nodeName => 'exDate',
 	;
 
-has_element 'trDate' =>
+has_element 'transfer_date' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
 	xml_required => 0,
+	xml_nodeName => "trDate",
 	;
 
 has_element 'auth_info' =>
