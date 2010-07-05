@@ -2,6 +2,7 @@ package XML::EPP::Domain::Info::Response;
 
 use Moose;
 use PRANG::Graph;
+use XML::EPP::Domain;
 
 sub root_element { 'infData' }
 
