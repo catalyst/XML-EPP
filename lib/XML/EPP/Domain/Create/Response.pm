@@ -18,6 +18,7 @@ has_element 'name' =>
 has_element 'created' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
+	coerce => 1,
 	xml_nodeName => "crDate",
 	;
 
@@ -25,6 +26,7 @@ has_element 'expiry_date' =>
 	is => 'rw',
 	isa => 'PRANG::XMLSchema::dateTime',
 	xml_nodeName => 'exDate',
+	coerce => 1,
 	required => 0,
 	;
 
