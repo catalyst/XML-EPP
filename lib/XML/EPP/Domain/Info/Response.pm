@@ -91,6 +91,7 @@ has_element 'updated' =>
 has_element 'expiry_date' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
+	coerce => 1,
 	xml_required => 0,
 	xml_nodeName => 'exDate',
 	;
@@ -98,6 +99,7 @@ has_element 'expiry_date' =>
 has_element 'transfer_date' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
+	coerce => 1,
 	xml_required => 0,
 	xml_nodeName => "trDate",
 	;
