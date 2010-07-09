@@ -70,6 +70,7 @@ has_element 'creator_id' =>
 has_element 'created' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
+	coerce => 1,
 	xml_nodeName => "crDate",
 	xml_required => 0,
 	;
@@ -84,6 +85,7 @@ has_element 'updated_by_id' =>
 has_element 'updated' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
+	coerce => 1,
 	xml_nodeName => 'upDate',
 	xml_required => 0,
 	;
