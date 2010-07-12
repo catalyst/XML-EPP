@@ -1,3 +1,18 @@
+libxml-epp-perl (0.05) unstable; urgency=low
+
+  * Minor fixes to various classes, including allowing coercions
+    where possible.
+  * Packaging dependency updates (e.g. MooseX::StrictConstructor).
+  * Lots of automatically generated boilerplate, but hopefully
+    useful documentation for the classes.  This is the start of a
+    JavaDoc-like system for automatically including documentation on the
+    available attributes in a class based on the definitions.
+  * Initial support for RFC3915: Registrar Grace Period, see XML::EPP::Grace
+  * Start to use MooseX::StrictConstructor (incomplete; needs to be added to
+    all classes)
+
+ -- Andrew Chilton <andychilton@gmail.com>  Mon, 12 Jul 2010 17:50:45 +1200
+
 libxml-epp-perl (0.04.1-1) lucid; urgency=low
 
   * Update to latest dev. version
