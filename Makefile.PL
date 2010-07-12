@@ -19,7 +19,7 @@ requires        ("Moose" => 0.54);
 requires        ("PRANG" => "0.10_02");
 requires        ("MooseX::Timestamp" => 0);
 requires        ("MooseX::StrictConstructor" => 0);
-test_requires   ("XML::Compare" => 0.03);
+test_requires   ("XML::Compare" => 0.04);
 test_requires   ("Scriptalicious" => 0);
 test_requires   ("YAML" => 0);
 

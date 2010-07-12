@@ -2,6 +2,7 @@ package XML::EPP::Domain::Info::Response;
 
 use Moose;
 use PRANG::Graph;
+use XML::EPP::Domain;
 
 sub root_element { 'infData' }
 
@@ -69,6 +70,7 @@ has_element 'creator_id' =>
 has_element 'created' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
+	coerce => 1,
 	xml_nodeName => "crDate",
 	xml_required => 0,
 	;
@@ -83,6 +85,7 @@ has_element 'updated_by_id' =>
 has_element 'updated' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
+	coerce => 1,
 	xml_nodeName => 'upDate',
 	xml_required => 0,
 	;
@@ -90,14 +93,17 @@ has_element 'updated' =>
 has_element 'expiry_date' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
+	coerce => 1,
 	xml_required => 0,
 	xml_nodeName => 'exDate',
 	;
 
-has_element 'trDate' =>
+has_element 'transfer_date' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
+	coerce => 1,
 	xml_required => 0,
+	xml_nodeName => "trDate",
 	;
 
 has_element 'auth_info' =>
