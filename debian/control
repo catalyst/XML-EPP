@@ -1,7 +1,7 @@
 Source: libxml-epp-perl
 Section: perl
 Priority: optional
-Build-Depends: debhelper (>= 5), libxml-compare-perl (>= 0.04)
+Build-Depends: debhelper (>= 5)
 Build-Depends-Indep: perl (>= 5.10.0)
 Maintainer: Sam Vilain <sam.vilain@catalyst.net.nz>
 Standards-Version: 3.8.0
