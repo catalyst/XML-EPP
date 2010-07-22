@@ -19,6 +19,15 @@ subtype "${SCHEMA_PKG}::errValueType"
 
 with 'XML::EPP::Node';
 
+coerce "${SCHEMA_PKG}::errValueType"
+	=> from "Str",
+	=> via {
+		PRANG::XMLSchema::Whatever->new(
+			contents => [$_],
+			nodenames => [""],
+		       );
+	};
+
 has_element 'value' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::errValueType",

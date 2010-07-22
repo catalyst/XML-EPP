@@ -28,7 +28,8 @@ subtype "${SCHEMA_PKG}::msgType"
 coerce "${SCHEMA_PKG}::msgType"
 	=> from "Str"
 	=> via {
-		__PACKAGE__->new(content => $_);
+		m{\A\s*(\S.*\S)\s*\Z};
+		__PACKAGE__->new(content => $1);
 	};
 
 1;

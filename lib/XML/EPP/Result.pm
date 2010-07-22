@@ -79,6 +79,7 @@ has_element 'errors' =>
 	handles => {
 		add_error => 'push',
 	},
+	default => sub { [] },
 	xml_min => 0,
 	;
 
