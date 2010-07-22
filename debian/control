@@ -9,7 +9,7 @@ Homepage: http://search.cpan.org/dist/XML-EPP/
 
 Package: libxml-epp-perl
 Architecture: all
-Depends: perl (>= 5.10.0), ${misc:Depends}, libmoose-perl (>= 0.54), libprang-perl (= __SRSVERSION__), libmoosex-timestamp-perl (>= 0.05), libmoosex-strictconstructor-perl
+Depends: perl (>= 5.10.0), ${misc:Depends}, libmoose-perl (>= 0.54), libprang-perl (>= 0.11), libmoosex-timestamp-perl (>= 0.05), libmoosex-strictconstructor-perl
 Description: An implementation of the EPP XML language
  This module is an implementation of the XML protocol used by most
  major domain registries around the world.  This protocol was developed
