@@ -104,6 +104,7 @@ subtype "${PKG}::choice0" =>
 has_element 'message' =>
 	is => "rw",
 	isa => "${PKG}::choice0",
+	required => 1,
 	xml_nodeName => {
 		"greeting" => "${PKG}::Greeting",
 		"command" => "${PKG}::Command",

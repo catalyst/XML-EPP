@@ -11,6 +11,7 @@ has_element 'name_status' =>
         isa => 'XML::EPP::Domain::Check::Name',
         xml_nodeName => 'name',
         handles => [qw(available name)],
+	required => 1,
         ;
 
 has_element 'reason' =>

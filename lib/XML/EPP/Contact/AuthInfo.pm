@@ -15,6 +15,7 @@ subtype "${PKG}::choice0"
 has_element 'pw' =>
 	is => "rw",
 	isa => "${PKG}::choice0",
+	required => 1,
 	xml_nodeName => {
 		"pw" => "XML::EPP::Common::Password",
 		"ext" => "XML::EPP::Common::ExtPassword",

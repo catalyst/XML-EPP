@@ -24,6 +24,7 @@ has_element 'status' =>
 	is => "ro",
 	isa => "ArrayRef[XML::EPP::Host::Status]",
 	xml_max => 7,
+	required => 1,
 	;
 
 use XML::EPP::Host::Address;

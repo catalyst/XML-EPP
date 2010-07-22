@@ -15,7 +15,6 @@ has 'absolute' =>
 	isa => "PRANG::XMLSchema::dateTime",
 	predicate => "has_absolute",
 	clearer => "clear_absolute",
-	trigger => sub { $_[0]->is_abs_or_rel("absolute") },
 	;
 
 has 'relative' =>
@@ -23,7 +22,6 @@ has 'relative' =>
 	isa => "PRANG::XMLSchema::duration",
 	predicate => "has_relative",
 	clearer => "clear_relative",
-	trigger => sub { $_[0]->is_abs_or_rel("relative") },
 	;
 
 has_element 'abs_or_rel' =>
@@ -34,6 +32,23 @@ has_element 'abs_or_rel' =>
 		"relative" => "PRANG::XMLSchema::duration",
 	},
 	xml_nodeName_attr => "is_abs_or_rel",
+	lazy => 1,
+	default => sub {
+		my $self = shift;
+		$self->has_absolute ? $self->absolute : $self->relative
+	},
+	trigger => sub {
+		my $self = shift;
+		my $val = shift;
+		if ( $self->is_abs_or_rel eq "relative" ) {
+			$self->clear_absolute;
+			$self->relative($val);
+		}
+		else {
+			$self->clear_relative;
+			$self->absolute($val);
+		}
+	},
 	;
 
 method is_abs_or_rel( Str $abs_or_rel? where { m{^(relative|absolute)$} } ) {
@@ -201,12 +216,14 @@ has_element 'access' =>
 	is => "rw",
 	isa => "XML::EPP::dcpAccessType",
 	coerce => 1,
+	required => 1,
 	;
 
 has_element 'statement' =>
 	is => "rw",
 	isa => "ArrayRef[XML::EPP::DCP::Statement]",
 	coerce => 1,
+	required => 1,
 	;
 
 coerce "ArrayRef[XML::EPP::DCP::Statement]"
@@ -324,18 +341,21 @@ use PRANG::Graph;
 has_element 'purpose' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::dcpPurposeType",
+	required => 1,
 	coerce => 1,
 	;
 
 has_element 'recipient' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::dcpRecipientType",
+	required => 1,
 	coerce => 1,
 	;
 
 has_element 'retention' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::dcpRetentionType",
+	required => 1,
 	coerce => 1,
 	;
 

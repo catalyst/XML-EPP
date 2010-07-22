@@ -11,6 +11,7 @@ use PRANG::Graph;
 has_element 'extURI' =>
 	is => "rw",
 	isa => "ArrayRef[PRANG::XMLSchema::anyURI]",
+	required => 1,
 	;
 
 with 'XML::EPP::Node';

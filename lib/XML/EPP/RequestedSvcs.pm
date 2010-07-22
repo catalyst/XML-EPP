@@ -13,6 +13,7 @@ our $SCHEMA_PKG = "XML::EPP";
 has_element 'objURI' =>
 	is => "rw",
 	isa => "ArrayRef[PRANG::XMLSchema::anyURI]",
+	required => 1,
 	;
 
 has_element 'svcExtension' =>

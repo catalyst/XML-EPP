@@ -10,6 +10,7 @@ has_element 'status' =>
 	is => 'rw',
 	isa => 'ArrayRef[XML::EPP::Contact::Status]',
 	xml_max => 7,
+	required => 1,
 	;
 
 1;

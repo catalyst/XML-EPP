@@ -14,12 +14,14 @@ use XML::EPP::Contact::ID;
 has_element 'id' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::ID',
+	required => 1,
 	;
 
 has_element 'tx_id' =>
 	is => 'ro',
 	isa => 'XML::EPP::TrID',
 	xml_nodeName => 'paTRID',
+	required => 1,
 	;
 
 has_element 'completed' =>

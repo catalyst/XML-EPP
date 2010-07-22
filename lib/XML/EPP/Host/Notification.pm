@@ -15,12 +15,14 @@ has_element 'name_result' =>
 	isa => "XML::EPP::Host::Notification::Result",
 	handles => [qw(name approved)],
 	xml_nodeName => "name",
+	required => 1,
 	;
 
 has_element 'tx_id' =>
 	is => "ro",
 	isa => "XML::EPP::TrID",
 	xml_nodeName => "paTRID",
+	required => 1,
 	;
 
 has_element 'tx_when' =>

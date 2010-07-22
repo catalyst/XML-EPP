@@ -15,8 +15,8 @@ has_element 'value' =>
 has_attr 'status' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::statusValueType',
-    required => 1,
-    xml_name => 's',
+	required => 1,
+	xml_name => 's',
 	;
 
 has_attr "lang" =>

@@ -14,6 +14,7 @@ use XML::EPP::Result;
 has_element 'result' =>
 	is => "rw",
 	isa => "ArrayRef[${SCHEMA_PKG}::resultType]",
+	required => 1,
 	;
 
 use XML::EPP::MsgQ;
@@ -42,6 +43,7 @@ has_element 'tx_id' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::trIDType",
 	xml_nodeName => "trID",
+	required => 1,
 	;
 
 with 'XML::EPP::Node';

@@ -16,12 +16,14 @@ has_element 'client_id' =>
 	is => "rw",
 	isa => "XML::EPP::Common::clIDType",
 	xml_nodeName => "clID",
+	required => 1,
 	;
 
 has_element 'password' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::pwType",
 	xml_nodeName => "pw",
+	required => 1,
 	;
 
 has_element 'new_password' =>
@@ -34,12 +36,14 @@ has_element 'new_password' =>
 has_element 'options' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::credsOptionsType",
+	required => 1,
 	;
 
 has_element 'services' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::loginSvcType",
 	xml_nodeName => "svcs",
+	required => 1,
 	;
 
 with 'XML::EPP::Node';

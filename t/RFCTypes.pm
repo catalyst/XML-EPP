@@ -89,6 +89,7 @@ use PRANG::Graph;
 has_element 'name' =>
 	is => "ro",
 	isa => "XML::EPP::Obj::check::RS::cd::name",
+	required => 1,
 	;
 has_element 'reason' =>
 	is => "ro",
@@ -107,6 +108,7 @@ sub is_command { 0 }
 has_element "cd" =>
 	is => "ro",
 	isa => "ArrayRef[XML::EPP::Obj::check::RS::cd]",
+	required => 1,
 	;
 
 with 'XML::EPP::Plugin', "XML::EPP::Obj::Node";

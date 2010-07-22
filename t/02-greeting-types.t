@@ -29,7 +29,7 @@ BEGIN { use_ok("XML::EPP::Greeting") }
  use MooseX::TimestampTZ qw(gmtimestamptz);
  my $greeting = XML::EPP::Greeting->new(
      server_name => "myhostname",
-     current_time => gmtimestamptz,
+     server_time => gmtimestamptz,
      services => "auto",
      dcp => {
          access => "personalAndOther",

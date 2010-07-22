@@ -9,7 +9,6 @@ use PRANG::XMLSchema::Types;
 has_element 'ns' =>
 	is => 'rw',
 	isa => 'XML::EPP::Domain::NS',
-	required => 0,
 	xml_required => 0,
 	;
 
@@ -25,6 +24,7 @@ has_element 'status' =>
 	isa => 'ArrayRef[XML::EPP::Domain::Status]',
 	xml_min => 0,
 	xml_max => 11,
+	required => 1,
 	;
 
 1;

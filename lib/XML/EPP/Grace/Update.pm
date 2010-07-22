@@ -12,6 +12,7 @@ use XML::EPP::Grace::Restore;
 has_element 'restore' =>
 	is => 'ro',
 	isa => 'XML::EPP::Grace::Restore',
+	required => 1,
 	;
 
 use Moose::Util::TypeConstraints;

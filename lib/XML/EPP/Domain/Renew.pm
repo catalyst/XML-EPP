@@ -17,12 +17,14 @@ has_element 'expiry_date' =>
 	is => 'ro',
 	isa => 'PRANG::XMLSchema::date',
 	xml_nodeName => 'curExpDate',
+	required => 1,
 	;
 
 use XML::EPP::Domain::Period;
 has_element 'period' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::Period',
+	required => 1,
 	;
 
 1;

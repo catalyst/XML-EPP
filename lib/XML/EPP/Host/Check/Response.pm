@@ -14,6 +14,7 @@ has_element 'items' =>
 	is => "ro",
 	isa => "ArrayRef[XML::EPP::Host::Check::Status]",
 	xml_nodeName => "cd",
+	required => 1,
 	;
 
 1;

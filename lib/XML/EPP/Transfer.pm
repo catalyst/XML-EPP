@@ -14,6 +14,7 @@ our $SCHEMA_PKG = "XML::EPP";
 has_element 'payload' =>
 	is => "rw",
 	isa => "XML::EPP::Plugin",
+	required => 1,
 	;
 
 enum "${SCHEMA_PKG}::transferOpType" =>

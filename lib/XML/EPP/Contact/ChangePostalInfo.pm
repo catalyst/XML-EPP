@@ -22,7 +22,7 @@ use XML::EPP::Contact::Addr;
 has_element 'addr' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::Addr',
-	required => 0,
+	xml_required => 0,
 	;
 
 has_attr 'type' =>

@@ -53,15 +53,13 @@ has_element 'msg' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::msgType",
 	coerce => 1,
+	required => 1,
+	lazy => 1,
+	default => sub {
+		my $self = shift;
+		$result_codes{$self->code};
+	},
 	;
-
-sub BUILD {
-	my $self = shift;
-	my $msg = $self->msg;
-	if ( !$msg and ($msg = $result_codes{$self->code}) ) {
-		$self->msg($msg);
-	}
-}
 
 subtype "${PKG}::choice0"
 	=> as join("|", map { "${SCHEMA_PKG}::$_" }

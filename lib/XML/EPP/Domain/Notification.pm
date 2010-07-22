@@ -14,18 +14,21 @@ use XML::EPP::Domain::Notification::Name;
 has_element 'name' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::Notification::Name',
+	required => 1,
 	;
 
 has_element 'tx_id' =>
 	is => 'ro',
 	isa => 'XML::EPP::TrID',
 	xml_nodeName => 'paTRID',
+	required => 1,
 	;
 
 has_element 'completed' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
 	xml_nodeName => "paDate",
+	required => 1,
 	;
 
 1;

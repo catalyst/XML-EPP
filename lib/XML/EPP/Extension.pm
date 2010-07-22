@@ -12,6 +12,7 @@ our $SCHEMA_PKG = "XML::EPP";
 has_element 'ext_objs' =>
 	is => "rw",
 	isa => "ArrayRef[XML::EPP::Extension::Type]",
+	required => 1,
 	;
 
 with "${SCHEMA_PKG}::Node";

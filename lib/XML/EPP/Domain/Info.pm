@@ -12,6 +12,7 @@ use XML::EPP::Domain::Info::Name;
 has_element 'name' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::Info::Name',
+	required => 1,
 	;
 
 has_element 'auth_info' =>

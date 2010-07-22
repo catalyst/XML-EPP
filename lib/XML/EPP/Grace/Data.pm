@@ -11,6 +11,7 @@ has_element 'statuses' =>
 	is => 'ro',
 	isa => 'ArrayRef[XML::EPP::Grace::Status]',
 	xml_nodeName => "rgpStatus",
+	required => 1,
 	;
 
 use Moose::Util::TypeConstraints;

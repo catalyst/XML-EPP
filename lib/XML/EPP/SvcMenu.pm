@@ -11,16 +11,19 @@ our $SCHEMA_PKG = "XML::EPP";
 has_element 'version' =>
 	is => "rw",
 	isa => "ArrayRef[${SCHEMA_PKG}::versionType]",
+	required => 1,
 	;
 
 has_element 'lang' =>
 	is => "rw",
 	isa => "ArrayRef[PRANG::XMLSchema::language]",
+	required => 1,
 	;
 
 has_element 'objURI' =>
 	is => "rw",
 	isa => "ArrayRef[PRANG::XMLSchema::anyURI]",
+	required => 1,
 	;
 
 has_element 'svcExtension' =>

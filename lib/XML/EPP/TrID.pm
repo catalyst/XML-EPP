@@ -19,6 +19,7 @@ has_element 'server_id' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::trIDStringType",
 	xml_nodeName => "svTRID",
+	required => 1,
 	;
 
 with 'XML::EPP::Node';

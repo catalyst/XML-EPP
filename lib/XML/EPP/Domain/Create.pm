@@ -30,7 +30,7 @@ has_element 'ns' =>
 has_element 'registrant' =>
 	is => 'ro',
 	isa => 'XML::EPP::Common::clIDType',
-    xml_required => 0,
+	xml_required => 0,
 	;
 
 has_element 'contact' =>
@@ -43,6 +43,7 @@ has_element 'auth_info' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::AuthInfo',
 	xml_nodeName => 'authInfo',
+	required => 1,
 	;
 
 1;

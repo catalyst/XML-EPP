@@ -14,6 +14,7 @@ has_element 'server_name' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::sIDType",
 	xml_nodeName => "svID",
+	required => 1,
 	;
 
 has_element 'server_time' =>
@@ -21,6 +22,7 @@ has_element 'server_time' =>
 	isa => "PRANG::XMLSchema::dateTime",
 	coerce => 1,
 	xml_nodeName => "svDate",
+	required => 1,
 	;
 
 use XML::EPP::SvcMenu;
@@ -29,12 +31,14 @@ has_element 'services' =>
 	isa => "${SCHEMA_PKG}::svcMenuType",
 	xml_nodeName => "svcMenu",
 	coerce => 1,
+	required => 1,
 	;
 
 has_element 'dcp' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::DCP",
 	coerce => 1,
+	required => 1,
 	;
 
 with 'XML::EPP::Node';

@@ -11,6 +11,7 @@ has_element 'content' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::normalizedString",
 	xml_nodeName => "",
+	required => 1,
 	;
 
 has_attr 'lang' =>

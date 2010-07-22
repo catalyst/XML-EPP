@@ -11,6 +11,7 @@ has_element 'postal_info' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::ChangePostalInfo',
 	xml_nodeName => 'postalInfo',
+	required => 1,
 	;
 
 use XML::EPP::Contact::E164;

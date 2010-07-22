@@ -11,6 +11,7 @@ has_element 'id_status' =>
         isa => 'ArrayRef[XML::EPP::Contact::Check::ID]',
         xml_nodeName => 'id',
         handles => [qw(available id)],
+	required => 1,
         ;
 
 has_element 'reason' =>
