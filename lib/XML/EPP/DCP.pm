@@ -383,16 +383,6 @@ The RFC also notes;
   disclosing policy data outside of direct protocol interaction
   is beyond the scope of this specification.
 
-Hear that?  There's a B<MUST> there, so take heed: you absolutely must
-know about other parties' policies, in some unspecified manner, beyond
-the scope of the protocol, to be conformant to the protocol.  Nice
-work, committee!  Now, you as a reader, I B<DOUBLE DOG DARE> you to
-find out whether or not compliance with extra-protocol requirements
-like this would actually affect any kind of agreement that you have
-with any of your business partners.  Note that the B<DOUBLE DOG DARE>
-trumps all keywords defined in RFC 2119, so now I<you really have to
-do this> - nyeh nyeh nyeh-nyeh nyeh!
-
 The following classes and properties are defined; once the object
 structure is created, or if you are dealing with a DCP from a server
 greeting, this API is how you must access the object.
