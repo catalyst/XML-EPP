@@ -1,3 +1,9 @@
+libxml-epp-perl (0.05.1) lucid; urgency=low
+
+  * Update
+
+ -- Sam Vilain <sam.vilain@catalyst.net.nz>  Thu, 22 Jul 2010 19:00:03 +1200
+
 libxml-epp-perl (0.05) unstable; urgency=low
 
   * Minor fixes to various classes, including allowing coercions

@@ -4,6 +4,16 @@
 This POD file documents a summary of the changes in XML::EPP.  For the
 full list of changes, refer to the git history.
 
+=head2 VERSION 0.06 - ? JULY 2010
+
+=over
+
+=item *
+
+Suppress a bunch of warnings with PRANG 0.11_01 and higher
+
+=back
+
 =head2 VERSION 0.05 - 12 JULY 2010
 
 =over
