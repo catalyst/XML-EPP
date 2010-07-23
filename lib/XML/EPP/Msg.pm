@@ -29,7 +29,7 @@ coerce "${SCHEMA_PKG}::msgType"
 	=> from "Str"
 	=> via {
 		m{\A\s*(\S.*\S)\s*\Z};
-		__PACKAGE__->new(content => $1);
+		__PACKAGE__->new(content => $1||"(none)");
 	};
 
 1;

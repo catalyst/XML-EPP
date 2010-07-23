@@ -28,6 +28,19 @@ coerce "${SCHEMA_PKG}::errValueType"
 		       );
 	};
 
+coerce "${SCHEMA_PKG}::errValueType"
+	=> from "XML::LibXML::Element",
+	=> via {
+		my $node = $_;
+		my $whatever = PRANG::XMLSchema::Whatever->new(
+			contents => [],
+			nodenames => [$node->localName],
+			nodenames_ns => [$node->namespaceURI],
+		       );
+		$whatever->contents->[0] = $node;
+		$whatever;
+	};
+
 has_element 'value' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::errValueType",

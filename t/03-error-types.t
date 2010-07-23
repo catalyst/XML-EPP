@@ -33,7 +33,8 @@ my $xmlc = XML::Compare->new(
 	},
        );
 
-ok($xmlc->is_same( $epp->to_xml(1), <<'XML' ), "new error object")
+my $epp_xml = $epp->to_xml(1);
+ok($xmlc->is_same( $epp_xml, <<'XML' ), "new error object")
 <?xml version="1.0" encoding="UTF-8"?>
 <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
   <response>
@@ -50,4 +51,42 @@ ok($xmlc->is_same( $epp->to_xml(1), <<'XML' ), "new error object")
   </response>
 </epp>
 XML
-	or diag("Error: ".$xmlc->error);
+	or diag("Error: ".$xmlc->error."\nXML:\n",$epp_xml);
+
+my $parser = XML::LibXML->new;
+my $doc = $parser->parse_string($epp_xml);
+
+$err->value($doc->documentElement);
+
+$epp_xml = $epp->to_xml(1);
+ok($xmlc->is_same( $epp_xml, <<'XML' ), "error object w/LibXML nodes")
+<?xml version="1.0" encoding="UTF-8"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+  <response>
+    <result code="2001">
+      <msg lang="en">Command syntax error</msg>
+      <extValue>
+        <value><epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+  <response>
+    <result code="2001">
+      <msg lang="en">Command syntax error</msg>
+      <extValue>
+        <value>foo</value>
+        <reason lang="en">This is a message with extra whitespace at the end</reason>
+      </extValue>
+    </result>
+    <trID>
+      <svTRID>lalala</svTRID>
+    </trID>
+  </response></epp>
+</value>
+        <reason lang="en">This is a message with extra whitespace at the end</reason>
+      </extValue>
+    </result>
+    <trID>
+      <svTRID>lalala</svTRID>
+    </trID>
+  </response>
+</epp>
+XML
+	or diag("Error: ".$xmlc->error."\nXML:\n",$epp_xml);
