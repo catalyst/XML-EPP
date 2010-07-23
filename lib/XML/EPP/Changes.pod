@@ -12,6 +12,11 @@ full list of changes, refer to the git history.
 
 Suppress a bunch of warnings with PRANG 0.11_01 and higher
 
+=item *
+
+L<XML::EPP::Error> can now be passed a plain Str, or a
+L<XML::LibXML::Element> object for its C<value> field.
+
 =back
 
 =head2 VERSION 0.05 - 12 JULY 2010
