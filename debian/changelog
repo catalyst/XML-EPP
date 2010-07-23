@@ -1,3 +1,9 @@
+libxml-epp-perl (0.05.2) lucid; urgency=low
+
+  * XML::LibXML::Error- can be LibXML element
+
+ -- Sam Vilain <sam.vilain@catalyst.net.nz>  Fri, 23 Jul 2010 16:29:11 +1200
+
 libxml-epp-perl (0.05.1) lucid; urgency=low
 
   * Update
