@@ -97,16 +97,3 @@ use XML::EPP::Common::Reason;
 
 1;
 
-=head1 NAME
-
-XML::EPP::Common
-
-=head2 SYNOPSIS
-
-...
-
-=head2 DESCRIPTION
-
-...
-
-=cut

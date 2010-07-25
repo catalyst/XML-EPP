@@ -2,35 +2,173 @@
 
 XML::EPP::Common
 
-=head2 SYNOPSIS
-
-...
-
-=head2 DESCRIPTION
-
-...
-
 =head1 SYNOPSIS
 
-TO WRITE!
+ use XML::EPP::Common;
+
+ has_attr 'client_id' => (
+     is => "ro",
+     isa => "XML::EPP::Common::clIDType",  # eg
+     xml_name => "clTrID",
+     );
 
 =head1 DESCRIPTION
 
-TO WRITE!
+C<XML::EPP::Common> is a perl namespace for types which are defined in
+L<RFC5730/4.2. Shared Structure Schema>.  The namespace corresponds to
+the C<urn:ietf:params:xml:ns:eppcom-1.0> C<targetNamespace>, and
+covers types.
 
-=head2 Attributes
+Simple types are currently converted to C<XML::EPP::Common::*Type>,
+where C<*Type> is the actual name of the type as declared in the XML
+Schema in the specification.
 
-There are no xml attributes on this element.
+For C<simpleType> types, these are converted to C<Str> subtypes; other
+types are translated to a more consistent set of names and given their
+own C<XML::EPP::Common::*> module.  If they have that module, there
+will also be a C<XML::EPP::Common::fooType> declared as well using
+C<Moose::Util::TypeConstraints>.
 
-=head2 Elements
+As well as defining types, this module also adds a coerce rule for
+C<TimestampTZ> to C<PRANG::XMLSchema::dateTime> types, as the latter
+is used extensively in the EPP specification, but is a relatively
+unusual interpretation of ISO-8601.  This allows more flexibility on
+input.
+
+=head1 DEFINED TYPES
+
+There are relatively few complex types in this standard; and only a
+handful of simple types.  They are listed in sections below:
+
+=head2 SIMPLE TYPES
 
 =over
+
+=item C<reasonBaseType>
+
+This type is used solely as a base type for C<reasonType> and is never
+used anywhere else.
+
+  <simpleType name="reasonBaseType">
+    <restriction base="token">
+      <minLength value="1"/>
+      <maxLength value="32"/>
+    </restriction>
+  </simpleType>
+
+=item C<clIDType>
+
+This type is used in various places, particularly the wrapper message
+format, as a valid format for client transaction identifiers.
+
+ <!--
+ Abstract client and object identifier type.
+ -->
+   <simpleType name="clIDType">
+     <restriction base="token">
+       <minLength value="3"/>
+       <maxLength value="16"/>
+     </restriction>
+   </simpleType>
+
+=item C<labelType>
+
+DNS labels have a limit enforced by the DNS RFC; this type is for
+fields that are DNS labels.
+
+ <!--
+ DNS label type.
+ -->
+   <simpleType name="labelType">
+     <restriction base="token">
+       <minLength value="1"/>
+       <maxLength value="255"/>
+     </restriction>
+   </simpleType>
+
+=item C<minTokenType>
+
+This type is defined and used to have a convenient type to refer to a
+field which must have a real value in it (ie, not empty or just
+whitespace).
+
+ <!--
+ Non-empty token type.
+ -->
+   <simpleType name="minTokenType">
+     <restriction base="token">
+       <minLength value="1"/>
+     </restriction>
+   </simpleType>
+
+=item C<roidType>
+
+The purpose of the ROID is only touched on in the EPP specification,
+and appears to be an attempt at making any extra surrogate identifiers
+associated with, eg, contacts or domains, follow a single convention.
+They are required on some messages with no clearly defined meaning.
+
+ <!--
+ Repository Object IDentifier type.
+ -->
+   <simpleType name="roidType">
+     <restriction base="token">
+       <pattern value="(\w|_){1,80}-\w{1,8}"/>
+     </restriction>
+   </simpleType>
+
+=item C<trStatusType>
+
+This type defines the allowable states for a transfer query response.
+For those crazy registries (sadly, like .com) which have very
+convoluted transfer processes.
+
+ <!--
+ Transfer status identifiers.
+ -->
+   <simpleType name="trStatusType">
+     <restriction base="token">
+       <enumeration value="clientApproved"/>
+       <enumeration value="clientCancelled"/>
+       <enumeration value="clientRejected"/>
+       <enumeration value="pending"/>
+       <enumeration value="serverApproved"/>
+       <enumeration value="serverCancelled"/>
+     </restriction>
+   </simpleType>
+
+=back
+
+=head2 COMPLEX TYPES
+
+These types all have sub-elements, or content and attributes, so
+cannot be mapped to a simple type.
+
+=over
+
+=item C<reasonType>
+
+(See L<XML::EPP::Common::Reason>) a type which is used to attach
+various textual descriptions to things, eg declarations on domain
+restores.  It is basically just a chunk of text with a language tag.
+
+=item C<extAuthInfoType>
+
+(See L<XML::EPP::Common::ExtPassword>) an extensible type for plugging
+non-password authentication methods into EPP.
+
+=item C<pwAuthInfoType>
+
+(See L<XML::EPP::Common::Password>) a type which can contain a
+password, and optionally a repository object identifier (ROID, see
+above).
 
 =back
 
 =head1 SEE ALSO
 
-ToMake
+L<XML::EPP>, L<XML::EPP::Common::Reason>,
+L<XML::EPP::Common::Password>, L<XML::EPP::Common::ExtPassword>
 
 =head1 AUTHOR AND LICENSE
 
