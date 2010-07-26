@@ -26,10 +26,11 @@ has_element 'objURI' =>
 	required => 1,
 	;
 
-has_element 'svcExtension' =>
+has_element 'extensions' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::ExtURI",
-	predicate => "has_svcExtension",
+	xml_nodeName => "svcExtension",
+	predicate => "has_extensions",
 	;
 
 with 'XML::EPP::Node';

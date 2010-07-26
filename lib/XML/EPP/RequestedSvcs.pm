@@ -16,10 +16,11 @@ has_element 'objURI' =>
 	required => 1,
 	;
 
-has_element 'svcExtension' =>
+has_element 'extensions' =>
 	is => "rw",
 	isa => "XML::EPP::ExtURI",
-	predicate => "has_svcExtension",
+	predicate => "has_extensions",
+	xml_nodeName => "svcExtension",
 	;
 
 with 'XML::EPP::Node';
