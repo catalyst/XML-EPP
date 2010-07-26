@@ -156,7 +156,7 @@ XML::EPP - an implementation of the EPP XML language
 
  use XML::EPP;
 
- my $foo_create = XML::EPP->new(
+ my $epp = XML::EPP->new(
          message => XML::EPP::Command->new(
              action => "create",
              argument => XML::EPP::SubCommand->new(
@@ -168,7 +168,7 @@ XML::EPP - an implementation of the EPP XML language
          ),
  );
 
- print $foo_create->to_xml;
+ print $epp->to_xml;
 
 =head1 DESCRIPTION
 
