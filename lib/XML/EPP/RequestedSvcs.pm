@@ -10,10 +10,11 @@ use PRANG::Graph;
 
 our $SCHEMA_PKG = "XML::EPP";
 
-has_element 'objURI' =>
+has_element 'objects' =>
 	is => "rw",
 	isa => "ArrayRef[PRANG::XMLSchema::anyURI]",
 	required => 1,
+	xml_nodeName => "objURI",
 	;
 
 has_element 'extensions' =>
