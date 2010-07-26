@@ -222,6 +222,25 @@ Moose constructor is all that is provided in this module.
 
 =head2 HINTS
 
+In order to get the most out of this set of modules, look out for the
+following;
+
+=head3 SIMPLE ATTRIBUTE/ELEMENT NAMES
+
+The names of elements and attributes in the XML Schema specification
+are typically arbitrarily abbreviated, and usually in CamelCase.
+Sometimes the connection between what you would normally call the item
+in plain English and the term chosen in the RFC are quite far removed
+from each other.  Instead, in this module you can expect more plain
+terms, and words lower case and separated by underscores.
+
+Currently the declarations (ie source) are the best place to look for
+normative information on what XML tags were renamed to what in this
+module, but we hope soon to have this information all on the man
+pages, too.
+
+=head3 COERCE RULES AND CONSTRUCTOR MAGIC
+
 Look out for convenience construction interfaces.  These are primarily
 useful C<coerce> rules (see L<Moose::Util::TypeConstraints>).
 
@@ -248,7 +267,278 @@ Both construct the same stack of objects, and would serialize to:
     <same/>
   </recipient>
 
-For this to be most useful, the rules are hand-written for each class.
+=head3 USEFUL DELEGATION AND ACCESSORS
+
+B<TODO>: currently there are very few of these defined, but the idea
+is to use delegation to avoid the excessive level of indirection which
+results from a direct translation of XML structure to class structure
+required by PRANG.
+
+For example, to retrieve the requested username from a C<login>
+message, you currently have to use:
+
+ my $username = $epp->message->argument->client_id;
+
+Using delegation it would be quite easy to have shortcuts;
+
+ my $username = $epp->argument->client_id;
+
+Specialist delegation that throws a more helpful error is also a
+potential idea;
+
+ my $username = $epp->login->client_id;
+
+The above should throw a message such as "code treated the message as
+a login, but it is a hello" or some such.  This is an I<asserting>
+version of delegation.
+
+For core actions such as creating domains, the path is very long
+indeed; assuming C<$epp> represents a C<domain:check> message;
+
+  my @domains = $epp->message->argument->payload->names;
+
+That could easily be;
+
+  my @domains = $epp->payload->names;
+
+Or an asserting version;
+
+  my @domains = $epp->check->names;
+
+=head1 DEFINED TYPES
+
+As well as being a concrete message type, this module corresponds to
+the C<urn:ietf:params:xml:ns:epp-1.0> XML namespace; all of the types
+which are defined in L<rfc5730/4.1. Base Schema> land as types in this
+module.  The modules as defined in the RFC have names such as
+C<eppType>, C<greetingType>, etc.
+
+Simple types in the EPP spec are mapped to C<Str> sub-types, whereas
+Complex types become full classes.  These will normally be called
+C<XML::EPP::Foo>, where C<Foo> is some suitable translation of the
+type in the XML Schema to a reasonable class name.
+
+Extensions, such as L<XML::EPP::Domain>, L<XML::EPP::Host>, are
+described separately.
+
+As the complex types are far more interesting than the simple types,
+we'll start with those first.
+
+=head2 COMPLEX TYPES
+
+In these examples, an example location in terms of dereferencing from
+an C<XML::EPP> object, C<$epp> is provided for illustration.  As these
+are types, they can often appear in many different places, so these
+examples should not be considered exhaustive.
+
+=over
+
+=item C<eppType>
+
+This is the root node type; it's the C<$epp>.  Given that this is also
+this class, there is no better place to reproduce the XML Schema
+definition;
+
+ <!--
+ An EPP XML instance must contain a greeting, hello, command,
+ response, or extension.
+ -->
+   <complexType name="eppType">
+     <choice>
+       <element name="greeting" type="epp:greetingType"/>
+       <element name="hello"/>
+       <element name="command" type="epp:commandType"/>
+       <element name="response" type="epp:responseType"/>
+       <element name="extension" type="epp:extAnyType"/>
+     </choice>
+   </complexType>
+
+=item C<greetingType>
+
+Found at C<$epp-E<gt>message>, and implemented in
+L<XML::EPP::Greeting> class, the connection response message from the
+server, which lists capabilities.  This can also be returned in
+response to a C<hello> command, which does not have a type in the XML
+Schema but gets its own class anyway for consistency; see
+L<XML::EPP::Hello>.
+
+=item C<commandType>
+
+(C<$epp-E<gt>message>, L<XML::EPP::Command>) The second of the major
+types of EPP message; all of the core commands are wrapped in one of
+these.
+
+=item C<responseType>
+
+(C<$epp-E<gt>message>, L<XML::EPP::Response>) An answer to an EPP
+command.
+
+=item C<extAnyType>
+
+(C<$epp-E<gt>extension>, C<$epp-E<gt>command-E<gt>extension>,
+C<$epp-E<gt>response-E<gt>extension>; L<XML::EPP::Extension>) Part of
+what makes this protocol "extensible", this type is for wrapping
+arbitrary communications on the message wrapper, or a command or
+response message.
+
+(C<$epp-E<gt>response-E<gt>response; L<XML::EPP::SubResponse>) This
+type is also used for the return type, instead of a new type like
+C<readWriteType>, this is mapped to a different class so that they
+don't get confused with real extensions.
+
+=item C<svcMenuType>
+
+(C<$epp-E<gt>message-E<gt>services>: Greeting messages only,
+L<XML::EPP::SvcMenu>) A list of available object services.
+
+=item C<extURIType>
+
+(C<$epp-E<gt>message-E<gt>services-E<gt>extensions>: Greeting messages,
+C<$epp-E<gt>message-E<gt>payload-E<gt>argument-E<gt>services-E<gt>extensions>:
+Login messages; L<XML::EPP::ExtURI>) A I<list> of extension URIs used
+during login and for the greeting message.
+
+=item C<dcpType>
+
+=item C<dcpExpiryType>
+
+=item C<dcpRecipientType>
+
+=item C<dcpOursType>
+
+=item C<dcpRecDescType>
+
+=item C<dcpAccessType>
+
+=item C<dcpPurposeType>
+
+=item C<dcpRetentionType>
+
+=item C<dcpStatementType>
+
+This collection of types are used for the Data Control Policy part of
+the protocol; these are informative tags which codify how data is
+stored and treated, and can in princple be used to implement privacy
+rules.  See L<XML::EPP::DCP>.
+
+=item C<readWriteType>
+
+(C<$epp-E<gt>command-E<gt>argument or just C<$epp-E<gt>argument>;
+L<XML::EPP::SubCommand>) this is an intermediate type which indicates
+that this message carries an object manipulation or query payload.
+
+=item C<loginType>
+
+(C<$epp-E<gt>message-E<gt>argument or just C<$epp-E<gt>login>;
+L<XML::EPP::Login>) for the login command; contains credentials and a
+list of requested object services/extensions.
+
+=item C<pollType>
+
+(C<$epp-E<gt>message-E<gt>argument or just C<$epp-E<gt>poll>;
+L<XML::EPP::Poll>) the command which polls or acks messages in the
+server-side message queue.
+
+=item C<transferType>
+
+(C<$epp-E<gt>command-E<gt>argument or just C<$epp-E<gt>transfer>;
+L<XML::EPP::Transfer>), a bit like the C<readWriteType> except it also
+indicates the transfer operation type; request, query etc.
+
+=item C<credsOptionsType>
+
+(..., L<XML::EPP::CredsOptions>)
+
+=item C<errValueType>
+
+(..., L<PRANG::XMLSchema::Whatever>)
+
+=item C<extErrValueType>
+
+(..., L<XML::EPP::Error>)
+
+=item C<msgType>
+
+(..., L<XML::EPP::Msg>)
+
+=item C<mixedMsgType>
+
+(..., L<XML::EPP::MixedMsg>)
+
+=item C<msgQType>
+
+(..., L<XML::EPP::MsgQ>)
+
+=item C<trIDType>
+
+(..., L<XML::EPP::TrID>)
+
+=item C<resultType>
+
+(..., L<XML::EPP::Result>)
+
+=back
+
+=head2 SIMPLE TYPES
+
+=over
+
+=item C<sIDType>
+
+This is a type which is used for server names.  The RFC example value
+is C<Example EPP server epp.example.com>
+
+ <!--
+ Server IDs are strings with minimum and maximum length restrictions.
+ -->
+   <simpleType name="sIDType">
+     <restriction base="normalizedString">
+       <minLength value="3"/>
+       <maxLength value="64"/>
+     </restriction>
+   </simpleType>
+
+=item C<versionType>
+
+During the C<hello> / C<greeting> exchange, a version number is
+passed.  This type declares the convention for these and might one day
+allow other values than "1.0";
+
+ <!--
+ An EPP version number is a dotted pair of decimal numbers.
+ -->
+   <simpleType name="versionType">
+     <restriction base="token">
+       <pattern value="[1-9]+\.[0-9]+"/>
+       <enumeration value="1.0"/>
+     </restriction>
+   </simpleType>
+
+=item C<trIDStringType>
+
+This type is used in the various transaction identifier elements, see
+L</trIDType>.
+
+  <simpleType name="trIDStringType">
+    <restriction base="token">
+      <minLength value="3"/>
+      <maxLength value="64"/>
+    </restriction>
+  </simpleType>
+
+=item C<pwType>
+
+Used for C<login> passwords.
+
+  <simpleType name="pwType">
+    <restriction base="token">
+      <minLength value="6"/>
+      <maxLength value="16"/>
+    </restriction>
+  </simpleType>
+
+=back
+
 
 =head1 GLOBALS / CLASS METHODS
 
