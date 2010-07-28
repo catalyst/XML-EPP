@@ -24,7 +24,7 @@ has_element 'status' =>
 	isa => 'ArrayRef[XML::EPP::Domain::Status]',
 	xml_min => 0,
 	xml_max => 11,
-	required => 1,
+	xml_required => 0,
 	;
 
 1;

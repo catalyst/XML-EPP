@@ -1,0 +1,16 @@
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+  <command>
+    <update>
+      <domain:update xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+        <domain:name>cheese.co.te</domain:name>
+        <domain:add>
+          <domain:contact type="admin">registrant-001</domain:contact>
+        </domain:add>
+        <domain:rem>
+          <domain:contact type="admin">abc123</domain:contact>
+        </domain:rem>
+      </domain:update>
+    </update>
+    <clTRID>brause</clTRID>
+  </command>
+</epp>
