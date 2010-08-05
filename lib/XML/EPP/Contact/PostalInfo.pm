@@ -16,7 +16,7 @@ has_element 'name' =>
 has_element 'org' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::optPostalLineType',
-	required => 0,
+	xml_required => 0,
 	;
 
 use XML::EPP::Contact::Addr;
