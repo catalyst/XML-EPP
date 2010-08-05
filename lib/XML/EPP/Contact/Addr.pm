@@ -23,13 +23,13 @@ has_element 'city' =>
 has_element 'sp' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::optPostalLineType',
-	required => 0,
+	xml_required => 0,
 	;
 
 has_element 'pc' =>
 	is => 'ro',
 	isa => 'XML::EPP::Contact::optPostalLineType',
-	required => 0,
+	xml_required => 0,
 	;
 
 has_element 'cc' =>
