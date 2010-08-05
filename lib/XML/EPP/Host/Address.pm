@@ -1,6 +1,9 @@
 package XML::EPP::Host::Address;
 use Moose;
 use PRANG::Graph;
+
+use XML::EPP::Host;
+
 with 'XML::EPP::Host::Node';
 has_element "value" =>
 	is => "ro",

@@ -10,11 +10,13 @@ has_element 'name' =>
 	xml_nodeName => 'hostName',
 	;
 
-has_attr 'addrs' =>
+has_element 'addrs' =>
     is => 'ro',
     isa => 'ArrayRef[XML::EPP::Host::Address]',
     xml_required => 0,
+    xml_nodeName => 'hostAddr',
     ;
+
 
 #use Moose::Util::TypeConstraints;
 #subtype "XML::EPP::Domain::statusType" => as __PACKAGE__;

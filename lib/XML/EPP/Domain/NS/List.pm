@@ -5,17 +5,14 @@ use PRANG::Graph;
 
 sub root_element { 'infData' }
 
-use XML::EPP::Domain::NS;
+use XML::EPP::Domain::HostAttr;
+
 has_element 'ns' =>
     is => 'ro',
-    # XXX: This would be a more correct definition (from the spec) but
-    # PRANG doesn't yet let you do this.
-    # isa => 'ArrayRef[XML::EPP::Domain::NS]|ArrayRef[XML::EPP::Common::labelType]',
-    # So instead we do this:
-    isa => 'ArrayRef[XML::EPP::Domain::NS|XML::EPP::Common::labelType]',
+    isa => 'ArrayRef[XML::EPP::Domain::HostAttr|XML::EPP::Common::labelType]',
     xml_min => 0,
     xml_nodeName => {
-        hostAttr => 'XML::EPP::Domain::NS',
+        hostAttr => 'XML::EPP::Domain::HostAttr',
         hostObj  => 'XML::EPP::Common::labelType',
     },
     ;

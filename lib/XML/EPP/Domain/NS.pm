@@ -8,12 +8,8 @@ has_element 'host_objs' =>
 	is => 'ro',
 	isa => 'ArrayRef[XML::EPP::Common::labelType]',
 	xml_nodeName => 'hostObj',
+	xml_required => 0,
 	;
-
-has_attr 'host_attrs' =>
-    is => 'ro',
-    isa => 'ArrayRef[XML::EPP::Domain::HostAttr]',
-    ;
 
 1;
 
