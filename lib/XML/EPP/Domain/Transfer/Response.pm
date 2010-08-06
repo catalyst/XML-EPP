@@ -54,7 +54,7 @@ has_element 'expiry_date' =>
 	is => 'rw',
 	isa => 'PRANG::XMLSchema::dateTime',
 	xml_nodeName => 'exDate',
-	required => 0,
+	xml_required => 0,
 	;
 
 1;

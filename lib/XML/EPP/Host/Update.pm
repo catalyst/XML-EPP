@@ -19,6 +19,7 @@ has_element 'add' =>
 	isa => "XML::EPP::Host::Delta",
 	predicate => "has_add",
 	coerce => 1,
+	xml_required => 0,
 	;
 
 has_element 'remove' =>
@@ -27,6 +28,7 @@ has_element 'remove' =>
 	predicate => "has_remove",
 	xml_nodeName => "rem",
 	coerce => 1,
+	xml_required => 0,
 	;
 
 use XML::EPP::Host::Rename;
@@ -36,6 +38,7 @@ has_element 'rename' =>
 	xml_nodeName => "chg",
 	predicate => "has_rename",
 	coerce => 1,
+	xml_required => 0,
 	;
 
 use Moose::Util::TypeConstraints;

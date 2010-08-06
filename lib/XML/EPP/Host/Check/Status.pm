@@ -19,6 +19,7 @@ has_element "reason" =>
 	isa => "XML::EPP::Common::Reason",
 	predicate => "has_reason",
 	xmlns => &xmlns,
+	xml_required => 0,
 	;
 
 1;

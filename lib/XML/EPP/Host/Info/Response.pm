@@ -65,13 +65,14 @@ has_element 'updated' =>
 	isa => "PRANG::XMLSchema::dateTime",
 	xml_nodeName => "upDate",   # lol... see also man date
 	predicate => "has_updated",
+	xml_required => 0,
 	;
 
 has_element 'transferred' =>
 	is => "ro",
 	isa => "PRANG::XMLSchema::dateTime",
 	xml_nodeName => "trDate",
-	xml_min => 1,
+	xml_min => 0,
 	;
 
 1;

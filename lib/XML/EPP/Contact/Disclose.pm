@@ -32,19 +32,19 @@ has_element 'addr' =>
 has_element 'voice' =>
 	is => 'ro',
 	isa => 'Bool',
-	required => 0,
+	xml_required => 0,
 	;
 
 has_element 'fax' =>
 	is => 'ro',
 	isa => 'Bool',
-	required => 0,
+	xml_required => 0,
 	;
 
 has_element 'email' =>
 	is => 'ro',
 	isa => 'Bool',
-	required => 0,
+	xml_required => 0,
 	;
 
 has_attr 'flag' =>

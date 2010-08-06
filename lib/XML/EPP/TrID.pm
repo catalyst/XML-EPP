@@ -13,6 +13,7 @@ has_element 'client_id' =>
 	isa => "${SCHEMA_PKG}::trIDStringType",
 	predicate => "has_client_id",
 	xml_nodeName => "clTRID",
+	xml_required => 0,
 	;
 
 has_element 'server_id' =>

@@ -24,7 +24,7 @@ use XML::EPP::Domain::Period;
 has_element 'period' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::Period',
-	required => 1,
+	xml_required => 0,
 	;
 
 1;
