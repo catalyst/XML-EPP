@@ -200,7 +200,7 @@ subtype "${SCHEMA_PKG}::dcpAccessType"
 coerce "${SCHEMA_PKG}::dcpAccessType"
 	=> from "Str"
 	=> via {
-		__PACKAGE__->new($_ => 1);
+		__PACKAGE__->new(access => $_);
 	};
 
 
