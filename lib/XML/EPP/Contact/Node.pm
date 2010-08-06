@@ -8,6 +8,10 @@ sub xmlns {
 	"urn:ietf:params:xml:ns:contact-1.0";
 }
 
+sub preferred_prefix {
+    'contact';   
+}
+
 1;
 
 =head1 NAME

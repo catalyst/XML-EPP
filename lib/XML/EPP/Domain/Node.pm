@@ -8,6 +8,10 @@ sub xmlns {
 	"urn:ietf:params:xml:ns:domain-1.0";
 }
 
+sub preferred_prefix {
+    'domain';   
+}
+
 1;
 
 =head1 NAME
