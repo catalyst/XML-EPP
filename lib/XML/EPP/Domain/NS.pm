@@ -2,14 +2,20 @@ package XML::EPP::Domain::NS;
 
 use Moose;
 use PRANG::Graph;
-with 'XML::EPP::Domain::Node';
 
-has_element 'host_objs' =>
-	is => 'ro',
-	isa => 'ArrayRef[XML::EPP::Common::labelType]',
-	xml_nodeName => 'hostObj',
-	xml_required => 0,
-	;
+sub root_element { 'infData' }
+
+use XML::EPP::Domain::HostAttr;
+
+has_element 'ns' =>
+    is => 'ro',
+    isa => 'ArrayRef[XML::EPP::Domain::HostAttr|XML::EPP::Common::labelType]',
+    xml_min => 0,
+    xml_nodeName => {
+        hostAttr => 'XML::EPP::Domain::HostAttr',
+        hostObj  => 'XML::EPP::Common::labelType',
+    },
+    ;
 
 1;
 

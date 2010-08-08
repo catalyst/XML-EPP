@@ -20,10 +20,10 @@ has_element 'period' =>
 	xml_required => 0,
 	;
 
-use XML::EPP::Domain::NS::List;
+use XML::EPP::Domain::NS;
 has_element 'ns' =>
 	is => 'ro',
-	isa => 'XML::EPP::Domain::NS::List',
+	isa => 'XML::EPP::Domain::NS',
 	xml_required => 0,
 	;
 

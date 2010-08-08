@@ -78,7 +78,6 @@ use XML::EPP::Domain::HostAttr;
 use XML::EPP::Domain::Info::Name;
 use XML::EPP::Domain::Node;
 use XML::EPP::Domain::Notification::Name;
-use XML::EPP::Domain::NS::List;
 use XML::EPP::Domain::NS;
 use XML::EPP::Domain::Period;
 use XML::EPP::Domain::RQ;
