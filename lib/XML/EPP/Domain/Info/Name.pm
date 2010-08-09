@@ -10,6 +10,7 @@ has_element 'value' =>
 	is => 'ro',
 	isa => 'XML::EPP::Common::labelType',
 	xml_nodeName => '',
+	required => 1,
 	;
 
 has_attr 'hosts' =>
