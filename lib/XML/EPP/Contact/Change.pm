@@ -9,9 +9,10 @@ use PRANG::XMLSchema::Types;
 use XML::EPP::Contact::ChangePostalInfo;
 has_element 'postal_info' =>
 	is => 'ro',
-	isa => 'XML::EPP::Contact::ChangePostalInfo',
-	xml_nodeName => 'postalInfo',
-	required => 1,
+	isa => 'ArrayRef[XML::EPP::Contact::ChangePostalInfo]',
+	xml_nodeName => "postalInfo",
+	xml_min => 0,
+	xml_max => 2,
 	;
 
 use XML::EPP::Contact::E164;
