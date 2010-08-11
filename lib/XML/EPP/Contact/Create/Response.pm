@@ -19,6 +19,7 @@ has_element 'created' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
 	xml_nodeName => "crDate",
+	coerce => 1,
 	;
 
 1;
