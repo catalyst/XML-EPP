@@ -86,6 +86,7 @@ has_element 'updated' =>
 	isa => "PRANG::XMLSchema::dateTime",
 	xml_nodeName => 'upDate',
 	xml_required => 0,
+	coerce => 1,
 	;
 
 has_element 'trDate' =>
