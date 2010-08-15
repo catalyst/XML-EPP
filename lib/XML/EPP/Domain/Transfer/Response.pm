@@ -36,6 +36,7 @@ has_element 'requested' =>
 	is => 'rw',
 	isa => 'PRANG::XMLSchema::dateTime',
 	xml_nodeName => 'reDate',
+	coerce => 1,
 	;
 
 has_element 'action_id' =>
@@ -48,6 +49,7 @@ has_element 'action_date' =>
 	is => 'rw',
 	isa => 'PRANG::XMLSchema::dateTime',
 	xml_nodeName => 'acDate',
+	coerce => 1,
 	;
 
 has_element 'expiry_date' =>
@@ -55,6 +57,7 @@ has_element 'expiry_date' =>
 	isa => 'PRANG::XMLSchema::dateTime',
 	xml_nodeName => 'exDate',
 	xml_required => 0,
+	coerce => 1,
 	;
 
 1;
