@@ -138,9 +138,12 @@ sub _reg {
 }
 our @epp_versions = "1.0";
 our @epp_lang = "en";
-our %obj_uris = ('urn:ietf:params:xml:ns:epp-1.0' => 1);
+our %obj_uris;
 our %ext_uris;
 sub register_obj_uri {
+    my @uris = @_;
+    
+    map { $obj_uris{$_} = 1 } @uris;
 }
 
 sub register_ext_uri {
