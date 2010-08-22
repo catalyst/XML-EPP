@@ -6,11 +6,11 @@ with 'XML::EPP::Contact::Node';
 
 use PRANG::XMLSchema::Types;
 
-#has_element 'name' =>
-#	is => 'ro',
-#	isa => 'XML::EPP::Contact::postalLineType',
-#	required => 0,
-#	;
+has_element 'name' =>
+	is => 'ro',
+	isa => 'XML::EPP::Contact::postalLineType',
+	xml_required => 0,
+	;
 
 has_element 'org' =>
 	is => 'ro',
