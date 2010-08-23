@@ -10,12 +10,13 @@ has_element 'name' =>
 	xml_nodeName => 'hostName',
 	;
 
+use XML::EPP::Host::Address;
 has_element 'addrs' =>
-    is => 'ro',
-    isa => 'ArrayRef[XML::EPP::Host::Address]',
-    xml_required => 0,
-    xml_nodeName => 'hostAddr',
-    ;
+	is => 'ro',
+	isa => 'ArrayRef[XML::EPP::Host::Address]',
+	xml_required => 0,
+	xml_nodeName => 'hostAddr',
+	;
 
 
 #use Moose::Util::TypeConstraints;
