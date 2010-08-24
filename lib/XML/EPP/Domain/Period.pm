@@ -7,7 +7,7 @@ use Moose::Util::TypeConstraints;
 has_element 'value' =>
 	is => 'ro',
 	isa => 'XML::EPP::Domain::pLimitType',
-    xml_nodeName => ''
+	xml_nodeName => ''
 	;
 
 has_attr 'unit' =>
@@ -16,11 +16,21 @@ has_attr 'unit' =>
 	coerce => 1,
 	;
 
+sub months {
+	my $self = shift;
+	if ( $self->unit eq "y" ) {
+		$self->value * 12;
+	}
+	else {
+		$self->value;
+	}
+}
+
 1;
 
 =head1 NAME
 
-? - implement ?
+XML::EPP::Domain::Period - implement ?
 
 =head1 SYNOPSIS
 
