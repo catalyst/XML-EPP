@@ -28,6 +28,16 @@ coerce "${SCHEMA_PKG}::errValueType"
 	);
 	};
 
+class_type "XML::LibXML::Text";
+coerce "${SCHEMA_PKG}::errValueType"
+	=> from "XML::LibXML::Text",
+	=> via {
+	PRANG::XMLSchema::Whatever->new(
+		contents => [$_->data],
+		nodenames => [""],
+	);
+	};
+
 coerce "${SCHEMA_PKG}::errValueType"
 	=> from "XML::LibXML::Element",
 	=> via {
