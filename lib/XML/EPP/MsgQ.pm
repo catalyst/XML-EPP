@@ -12,6 +12,7 @@ our $SCHEMA_PKG = "XML::EPP";
 has_element 'qDate' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::dateTime",
+	coerce => 1,
 	predicate => "has_qDate",
 	;
 
