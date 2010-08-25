@@ -7,7 +7,8 @@ use PRANG::Graph;
 has_element 'contents' =>
 	is => "rw",
 	isa => "ArrayRef[XML::EPP::Grace::MixedData|Str]",
-	xml_nodeName => { "" => "Str", "*" => "XML::EPP::Grace::MixedData" },
+	xml_nodeName =>
+	{ "" => "Str", "*" => "XML::EPP::Grace::MixedData" },
 	xml_nodeName_attr => "nodenames",
 	xml_min => 0,
 	;

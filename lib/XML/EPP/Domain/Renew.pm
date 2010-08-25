@@ -4,7 +4,7 @@ package XML::EPP::Domain::Renew;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'renew' }
+sub root_element {'renew'}
 
 with 'XML::EPP::Domain::RQ', 'XML::EPP::Domain::Node';
 

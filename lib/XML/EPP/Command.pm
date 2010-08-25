@@ -17,13 +17,16 @@ our $PKG = __PACKAGE__;
 # name of the node just from the type of it.  We'll need to store it
 # separately.
 subtype "${PKG}::choice0"
-	=> as join("|", "Bool", map { "${SCHEMA_PKG}::$_" }
-			   qw(readWriteType loginType
-			      pollType transferType)),
+	=> as join(
+	"|", "Bool",
+	map {"${SCHEMA_PKG}::$_"}
+		qw(readWriteType loginType
+		pollType transferType)
+	),
 	;
 
 enum "${PKG}::actions" => qw( check create delete info login logout
-			      poll renew transfer update);
+	poll renew transfer update);
 
 # and here is the extra field
 has 'action' =>
@@ -39,17 +42,17 @@ has_element 'argument' =>
 	isa => "${PKG}::choice0",
 	predicate => "has_argument",
 	xml_nodeName => {
-		check => "${SCHEMA_PKG}::SubCommand",
-		create => "${SCHEMA_PKG}::SubCommand",
-		delete => "${SCHEMA_PKG}::SubCommand",
-		info => "${SCHEMA_PKG}::SubCommand",
-		renew => "${SCHEMA_PKG}::SubCommand",
-		update => "${SCHEMA_PKG}::SubCommand",
+	check => "${SCHEMA_PKG}::SubCommand",
+	create => "${SCHEMA_PKG}::SubCommand",
+	delete => "${SCHEMA_PKG}::SubCommand",
+	info => "${SCHEMA_PKG}::SubCommand",
+	renew => "${SCHEMA_PKG}::SubCommand",
+	update => "${SCHEMA_PKG}::SubCommand",
 
-		login => "${SCHEMA_PKG}::Login",
-		logout => "Bool",
-		transfer => "${SCHEMA_PKG}::Transfer",
-		poll => "${SCHEMA_PKG}::Poll",
+	login => "${SCHEMA_PKG}::Login",
+	logout => "Bool",
+	transfer => "${SCHEMA_PKG}::Transfer",
+	poll => "${SCHEMA_PKG}::Poll",
 	},
 	xml_nodeName_attr => "action",
 	;
@@ -72,6 +75,6 @@ with 'XML::EPP::Node';
 subtype "${SCHEMA_PKG}::commandType"
 	=> as __PACKAGE__;
 
-sub is_command { 1 }
+sub is_command {1}
 
 1;

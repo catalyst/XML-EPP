@@ -3,7 +3,7 @@ package XML::EPP::Domain::Transfer;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'transfer' }
+sub root_element {'transfer'}
 
 with
 	'XML::EPP::Domain::RQ',

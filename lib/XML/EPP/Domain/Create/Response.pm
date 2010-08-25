@@ -3,7 +3,7 @@ package XML::EPP::Domain::Create::Response;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'creData' }
+sub root_element {'creData'}
 
 with
 	'XML::EPP::Domain::RS',

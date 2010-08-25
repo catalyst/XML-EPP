@@ -1,7 +1,7 @@
 package XML::EPP::Host::Create;
 use Moose;
 use PRANG::Graph;
-sub root_element { "create" }
+sub root_element {"create"}
 
 with
 	'XML::EPP::Host::RQ',
@@ -29,18 +29,18 @@ use Moose::Util::TypeConstraints;
 coerce "ArrayRef[XML::EPP::Host::Address]"
 	=> from "ArrayRef[XML::EPP::Host::Address|HashRef|Str]"
 	=> via {
-		my @rv = @$_;
-		for ( @rv ) {
-			if ( ref $_ eq "HASH" ) {
-				$_ = XML::EPP::Host::Address->new($_);
-			}
-			elsif ( !blessed $_ ) {
-				$_ = XML::EPP::Host::Address->new(
-					value => $_,
-				       );
-			}
+	my @rv = @$_;
+	for (@rv) {
+		if ( ref $_ eq "HASH" ) {
+			$_ = XML::EPP::Host::Address->new($_);
 		}
-		\@rv;
+		elsif ( !blessed $_ ) {
+			$_ = XML::EPP::Host::Address->new(
+				value => $_,
+			);
+		}
+	}
+	\@rv;
 	},
 	;
 

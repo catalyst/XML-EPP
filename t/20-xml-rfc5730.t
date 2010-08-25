@@ -20,19 +20,20 @@ our @tests = XMLTests::find_tests;
 plan tests => @tests * 3;
 
 my $xml_compare = XML::Compare->new(
-	ignore => [ q{//epp:msg/@lang},
-		    q{//epp:reason/@lang},
-		   ],
+	ignore => [
+		q{//epp:msg/@lang},
+		q{//epp:reason/@lang},
+	],
 	ignore_xmlns => {
 		"epp" => "urn:ietf:params:xml:ns:epp-1.0",
 	},
-       );
+);
 
 for my $test ( sort @tests ) {
 	my $xml = XMLTests::read_xml($test);
 
 	my $object = XMLTests::parse_test( "XML::EPP", $xml, $test );
- SKIP: {
+SKIP: {
 		skip "didn't parse", 2 unless $object;
 		my $r_xml = XMLTests::emit_test( $object, $test );
 		if ( !defined $r_xml ) {
@@ -40,7 +41,7 @@ for my $test ( sort @tests ) {
 		}
 		XMLTests::xml_compare_test(
 			$xml_compare, $xml, $r_xml, $test,
-		       );
+		);
 	}
 }
 

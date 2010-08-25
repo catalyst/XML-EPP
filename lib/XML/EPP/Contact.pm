@@ -31,30 +31,30 @@ BEGIN {
 	enum "${PKG}::postalInfoEnumType" => qw (
 		loc
 		int
-    );
+	);
 
 	subtype "${PKG}::postalLineType"
 		=> as 'Str'
 		=> where {
-			length($_) >= 1 and length($_) <= 255;
+		length($_) >= 1 and length($_) <= 255;
 		};
 
 	subtype "${PKG}::optPostalLineType"
 		=> as 'Str'
 		=> where {
-			length($_) <= 255;
+		length($_) <= 255;
 		};
 
 	subtype "${PKG}::ccType"
 		=> as "PRANG::XMLSchema::token"
 		=> where {
-			length($_) == 2;
+		length($_) == 2;
 		};
 
 	subtype "${PKG}::e164StringType"
 		=> as "PRANG::XMLSchema::token"
 		=> where {
-            length($_) <= 17 and $_ =~ m{\A\+[0-9]{1,3}\.[0-9]{1,14}\z}xms;
+		length($_) <= 17 and $_ =~ m{\A\+[0-9]{1,3}\.[0-9]{1,14}\z}xms;
 		};
 }
 

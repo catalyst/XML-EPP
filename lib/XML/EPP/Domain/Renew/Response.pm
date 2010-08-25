@@ -3,7 +3,7 @@ package XML::EPP::Domain::Renew::Response;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'renData' }
+sub root_element {'renData'}
 
 with
 	'XML::EPP::Domain::RS',

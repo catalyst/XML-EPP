@@ -14,13 +14,16 @@ getopt_lenient( "test-grep|t=s" => \$grep );
 sub find_tests {
 	my $group = shift || ($Script=~/(.*)\.t$/)[0];
 	my @tests;
-	find(sub {
-		     if ( m{\.(?:x|ya)ml$} && (!$grep||m{$grep}) ) {
-			     my $name = $File::Find::name;
-			     $name =~ s{^\Q$Bin\E/}{} or die;
-			     push @tests, $name;
-		     }
-	     }, "$Bin/$group");
+	find(
+		sub {
+			if ( m{\.(?:x|ya)ml$} && (!$grep||m{$grep}) ) {
+				my $name = $File::Find::name;
+				$name =~ s{^\Q$Bin\E/}{} or die;
+				push @tests, $name;
+			}
+		},
+		"$Bin/$group"
+	);
 	@tests;
 }
 
@@ -45,7 +48,7 @@ sub parse_test {
 	my $class = shift;
 	my $xml = shift;
 	my $test_name = shift;
-	my $object = eval { $class->parse( $xml ) };
+	my $object = eval { $class->parse($xml) };
 	my $ok = ok($object, "$test_name - parsed OK");
 	if ( !$ok ) {
 		diag("exception: $@");
@@ -60,7 +63,7 @@ sub parsefail_test {
 	my $class = shift;
 	my $xml = shift;
 	my $test_name = shift;
-	my $object = eval { $class->parse( $xml ) };
+	my $object = eval { $class->parse($xml) };
 	my $error = $@;
 	my $ok = ok(!$object&&$error, "$test_name - exception raised");
 	if ( !$ok ) {
@@ -80,8 +83,8 @@ sub emit_test {
 	my $time = show_elapsed;
 	ok($r_xml, "$test_name - emitted OK ($time)")
 		or do {
-			diag("exception: $@");
-			return undef;
+		diag("exception: $@");
+		return undef;
 		};
 	if (($main::VERBOSE||0)>0) {
 		diag("xml: ".$r_xml);
@@ -100,9 +103,12 @@ sub xml_compare_test {
 		or diag("Error: ".$xml_compare->error);
 	if ( ($main::VERBOSE||0)>1 and $xml_compare->_ignore_nodes ) {
 		my @ignored = sort keys %{ $xml_compare->_ignore_nodes };
-		diag(join("\n", "ignored nodes:",
-			  map { "\t$_" } @ignored,
-			 ));
+		diag(
+			join(
+				"\n", "ignored nodes:",
+				map {"\t$_"} @ignored,
+			)
+		);
 	}
 
 }

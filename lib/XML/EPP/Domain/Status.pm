@@ -20,10 +20,10 @@ has_attr 'status' =>
 	;
 
 has_attr "lang" =>
-    is => "ro",
-    isa => "PRANG::XMLSchema::language",
-    default => "en",
-    ;
+	is => "ro",
+	isa => "PRANG::XMLSchema::language",
+	default => "en",
+	;
 
 use Moose::Util::TypeConstraints;
 subtype "XML::EPP::Domain::statusType" => as __PACKAGE__;

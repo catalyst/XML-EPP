@@ -7,20 +7,20 @@ with 'XML::EPP::Contact::Node';
 
 use XML::EPP::Contact::Check::ID;
 has_element 'id_status' =>
-        is => 'ro',
-        isa => 'ArrayRef[XML::EPP::Contact::Check::ID]',
-        xml_nodeName => 'id',
-        handles => [qw(available id)],
+	is => 'ro',
+	isa => 'ArrayRef[XML::EPP::Contact::Check::ID]',
+	xml_nodeName => 'id',
+	handles => [qw(available id)],
 	required => 1,
-        ;
+	;
 
 has_element 'reason' =>
-        is => 'ro',
-        isa => 'XML::EPP::Common::Reason',
-        predicate => 'has_reason',
-        xmlns => &xmlns,
-        xml_required => 0,
-        ;
+	is => 'ro',
+	isa => 'XML::EPP::Common::Reason',
+	predicate => 'has_reason',
+	xmlns => &xmlns,
+	xml_required => 0,
+	;
 
 1;
 

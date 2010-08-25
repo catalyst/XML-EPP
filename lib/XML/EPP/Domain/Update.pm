@@ -4,7 +4,7 @@ package XML::EPP::Domain::Update;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'update' }
+sub root_element {'update'}
 
 with 'XML::EPP::Domain::RQ', 'XML::EPP::Domain::Node';
 

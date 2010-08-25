@@ -4,7 +4,7 @@ package XML::EPP::Contact::Check;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'check' }
+sub root_element {'check'}
 
 with 'XML::EPP::Contact::RQ', 'XML::EPP::Contact::Node';
 

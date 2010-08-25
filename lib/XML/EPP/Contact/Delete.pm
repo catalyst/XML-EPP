@@ -4,7 +4,7 @@ package XML::EPP::Contact::Delete;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'delete' }
+sub root_element {'delete'}
 
 with 'XML::EPP::Contact::RQ', 'XML::EPP::Contact::Node';
 

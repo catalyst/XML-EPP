@@ -9,7 +9,7 @@ sub xmlns {
 }
 
 sub preferred_prefix {
-    'contact';   
+	'contact';
 }
 
 1;

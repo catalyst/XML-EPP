@@ -13,7 +13,7 @@ use Test::More;
 
 BEGIN {
 
-       # the below are all dependencies of Test::Pod::Coverage so should be OK
+ # the below are all dependencies of Test::Pod::Coverage so should be OK
 	eval <<USE;
 use Test::Pod::Coverage 1.04;
 require Pod::Coverage;
@@ -21,7 +21,8 @@ use Pod::Find qw(pod_where);
 USE
 	plan skip_all => 'Test::Pod::Coverage 1.04 required' if $@;
 }
-plan skip_all => 'set TEST_POD to enable this test' unless $ENV{TEST_POD};
+plan skip_all => 'set TEST_POD to enable this test'
+	unless $ENV{TEST_POD};
 
 my @modules = all_modules;
 
@@ -63,12 +64,14 @@ for my $module (@modules) {
 
 	my $s = @naked == 1 ? "" : "s";
 	if (@naked) {
-		diag(   sprintf("Coverage for %s is %3.1f%%, with %d naked "
+		diag(
+			sprintf(
+				"Coverage for %s is %3.1f%%, with %d naked "
 					. "subroutine$s:",
 				$module,
 				$rating * 100,
 				scalar @naked,
-			)
+				)
 		);
 		diag("\t$_") for @naked;
 	}

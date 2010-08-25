@@ -2,7 +2,7 @@ package XML::EPP::Host::Check::Response;
 
 use Moose;
 use PRANG::Graph;
-sub root_element { "chkData" }
+sub root_element {"chkData"}
 
 with
 	'XML::EPP::Host::RS',

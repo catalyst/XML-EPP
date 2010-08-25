@@ -14,13 +14,13 @@ $input =~ m{rfc\d+\.txt$} or abort "bad input";
 my $output_dir = shift or abort "no output dir specified";
 $output_dir =~ s{\.t$}{};
 $output_dir =~ s{/rfc-examples/?$}{};
-if ( ! -f "$output_dir.t" ) {
+if ( !-f "$output_dir.t" ) {
 	abort "no such test script $output_dir.t; refusing to run";
 }
 $output_dir .= "/rfc-examples";
 ( -d $output_dir ) || mkpath($output_dir);
 
-open (my $rfc, $input);
+open(my $rfc, $input);
 my $state = "body";
 my $last_line;
 my ($frag_num, @frag, $frag_start) = (0);
@@ -60,6 +60,7 @@ while (my $line = <$rfc>) {
 					push @frag, $1;
 				}
 				when(!/\S/) {
+
 					# nothing..
 				}
 				when(/^\s+(\S)|^\d+\./) {

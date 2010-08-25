@@ -1,7 +1,7 @@
 package XML::EPP::Host::Check;
 use Moose;
 use PRANG::Graph;
-sub root_element { "check" }
+sub root_element {"check"}
 
 with
 	'XML::EPP::Host::RQ',

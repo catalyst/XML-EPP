@@ -25,7 +25,7 @@ finddepth(
 				}
 				if (m{^(?:extends|with) (.*)}) {
 					my $arg = $1;
-					my @list =( )= eval($arg);
+					my @list =()= eval($arg);
 					if (!@list) {
 						@list = $arg =~ m{([\w:]+)}g;
 					}
@@ -50,7 +50,8 @@ while ( my ($module, $uses) = each %uses ) {
 
 my %done;
 while (@modules) {
-	my (@winners) = grep { !$uses{$_} or !keys %{ $uses{$_} } } @modules;
+	my (@winners) =
+		grep { !$uses{$_} or !keys %{ $uses{$_} } } @modules;
 	if ( !@winners ) {
 		@winners = shift @modules;
 	}

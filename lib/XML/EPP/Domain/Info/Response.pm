@@ -4,7 +4,7 @@ use Moose;
 use PRANG::Graph;
 use XML::EPP::Domain;
 
-sub root_element { 'infData' }
+sub root_element {'infData'}
 
 with
 	'XML::EPP::Domain::RS',
@@ -32,7 +32,7 @@ has_element 'status' =>
 has_element 'registrant' =>
 	is => 'ro',
 	isa => 'XML::EPP::Common::clIDType',
-    xml_required => 0,
+	xml_required => 0,
 	;
 
 has_element 'contact' =>

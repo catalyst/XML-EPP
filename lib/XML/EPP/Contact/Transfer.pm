@@ -4,7 +4,7 @@ package XML::EPP::Contact::Transfer;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'transfer' }
+sub root_element {'transfer'}
 
 with 'XML::EPP::Contact::RQ', 'XML::EPP::Contact::Node';
 

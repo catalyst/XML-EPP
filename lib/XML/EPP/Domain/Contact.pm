@@ -11,9 +11,9 @@ has_element 'value' =>
 	;
 
 has_attr 'type' =>
-    is => "ro",
-    isa => "XML::EPP::Domain::contactAttrType",
-    ;
+	is => "ro",
+	isa => "XML::EPP::Domain::contactAttrType",
+	;
 
 #use Moose::Util::TypeConstraints;
 #subtype "XML::EPP::Domain::statusType" => as __PACKAGE__;

@@ -4,7 +4,7 @@ package XML::EPP::Domain::Delete;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'delete' }
+sub root_element {'delete'}
 
 with 'XML::EPP::Domain::RQ', 'XML::EPP::Domain::Node';
 

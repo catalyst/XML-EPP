@@ -22,23 +22,23 @@ with 'XML::EPP::Node';
 coerce "${SCHEMA_PKG}::errValueType"
 	=> from "Str",
 	=> via {
-		PRANG::XMLSchema::Whatever->new(
-			contents => [$_],
-			nodenames => [""],
-		       );
+	PRANG::XMLSchema::Whatever->new(
+		contents => [$_],
+		nodenames => [""],
+	);
 	};
 
 coerce "${SCHEMA_PKG}::errValueType"
 	=> from "XML::LibXML::Element",
 	=> via {
-		my $node = $_;
-		my $whatever = PRANG::XMLSchema::Whatever->new(
-			contents => [],
-			nodenames => [$node->localName],
-			nodenames_ns => [$node->namespaceURI],
-		       );
-		$whatever->contents->[0] = $node;
-		$whatever;
+	my $node = $_;
+	my $whatever = PRANG::XMLSchema::Whatever->new(
+		contents => [],
+		nodenames => [$node->localName],
+		nodenames_ns => [$node->namespaceURI],
+	);
+	$whatever->contents->[0] = $node;
+	$whatever;
 	};
 
 has_element 'value' =>

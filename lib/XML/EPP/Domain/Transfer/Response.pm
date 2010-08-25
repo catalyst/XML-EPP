@@ -3,7 +3,7 @@ package XML::EPP::Domain::Transfer::Response;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'trnData' }
+sub root_element {'trnData'}
 
 with
 	'XML::EPP::Domain::RS',
@@ -29,7 +29,7 @@ has_element 'trStatus' =>
 has_element 'requester' =>
 	is => 'ro',
 	isa => 'XML::EPP::Common::clIDType',
-    xml_nodeName => 'reID',
+	xml_nodeName => 'reID',
 	;
 
 has_element 'requested' =>

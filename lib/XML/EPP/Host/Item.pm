@@ -6,7 +6,7 @@ use PRANG::Graph;
 has_element 'value' =>
 	is => "ro",
 	isa => "XML::EPP::Common::labelType",
-        xml_nodeName => "name",
+	xml_nodeName => "name",
 	;
 1;
 

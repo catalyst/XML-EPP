@@ -4,7 +4,7 @@ package XML::EPP::Domain::Create;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'create' }
+sub root_element {'create'}
 
 with 'XML::EPP::Domain::RQ', 'XML::EPP::Domain::Node';
 

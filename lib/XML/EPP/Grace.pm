@@ -13,8 +13,8 @@ our $PKG;
 BEGIN {
 	enum "XML::EPP::Grace::statusValueType" =>
 		qw( addPeriod autoRenewPeriod renewPeriod
-		    transferPeriod pendingDelete pendingRestore
-		    redemptionPeriod );
+		transferPeriod pendingDelete pendingRestore
+		redemptionPeriod );
 
 	enum "XML::EPP::Grace::rgpOpType" => qw(request report);
 

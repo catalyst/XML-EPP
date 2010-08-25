@@ -4,7 +4,7 @@ package XML::EPP::Contact::Create;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'create' }
+sub root_element {'create'}
 
 with 'XML::EPP::Contact::RQ', 'XML::EPP::Contact::Node';
 

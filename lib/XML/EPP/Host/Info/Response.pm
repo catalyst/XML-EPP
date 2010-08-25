@@ -2,7 +2,7 @@ package XML::EPP::Host::Info::Response;
 
 use Moose;
 use PRANG::Graph;
-sub root_element { "infData" }
+sub root_element {"infData"}
 
 with
 	'XML::EPP::Host::RS',

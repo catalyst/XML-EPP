@@ -7,20 +7,20 @@ with 'XML::EPP::Domain::Node';
 
 use XML::EPP::Domain::Check::Name;
 has_element 'name_status' =>
-        is => 'ro',
-        isa => 'XML::EPP::Domain::Check::Name',
-        xml_nodeName => 'name',
-        handles => [qw(available name)],
+	is => 'ro',
+	isa => 'XML::EPP::Domain::Check::Name',
+	xml_nodeName => 'name',
+	handles => [qw(available name)],
 	required => 1,
-        ;
+	;
 
 has_element 'reason' =>
-        is => 'ro',
-        isa => 'XML::EPP::Common::Reason',
-        predicate => 'has_reason',
-        xmlns => &xmlns,
-        xml_required => 0,
-        ;
+	is => 'ro',
+	isa => 'XML::EPP::Common::Reason',
+	predicate => 'has_reason',
+	xmlns => &xmlns,
+	xml_required => 0,
+	;
 
 1;
 

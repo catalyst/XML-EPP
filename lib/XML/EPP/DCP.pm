@@ -28,26 +28,26 @@ has_element 'abs_or_rel' =>
 	is => "rw",
 	isa => "PRANG::XMLSchema::duration|PRANG::XMLSchema::dateTime",
 	xml_nodeName => {
-		"absolute" => "PRANG::XMLSchema::dateTime",
-		"relative" => "PRANG::XMLSchema::duration",
+	"absolute" => "PRANG::XMLSchema::dateTime",
+	"relative" => "PRANG::XMLSchema::duration",
 	},
 	xml_nodeName_attr => "is_abs_or_rel",
 	lazy => 1,
 	default => sub {
-		my $self = shift;
-		$self->has_absolute ? $self->absolute : $self->relative
+	my $self = shift;
+	$self->has_absolute ? $self->absolute : $self->relative
 	},
 	trigger => sub {
-		my $self = shift;
-		my $val = shift;
-		if ( $self->is_abs_or_rel eq "relative" ) {
-			$self->clear_absolute;
-			$self->relative($val);
-		}
-		else {
-			$self->clear_relative;
-			$self->absolute($val);
-		}
+	my $self = shift;
+	my $val = shift;
+	if ( $self->is_abs_or_rel eq "relative" ) {
+		$self->clear_absolute;
+		$self->relative($val);
+	}
+	else {
+		$self->clear_relative;
+		$self->absolute($val);
+	}
 	},
 	;
 
@@ -80,12 +80,12 @@ subtype "${SCHEMA_PKG}::dcpExpiryType"
 coerce "${SCHEMA_PKG}::dcpExpiryType"
 	=> from "PRANG::XMLSchema::duration"
 	=> via {
-		__PACKAGE__->new(relative => $_);
+	__PACKAGE__->new(relative => $_);
 	};
 coerce "${SCHEMA_PKG}::dcpExpiryType"
 	=> from "PRANG::XMLSchema::dateTime"
 	=> via {
-		__PACKAGE__->new(absolute => $_);
+	__PACKAGE__->new(absolute => $_);
 	};
 
 package XML::EPP::DCP::Ours;
@@ -99,7 +99,7 @@ our $SCHEMA_PKG = "XML::EPP";
 subtype "${SCHEMA_PKG}::dcpRecDescType"
 	=> as "PRANG::XMLSchema::token"
 	=> where {
-		length($_) and length($_) <= 255;
+	length($_) and length($_) <= 255;
 	};
 
 has_element 'name' =>
@@ -114,7 +114,6 @@ with 'XML::EPP::Node';
 subtype "${SCHEMA_PKG}::dcpOursType"
 	=> as __PACKAGE__;
 
-
 package XML::EPP::DCP::Recipient;
 
 use Moose;
@@ -124,16 +123,19 @@ use PRANG::Graph;
 our $SCHEMA_PKG = "XML::EPP";
 
 our @valid_recipients = qw(other ours public same unrelated);
-for my $recipient ( @valid_recipients ) {
+for my $recipient (@valid_recipients) {
 
-	my $type = $recipient eq "ours" ?
-		"ArrayRef[${SCHEMA_PKG}::dcpOursType]" : "Bool";
+	my $type = $recipient eq "ours"
+		?
+		"ArrayRef[${SCHEMA_PKG}::dcpOursType]"
+		: "Bool";
 
 	has_element $recipient =>
-		(is => "rw",
-		 isa => $type,
-		 predicate => "has_$recipient",
-		 );
+		(
+		is => "rw",
+		isa => $type,
+		predicate => "has_$recipient",
+		);
 }
 
 with 'XML::EPP::Node';
@@ -144,28 +146,28 @@ subtype "${SCHEMA_PKG}::dcpRecipientType"
 coerce "${SCHEMA_PKG}::dcpRecipientType"
 	=> from "Str|ArrayRef[Str]"
 	=> via {
-		my @recipient = (ref $_ ? @$_ : $_);
-		my %recipients = map { $_ => 1 } @recipient;
-		my @init_args;
-		my @ours;
-		for my $recipient ( @valid_recipients ) {
-			if (delete $recipients{$recipient}) {
-				if ( $recipient eq "ours") {
-					push @ours, XML::EPP::DCP::Ours->new;
-				}
-				else {
-					push @init_args, $recipient => 1;
-				}
+	my @recipient = (ref $_ ? @$_ : $_);
+	my %recipients = map { $_ => 1 } @recipient;
+	my @init_args;
+	my @ours;
+	for my $recipient (@valid_recipients) {
+		if (delete $recipients{$recipient}) {
+			if ( $recipient eq "ours") {
+				push @ours, XML::EPP::DCP::Ours->new;
+			}
+			else {
+				push @init_args, $recipient => 1;
 			}
 		}
-		push @ours, map {
-			XML::EPP::DCP::Ours->new( name => $_ );
-		} keys %recipients;
+	}
+	push @ours, map {
+		XML::EPP::DCP::Ours->new( name => $_ );
+	} keys %recipients;
 
-		push @init_args, ours => \@ours
-			if @ours;
+	push @init_args, ours => \@ours
+		if @ours;
 
-		__PACKAGE__->new(@init_args);
+	__PACKAGE__->new(@init_args);
 	};
 
 package XML::EPP::DCP::Access;
@@ -200,9 +202,8 @@ subtype "${SCHEMA_PKG}::dcpAccessType"
 coerce "${SCHEMA_PKG}::dcpAccessType"
 	=> from "Str"
 	=> via {
-		__PACKAGE__->new(access => $_);
+	__PACKAGE__->new(access => $_);
 	};
-
 
 package XML::EPP::DCP;
 
@@ -229,15 +230,16 @@ has_element 'statement' =>
 coerce "ArrayRef[XML::EPP::DCP::Statement]"
 	=> from "ArrayRef[HashRef]"
 	=> via {
-		my @x = @$_;
-		[ map { XML::EPP::DCP::Statement->new(%$_) }
-			  @x ];
+	my @x = @$_;
+	[   map { XML::EPP::DCP::Statement->new(%$_) }
+			@x
+	];
 	};
 
 coerce "ArrayRef[XML::EPP::DCP::Statement]"
 	=> from "HashRef"
 	=> via {
-		[ XML::EPP::DCP::Statement->new(%$_) ];
+	[ XML::EPP::DCP::Statement->new(%$_) ];
 	};
 
 has_element 'expiry' =>
@@ -255,7 +257,7 @@ subtype "${SCHEMA_PKG}::dcpType"
 coerce __PACKAGE__
 	=> from "HashRef"
 	=> via {
-		__PACKAGE__->new(%$_);
+	__PACKAGE__->new(%$_);
 	};
 
 package XML::EPP::DCP::Purpose;
@@ -280,18 +282,18 @@ subtype "${SCHEMA_PKG}::dcpPurposeType"
 coerce "${SCHEMA_PKG}::dcpPurposeType"
 	=> from "Str|ArrayRef[Str]"
 	=> via {
-		my @purposes = ref $_ ? @$_ : $_;
-		my %purposes = map { $_ => 1 } @purposes;
-		my @init_args;
-		for my $purpose ( @valid_purposes ) {
-			if ( delete $purposes{$purpose} ) {
-				push @init_args, $purpose => 1,
-			}
+	my @purposes = ref $_ ? @$_ : $_;
+	my %purposes = map { $_ => 1 } @purposes;
+	my @init_args;
+	for my $purpose (@valid_purposes) {
+		if ( delete $purposes{$purpose} ) {
+			push @init_args, $purpose => 1,
 		}
-		if ( keys %purposes ) {
-			die "invalid purpose(s): @{[keys %purposes]}";
-		}
-		__PACKAGE__->new(@init_args);
+	}
+	if ( keys %purposes ) {
+		die "invalid purpose(s): @{[keys %purposes]}";
+	}
+	__PACKAGE__->new(@init_args);
 	};
 
 package XML::EPP::DCP::Retention;
@@ -312,7 +314,7 @@ has 'retention' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::dcpRetentionType::enum",
 	trigger => sub {
-		$_[0]->has_retention(1);
+	$_[0]->has_retention(1);
 	};
 
 has_element 'has_retention' =>
@@ -327,7 +329,7 @@ subtype "${SCHEMA_PKG}::dcpRetentionType"
 coerce "${SCHEMA_PKG}::dcpRetentionType"
 	=> from "Str"
 	=> via {
-		__PACKAGE__->new(retention => $_);
+	__PACKAGE__->new(retention => $_);
 	};
 
 package XML::EPP::DCP::Statement;

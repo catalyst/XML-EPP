@@ -3,7 +3,7 @@ package XML::EPP::Domain::Notification;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'panData' }
+sub root_element {'panData'}
 
 with
 	'XML::EPP::Domain::RS',

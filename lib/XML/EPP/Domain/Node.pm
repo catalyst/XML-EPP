@@ -9,7 +9,7 @@ sub xmlns {
 }
 
 sub preferred_prefix {
-    'domain';   
+	'domain';
 }
 
 1;

@@ -12,7 +12,7 @@ our $SCHEMA_PKG = "XML::EPP";
 our $PKG = __PACKAGE__;
 
 # grep '^ *[0-9][0-9][0-9][0-9]  *' rfc5730.txt
-our %result_codes = map { m/^\s*(\d{4})\s+"(.*)"$/ } split /\n/, <<CODES;
+our %result_codes = map {m/^\s*(\d{4})\s+"(.*)"$/} split /\n/, <<CODES;
       1000    "Command completed successfully"
       1001    "Command completed successfully; action pending"
       1300    "Command completed successfully; no messages"
@@ -56,14 +56,17 @@ has_element 'msg' =>
 	required => 1,
 	lazy => 1,
 	default => sub {
-		my $self = shift;
-		$result_codes{$self->code};
+	my $self = shift;
+	$result_codes{$self->code};
 	},
 	;
 
 subtype "${PKG}::choice0"
-	=> as join("|", map { "${SCHEMA_PKG}::$_" }
-			   qw(errValueType extErrValueType)),
+	=> as join(
+	"|",
+	map {"${SCHEMA_PKG}::$_"}
+		qw(errValueType extErrValueType)
+	),
 	;
 
 has_element 'errors' =>
@@ -73,11 +76,11 @@ has_element 'errors' =>
 	xmlns => XML::EPP::Node::xmlns(),
 	traits => [qw/Array/],
 	xml_nodeName => {
-		"value" => "PRANG::XMLSchema::Whatever",
-		"extValue" => "${SCHEMA_PKG}::Error",
+	"value" => "PRANG::XMLSchema::Whatever",
+	"extValue" => "${SCHEMA_PKG}::Error",
 	},
 	handles => {
-		add_error => 'push',
+	add_error => 'push',
 	},
 	default => sub { [] },
 	xml_min => 0,
@@ -86,7 +89,7 @@ has_element 'errors' =>
 subtype "${SCHEMA_PKG}::resultCodeType"
 	=> as "Int"
 	=> where {
-		exists $result_codes{$_};
+	exists $result_codes{$_};
 	};
 
 has_attr 'code' =>
@@ -99,6 +102,6 @@ with 'XML::EPP::Node';
 subtype "${SCHEMA_PKG}::resultType"
 	=> as __PACKAGE__;
 
-sub is_command { 0 }
+sub is_command {0}
 
 1;

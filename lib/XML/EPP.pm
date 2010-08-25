@@ -13,7 +13,7 @@ use XML::EPP::Common;
 our $VERSION = "0.05_02";
 
 our $PKG;
-BEGIN{ $PKG = "XML::EPP" };
+BEGIN{ $PKG = "XML::EPP" }
 
 #=====================================================================
 #  epp-1.0.xsd mapping to types
@@ -35,25 +35,25 @@ BEGIN {
 	subtype "${PKG}::sIDType"
 		=> as "PRANG::XMLSchema::normalizedString"
 		=> where {
-			length($_) >= 3 and length($_) <= 64;
+		length($_) >= 3 and length($_) <= 64;
 		};
 
 	subtype "${PKG}::versionType"
 		=> as "PRANG::XMLSchema::token"
 		=> where {
-			m{^[1-9]+\.[0-9]+$} and $_ eq "1.0";
+		m{^[1-9]+\.[0-9]+$} and $_ eq "1.0";
 		};
 
 	subtype "${PKG}::trIDStringType"
 		=> as "PRANG::XMLSchema::token"
 		=> where {
-			length($_) >= 3 and length($_) <= 64;
+		length($_) >= 3 and length($_) <= 64;
 		};
 
 	subtype "${PKG}::pwType"
 		=> as "PRANG::XMLSchema::token"
 		=> where {
-			length($_) >= 6 and length($_) <= 16;
+		length($_) >= 6 and length($_) <= 16;
 		};
 }
 
@@ -95,9 +95,12 @@ use PRANG::Graph;
 # there is a 'choice' - this item has no name in the schema to use, so
 # we call it 'choice0'
 subtype "${PKG}::choice0" =>
-	=> as join("|", map { "${PKG}::$_" }
-			   qw(greetingType Hello commandType
-			      responseType extAnyType) );
+	=> as join(
+	"|",
+	map {"${PKG}::$_"}
+		qw(greetingType Hello commandType
+		responseType extAnyType)
+	);
 
 # but we map it to the object property 'message'; again this comes
 # under 'schema customisation'
@@ -106,12 +109,12 @@ has_element 'message' =>
 	isa => "${PKG}::choice0",
 	required => 1,
 	xml_nodeName => {
-		"greeting" => "${PKG}::Greeting",
-		"command" => "${PKG}::Command",
-		"response" => "${PKG}::Response",
-		"extension" => "${PKG}::Extension",
-		"hello" => "${PKG}::Hello",
-	       },
+	"greeting" => "${PKG}::Greeting",
+	"command" => "${PKG}::Command",
+	"response" => "${PKG}::Response",
+	"extension" => "${PKG}::Extension",
+	"hello" => "${PKG}::Hello",
+	},
 	handles => ["is_response"],
 	;
 
@@ -140,10 +143,11 @@ our @epp_versions = "1.0";
 our @epp_lang = "en";
 our %obj_uris;
 our %ext_uris;
+
 sub register_obj_uri {
-    my @uris = @_;
-    
-    map { $obj_uris{$_} = 1 } @uris;
+	my @uris = @_;
+
+	map { $obj_uris{$_} = 1 } @uris;
 }
 
 sub register_ext_uri {

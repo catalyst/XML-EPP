@@ -46,7 +46,7 @@ with 'XML::EPP::Node';
 subtype "${SCHEMA_PKG}::greetingType"
 	=> as __PACKAGE__;
 
-sub is_command { 1 }
+sub is_command {1}
 
 1;
 

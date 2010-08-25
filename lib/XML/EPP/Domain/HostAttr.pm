@@ -18,7 +18,6 @@ has_element 'addrs' =>
 	xml_nodeName => 'hostAddr',
 	;
 
-
 #use Moose::Util::TypeConstraints;
 #subtype "XML::EPP::Domain::statusType" => as __PACKAGE__;
 

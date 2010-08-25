@@ -3,7 +3,7 @@ package XML::EPP::Contact::Transfer::Response;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'trnData' }
+sub root_element {'trnData'}
 
 with
 	'XML::EPP::Contact::RS',
@@ -15,17 +15,15 @@ has_element 'id' =>
 	isa => 'XML::EPP::Common::clIDType',
 	;
 
-
 has_element 'trStatus' =>
 	is => 'ro',
 	isa => 'XML::EPP::Common::trStatusType',
 	;
 
-
 has_element 'requester' =>
 	is => 'ro',
 	isa => 'XML::EPP::Common::clIDType',
-    xml_nodeName => 'reID',
+	xml_nodeName => 'reID',
 	;
 
 has_element 'requested' =>

@@ -46,7 +46,7 @@ BEGIN {
 	subtype "${PKG}::clIDChgType"
 		=> as "PRANG::XMLSchema::token"
 		=> where {
-			length($_) <= 16;
+		length($_) <= 16;
 		};
 }
 
@@ -62,8 +62,10 @@ use XML::EPP::Domain::Check::Response;
 use XML::EPP::Domain::Info::Response;
 use XML::EPP::Domain::Transfer::Response;
 use XML::EPP::Domain::Create::Response;
+
 # no response needed for 'Delete', already covered
 use XML::EPP::Domain::Renew::Response;
+
 # no response needed for 'Update', already covered
 use XML::EPP::Domain::Notification;
 

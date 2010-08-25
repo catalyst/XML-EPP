@@ -13,23 +13,25 @@ my $obj_create = XML::EPP->new(
 		action => "create",
 		argument => XML::EPP::SubCommand->new(
 			payload => XML::EPP::Obj::create->new(
-			       ),
-		       ),
+			),
+		),
 		client_id => "xml_epp_".time."_$$",
-	       ),
-       );
+	),
+);
 
-isa_ok($obj_create, "XML::EPP",
-       "new obj create message");
+isa_ok(
+	$obj_create, "XML::EPP",
+	"new obj create message"
+);
 
 my $xml_request = $obj_create->to_xml;
 
 my $xmlc = XML::Compare->new(
-	ignore => [ "//epp:clTRID/text()" ],
+	ignore => ["//epp:clTRID/text()"],
 	ignore_xmlns => {
 		"epp" => "urn:ietf:params:xml:ns:epp-1.0",
 	},
-       );
+);
 
 ok($xmlc->is_same( $xml_request, <<'XML' ), "new obj create")
 <?xml version="1.0" encoding="utf-8"?>

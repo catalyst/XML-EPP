@@ -17,8 +17,8 @@ has_element 'pw' =>
 	isa => "${PKG}::choice0",
 	required => 1,
 	xml_nodeName => {
-		"pw" => "XML::EPP::Common::Password",
-		"ext" => "XML::EPP::Common::ExtPassword",
+	"pw" => "XML::EPP::Common::Password",
+	"ext" => "XML::EPP::Common::ExtPassword",
 	},
 	;
 

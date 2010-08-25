@@ -15,7 +15,7 @@ has_element 'value' =>
 has_attr 'result' =>
 	is => 'ro',
 	isa => 'PRANG::XMLSchema::boolean',
-    xml_name => 'paResult',
+	xml_name => 'paResult',
 	;
 
 1;

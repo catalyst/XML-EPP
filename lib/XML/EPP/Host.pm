@@ -15,10 +15,10 @@ BEGIN {
 
 	enum "XML::EPP::Host::statusValueType" =>
 		qw(clientDeleteProhibited clientUpdateProhibited
-		   linked ok pendingCreate pendingDelete
-		   pendingTransfer pendingUpdate
-		   serverDeleteProhibited serverUpdateProhibited
-		 );
+		linked ok pendingCreate pendingDelete
+		pendingTransfer pendingUpdate
+		serverDeleteProhibited serverUpdateProhibited
+	);
 }
 
 use XML::EPP::Host::Create;

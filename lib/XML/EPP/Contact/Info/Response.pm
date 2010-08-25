@@ -3,7 +3,7 @@ package XML::EPP::Contact::Info::Response;
 use Moose;
 use PRANG::Graph;
 
-sub root_element { 'infData' }
+sub root_element {'infData'}
 
 with
 	'XML::EPP::Contact::RS',
