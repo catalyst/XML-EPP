@@ -18,7 +18,7 @@ has_attr 'unit' =>
 
 sub months {
 	my $self = shift;
-	if ( $self->unit eq "y" ) {
+	if ( $self->unit||"" eq "y" ) {
 		$self->value * 12;
 	}
 	else {
