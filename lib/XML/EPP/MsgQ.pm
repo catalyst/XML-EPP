@@ -29,7 +29,7 @@ has_attr 'count' =>
 
 has_attr 'id' =>
 	is => "rw",
-	isa => "XML::EPP::Common::minTokenType",
+	isa => "PRANG::XMLSchema::string",
 	;
 
 with 'XML::EPP::Node';
