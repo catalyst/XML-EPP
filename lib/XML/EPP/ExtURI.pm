@@ -8,10 +8,12 @@ our $SCHEMA_PKG = "XML::EPP";
 
 use PRANG::Graph;
 
-has_element 'extURI' =>
+has_element 'extensions' =>
 	is => "rw",
 	isa => "ArrayRef[PRANG::XMLSchema::anyURI]",
 	required => 1,
+	xml_nodeName => "extURI",
+	auto_deref => 1,
 	;
 
 with 'XML::EPP::Node';

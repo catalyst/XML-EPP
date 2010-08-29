@@ -39,11 +39,12 @@ has_element 'options' =>
 	required => 1,
 	;
 
-has_element 'services' =>
+has_element 'rq_services' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::loginSvcType",
 	xml_nodeName => "svcs",
 	required => 1,
+	handles => ["services", "has_ext_services", "extensions"],
 	;
 
 with 'XML::EPP::Node';
