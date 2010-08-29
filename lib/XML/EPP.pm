@@ -147,7 +147,7 @@ our %ext_uris;
 sub register_obj_uri {
 	my @uris = @_;
 
-	map { $obj_uris{$_} = 1 } @uris;
+	$obj_uris{$_} = 1 for @uris;
 }
 
 sub register_ext_uri {
