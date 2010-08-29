@@ -20,16 +20,20 @@ has_element 'lang' =>
 	required => 1,
 	;
 
-has_element 'objURI' =>
+has_element 'services' =>
 	is => "rw",
 	isa => "ArrayRef[PRANG::XMLSchema::anyURI]",
 	required => 1,
+	xml_nodeName => "objURI",
+	auto_deref => 1,
 	;
 
-has_element 'svcExtension' =>
+has_element 'ext_services' =>
 	is => "rw",
 	isa => "${SCHEMA_PKG}::ExtURI",
-	predicate => "has_svcExtension",
+	predicate => "has_ext_services",
+	xml_nodeName => "svcExtension",
+	handles => [qw( extensions )],
 	;
 
 with 'XML::EPP::Node';
@@ -47,10 +51,11 @@ coerce "${SCHEMA_PKG}::svcMenuType"
 	__PACKAGE__->new(
 		version => \@XML::EPP::epp_versions,
 		lang => \@XML::EPP::epp_lang,
-		objURI => [ keys %XML::EPP::obj_uris ],
+		services => [ keys %XML::EPP::obj_uris ],
 		(   keys %XML::EPP::ext_uris
-			?
-				(svcExtension => [ keys %XML::EPP::ext_uris ])
+			? (ext_services => XML::EPP::ExtURI->new(
+				extensions => [ keys %XML::EPP::ext_uris ],
+			))
 			: ()
 		),
 	);

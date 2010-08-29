@@ -151,6 +151,9 @@ sub register_obj_uri {
 }
 
 sub register_ext_uri {
+	my @uris = @_;
+
+	$ext_uris{$_} = 1 for @uris;
 }
 
 1;
