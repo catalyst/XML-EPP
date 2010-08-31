@@ -9,7 +9,7 @@ with 'XML::EPP::DNSSEC', 'XML::EPP::DNSSEC::Node';
 
 has_element 'ds_data' =>
 	is => 'ro',
-	isa => 'XML::EPP::DNSSEC::DSData',
+	isa => 'ArrayRef[XML::EPP::DNSSEC::DSData]',
 	required => 1,
 	xml_nodeName => 'dsData',
 	;
