@@ -7,6 +7,10 @@ sub xmlns {
 	"urn:ietf:params:xml:ns:secDNS-1.1";
 }
 
+sub preferred_prefix {
+	'secDNS';
+}
+
 1;
 
 =head1 NAME

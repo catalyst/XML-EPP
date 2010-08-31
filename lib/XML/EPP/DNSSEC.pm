@@ -8,5 +8,6 @@ use PRANG::XMLSchema::Types;
 use XML::EPP::Common;
 
 use XML::EPP::DNSSEC::Create;
+use XML::EPP::DNSSEC::InfoResponse;
 
 1;
