@@ -145,6 +145,7 @@ our @epp_versions = "1.0";
 our @epp_lang = "en";
 our %obj_uris;
 our %ext_uris;
+our %ext_with_aliases;
 
 sub register_obj_uri {
 	my @uris = @_;
@@ -153,9 +154,10 @@ sub register_obj_uri {
 }
 
 sub register_ext_uri {
-	my @uris = @_;
+	my %uris = @_;
 
-	$ext_uris{$_} = 1 for @uris;
+	$ext_uris{$_} = 1 for keys %uris;
+	%ext_with_aliases = %uris;
 }
 
 1;
